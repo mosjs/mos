@@ -1,0 +1,58 @@
+{
+  "preset": "google",
+  "fileExtensions": [".js", "jscs"],
+
+  "requireParenthesesAroundIIFE": true,
+  "maximumLineLength": 120,
+  "validateLineBreaks": "LF",
+  "validateIndentation": 2,
+
+  "disallowKeywords": ["with", "else"],
+  "disallowSpacesInsideObjectBrackets": null,
+  "disallowImplicitTypeConversion": ["string"],
+
+  "safeContextKeyword": "_this",
+
+  "excludeFiles": [
+    "test/data/**"
+  ],
+
+  "disallowPaddingNewLinesAfterUseStrict": true,
+  "disallowPaddingNewlinesInBlocks": true,
+  "requireCurlyBraces": [
+    "do"
+  ],
+
+  "requireTrailingComma": {
+    "ignoreSingleLine": true
+  },
+
+  "disallowYodaConditions": true,
+  "requireFunctionDeclarations": true,
+  "disallowNestedTernaries": true,
+  "disallowOperatorBeforeLineBreak": ["."],
+  "disallowParenthesesAroundArrowParam": true,
+  "disallowVar": true,
+
+  "requireAnonymousFunctions": {
+    "allExcept": ["declarations"]
+  },
+
+  "requireEarlyReturn": true,
+  "requireSemicolons": false,
+  "disallowSemicolons": true,
+  "validateQuoteMarks": { "mark": "'", "escape": true },
+
+  "disallowSpacesInFunctionDeclaration": false,
+  "disallowSpacesInAnonymousFunctionExpression": false,
+  "disallowSpacesInFunctionExpression": false,
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "requireSpacesInFunctionDeclaration": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "disallowSpaceAfterObjectKeys": { "allExcept": ["method"] }
+}

@@ -1,0 +1,23 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": false,
+  "camelcase": true,
+  "eqeqeq": true,
+  "latedef": "nofunc",
+  "newcap": true,
+  "undef": true,
+  "noarg": true,
+  "unused": "vars",
+  "strict": true,
+  "smarttabs": false,
+  "noempty": true,
+  "indent": 2,
+  "undef": true,
+  "maxlen": 80,
+  "trailing": true,
+  "expr": true,
+  "curly": false,
+  "asi": true
+}
