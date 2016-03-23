@@ -39,8 +39,10 @@ function renderFile (filePath) {
     filePath,
   })
   const processMarkup = automd(scope)
-  const newMD = processMarkup(md)
-  fs.writeFileSync(filePath, newMD, {
-    encoding: 'utf8',
+  processMarkup(md).then(newMD => {
+    fs.writeFileSync(filePath, newMD, {
+      encoding: 'utf8',
+    })
   })
+  .catch(err => {throw err})
 }
