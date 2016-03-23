@@ -38,7 +38,8 @@
   },
   "homepage": "https://github.com/zkochan/live-readme#readme",
   "dependencies": {
-    "glob": "7.0.3"
+    "glob": "7.0.3",
+    "read-pkg-up": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.1",

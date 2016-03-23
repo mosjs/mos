@@ -13,7 +13,7 @@ const plugins = [
   /* Installation section plugin */
   require('./plugins/installation-plugin'),
   /* License section plugin */
-  require('./plugins/package-json-plugin'),
+  require('./plugins/license-plugin'),
 ]
 
 function createScope (opts) {

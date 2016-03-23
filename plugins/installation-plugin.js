@@ -1,6 +1,8 @@
 'use strict'
+const readPkgUp = require('read-pkg-up')
+
 module.exports = (opts) => {
-  const pkg = require('./package.json')
+  const pkg = readPkgUp.sync({cwd: opts.filePath}).pkg
   return {
     installation () {
       return [
