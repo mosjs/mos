@@ -1,8 +1,8 @@
-<!--@`\n# ${package.name}\n` -->
+<!--@'# ' + package.name-->
 # mos
 <!--/@-->
 
-<!--@`\n${package.description}\n` -->
+<!--@package.description-->
 Keeps your markdown files up to date
 <!--/@-->
 
@@ -24,6 +24,7 @@ npm install mos --save
 ```
 <!--/@-->
 
+
 ## Example Usage
 
 ``` js
@@ -36,7 +37,6 @@ const liveReadme = require('live-readme')
 **mos** - regenerate the markdown files. It is recommended to add this command to the `scripts.prepublish` property of `package.json`.
 
 **mos test** - test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
-
 
 
 <!--@license()-->

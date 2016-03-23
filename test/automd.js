@@ -12,7 +12,7 @@ describe('automd', () => {
       },
     })
     const newReadme = processMarkup('Insert <!--@package.name--><!--/@--> here')
-    expect(newReadme).to.eq('Insert <!--@package.name-->foo<!--/@--> here')
+    expect(newReadme).to.eq('Insert <!--@package.name-->\nfoo\n<!--/@--> here')
   })
 
   it('should insert value to README when already a value in the placeholder', () => {
@@ -22,7 +22,7 @@ describe('automd', () => {
       },
     })
     const newReadme = processMarkup('Insert <!--@package.name-->bar<!--/@--> here')
-    expect(newReadme).to.eq('Insert <!--@package.name-->foo<!--/@--> here')
+    expect(newReadme).to.eq('Insert <!--@package.name-->\nfoo\n<!--/@--> here')
   })
 
   it('should insert value with newline to README', () => {
@@ -32,24 +32,24 @@ describe('automd', () => {
       },
     })
     const newReadme = processMarkup('Insert <!--@package.name-->old\nvalue<!--/@--> here')
-    expect(newReadme).to.eq('Insert <!--@package.name-->new\nvalue<!--/@--> here')
+    expect(newReadme).to.eq('Insert <!--@package.name-->\nnew\nvalue\n<!--/@--> here')
   })
 
   it('should execute javascript and insert into the markup', () => {
     const processMarkup = automd()
     const newReadme = processMarkup('Insert <!--@ 1 + 2 --><!--/@--> here')
-    expect(newReadme).to.eq('Insert <!--@ 1 + 2 -->3<!--/@--> here')
+    expect(newReadme).to.eq('Insert <!--@ 1 + 2 -->\n3\n<!--/@--> here')
   })
 
   it('should execute javascript when it contains newlines', () => {
     const processMarkup = automd()
     const newReadme = processMarkup('Insert <!--@\n\n1 + 2 --><!--/@--> here')
-    expect(newReadme).to.eq('Insert <!--@\n\n1 + 2 -->3<!--/@--> here')
+    expect(newReadme).to.eq('Insert <!--@\n\n1 + 2 -->\n3\n<!--/@--> here')
   })
 
   it('should match several inputs', () => {
     const processMarkup = automd()
     const newReadme = processMarkup('Insert <!--@\n\n1 + 2 --><!--/@--> here<!--@"Hello world!"-->"Hello world!"<!--/@-->')
-    expect(newReadme).to.eq('Insert <!--@\n\n1 + 2 -->3<!--/@--> here<!--@"Hello world!"-->Hello world!<!--/@-->')
+    expect(newReadme).to.eq('Insert <!--@\n\n1 + 2 -->\n3\n<!--/@--> here<!--@"Hello world!"-->\nHello world!\n<!--/@-->')
   })
 })

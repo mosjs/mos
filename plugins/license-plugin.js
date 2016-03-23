@@ -6,11 +6,9 @@ module.exports = (opts) => {
   return {
     license () {
       return [
-        '',
         '## License',
         '',
         `${pkg.license} © [${pkg.author.name}](${pkg.author.url})`,
-        '',
       ].join('\n')
     },
   }

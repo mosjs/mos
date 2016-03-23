@@ -12,22 +12,21 @@ module.exports = (opts) => {
 
   function badgesCreator (style) {
     return function (badges) {
-      return badges.reduce((md, badge) => {
-        md += '\n'
+      return badges.map((badge) => {
         switch (badge) {
           case 'travis':
-            return md + `[![Build Status](https://img.shields.io/travis/` +
+            return `[![Build Status](https://img.shields.io/travis/` +
               `${ghInfo.user}/${ghInfo.repo}.svg?style=${style})]` +
               `(https://travis-ci.org/${ghInfo.user}/${ghInfo.repo}?branch=master)`
           case 'dependencies':
-            return md + `[![David](https://img.shields.io/david/${ghInfo.user}/${ghInfo.repo}.svg?style=${style})]` +
+            return `[![David](https://img.shields.io/david/${ghInfo.user}/${ghInfo.repo}.svg?style=${style})]` +
               `(https://david-dm.org/${ghInfo.user}/${ghInfo.repo})`
           case 'coveralls':
-            return md + `[![Coveralls](https://img.shields.io/coveralls/${ghInfo.user}/${ghInfo.repo}.svg?style=${style})](https://coveralls.io/r/${ghInfo.user}/${ghInfo.repo})`
+            return `[![Coveralls](https://img.shields.io/coveralls/${ghInfo.user}/${ghInfo.repo}.svg?style=${style})](https://coveralls.io/r/${ghInfo.user}/${ghInfo.repo})`
           case 'npm':
-            return md + `[![npm](https://img.shields.io/npm/v/${pkg.name}.svg?style=${style})](https://www.npmjs.com/package/${pkg.name})`
+            return `[![npm](https://img.shields.io/npm/v/${pkg.name}.svg?style=${style})](https://www.npmjs.com/package/${pkg.name})`
         }
-      }, '') + '\n'
+      }).join('\n')
     }
   }
 

@@ -6,7 +6,6 @@ module.exports = (opts) => {
   return {
     installation () {
       return [
-        '',
         '## Installation',
         '',
         'This module is installed via npm:',
@@ -14,7 +13,6 @@ module.exports = (opts) => {
         '``` sh',
         `npm install ${pkg.name} ${pkg.preferGlobal ? '--global' : '--save'}`,
         '```',
-        '',
       ].join('\n')
     },
   }
