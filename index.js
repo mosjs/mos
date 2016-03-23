@@ -11,9 +11,7 @@ const pattern = path.resolve(cwd, '{/**/,/}*.{' + mdExtensions.join() + '}')
 
 const plugins = [
   require('./plugins/package-json-plugin'),
-  /* Installation section plugin */
   require('./plugins/installation-plugin'),
-  /* License section plugin */
   require('./plugins/license-plugin'),
   require('./plugins/badges'),
 ]
