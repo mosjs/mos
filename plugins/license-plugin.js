@@ -1,7 +1,9 @@
 'use strict'
+module.exports = createPlugin
+
 const readPkgUp = require('read-pkg-up')
 
-module.exports = (opts) => {
+function createPlugin (opts) {
   const pkg = readPkgUp.sync({cwd: opts.filePath}).pkg
   return {
     license () {

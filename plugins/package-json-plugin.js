@@ -1,8 +1,11 @@
 'use strict'
+module.exports = createPlugin
+
 const readPkgUp = require('read-pkg-up')
 
-module.exports = (opts) => {
-  return {
-    package: readPkgUp.sync({cwd: opts.filePath}).pkg,
-  }
+function createPlugin (opts) {
+  return readPkgUp({cwd: opts.filePath})
+    .then(result => Promise.resolve({
+      package: result.pkg,
+    }))
 }
