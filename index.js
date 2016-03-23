@@ -6,7 +6,7 @@ const path = require('path')
 
 const cwd = process.cwd()
 const mdExtensions = ['markdown', 'mdown', 'mkdn', 'mkd', 'md']
-const pattern = path.resolve(cwd, '.{/**/,/}*.{' + mdExtensions.join() + '}')
+const pattern = path.resolve(cwd, '{/**/,/}*.{' + mdExtensions.join() + '}')
 
 const plugins = [
   (opts) => {
