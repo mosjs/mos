@@ -9,45 +9,11 @@ const mdExtensions = ['markdown', 'mdown', 'mkdn', 'mkd', 'md']
 const pattern = path.resolve(cwd, '{/**/,/}*.{' + mdExtensions.join() + '}')
 
 const plugins = [
-  (opts) => {
-    return {
-      package: require('./package.json'),
-    }
-  },
+  require('./plugins/package-json-plugin'),
   /* Installation section plugin */
-  (opts) => {
-    const pkg = require('./package.json')
-    return {
-      installation () {
-        return [
-          '',
-          '## Installation',
-          '',
-          'This module is installed via npm:',
-          '',
-          '``` sh',
-          `npm install ${pkg.name} ${pkg.preferGlobal ? '--global' : '--save'}`,
-          '```',
-          '',
-        ].join('\n')
-      },
-    }
-  },
+  require('./plugins/installation-plugin'),
   /* License section plugin */
-  (opts) => {
-    const pkg = require('./package.json')
-    return {
-      license () {
-        return [
-          '',
-          '## License',
-          '',
-          `${pkg.license} © [${pkg.author.name}](${pkg.author.url})`,
-          '',
-        ].join('\n')
-      },
-    }
-  },
+  require('./plugins/package-json-plugin'),
 ]
 
 function createScope (opts) {
