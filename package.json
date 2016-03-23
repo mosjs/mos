@@ -10,8 +10,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha lib/**/*.spec.js",
-    "coverage": "istanbul cover _mocha test/{**/,/}*.js -- -R spec",
-    "precoveralls": "istanbul cover _mocha test/{**/,/}*.js --report lcovonly -- -R spec && npm i coveralls@2",
+    "coverage": "istanbul cover _mocha lib/**/*.spec.js -- -R spec",
+    "precoveralls": "istanbul cover _mocha lib/**/*.spec.js --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
     "md:update": "node index",
