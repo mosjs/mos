@@ -6,10 +6,12 @@
 Keeps your markdown files up to date
 <!--/@-->
 
-[![Dependency Status](https://david-dm.org/zkochan/live-readme/status.svg?style=flat)](https://david-dm.org/zkochan/live-readme)
-[![Build Status](https://travis-ci.org/zkochan/live-readme.svg?branch=master)](https://travis-ci.org/zkochan/live-readme)
-[![npm version](https://badge.fury.io/js/live-readme.svg)](http://badge.fury.io/js/live-readme)
-[![Coverage Status](https://coveralls.io/repos/zkochan/live-readme/badge.svg?branch=master&service=github)](https://coveralls.io/github/zkochan/live-readme?branch=master)
+<!--@badges.flatSquare(['travis', 'dependencies', 'coveralls', 'npm'])-->
+[![Build Status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos?branch=master)
+[![David](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
+[![Coveralls](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos)
+[![npm](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
+<!--/@-->
 
 
 <!--@installation()-->

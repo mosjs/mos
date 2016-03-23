@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zkochan/live-readme"
+    "url": "https://github.com/zkochan/mos"
   },
   "keywords": [
     "markdown",
@@ -34,10 +34,11 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zkochan/live-readme/issues"
+    "url": "https://github.com/zkochan/mos/issues"
   },
-  "homepage": "https://github.com/zkochan/live-readme#readme",
+  "homepage": "https://github.com/zkochan/mos#readme",
   "dependencies": {
+    "github-url-to-object": "2.2.1",
     "glob": "7.0.3",
     "read-pkg-up": "^1.0.1"
   },

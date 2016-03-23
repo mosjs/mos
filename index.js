@@ -14,6 +14,7 @@ const plugins = [
   require('./plugins/installation-plugin'),
   /* License section plugin */
   require('./plugins/license-plugin'),
+  require('./plugins/badges'),
 ]
 
 function createScope (opts) {
