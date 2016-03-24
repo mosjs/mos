@@ -11,9 +11,9 @@
   "main": "index.js",
   "scripts": {
     "md:test": "node ./lib/cli test",
-    "test": "npm run md:test && mocha lib/**/*.spec.js",
-    "coverage": "istanbul cover _mocha lib/**/*.spec.js -- -R spec",
-    "precoveralls": "istanbul cover _mocha lib/**/*.spec.js --report lcovonly -- -R spec && npm i coveralls@2",
+    "test": "mocha '**/*.spec.js' && npm run md:test",
+    "coverage": "istanbul cover -x '**/*.spec.js' _mocha '**/*.spec.js' -- -R spec",
+    "precoveralls": "istanbul cover -x '**/*.spec.js' _mocha '**/*.spec.js' --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
     "md:update": "node ./lib/cli",

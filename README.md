@@ -6,7 +6,7 @@
 Keeps your markdown files up to date
 <!--/@-->
 
-<!--@badges.flatSquare(['travis', 'dependencies', 'coveralls', 'npm'])-->
+<!--@badges.flatSquare('travis', 'dependencies', 'coveralls', 'npm')-->
 [![Build Status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos?branch=master)
 [![David](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
 [![Coveralls](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos)

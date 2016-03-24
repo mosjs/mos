@@ -2,6 +2,7 @@
 module.exports = createPlugin
 
 const readPkgUp = require('read-pkg-up')
+const createLicense = require('./create-license')
 
 function createPlugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -9,13 +10,7 @@ function createPlugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        license () {
-          return [
-            '## License',
-            '',
-            `${pkg.license} © [${pkg.author.name}](${pkg.author.url})`,
-          ].join('\n')
-        },
+        license: () => createLicense(pkg),
       })
     })
 }

@@ -10,13 +10,16 @@ function createPlugin (opts) {
     .then((result) => {
       const pkg = result.pkg
 
-      const ghInfo = pkg.repository && pkg.repository.url && gh(pkg.repository.url)
-      if (!ghInfo) {
-        return Promise.reject(new Error('The badges plugin only works for github repos'))
+      const github = pkg.repository && pkg.repository.url &&
+        gh(pkg.repository.url)
+
+      if (!github) {
+        return Promise
+          .reject(new Error('The badges plugin only works for github repos'))
       }
 
       return Promise.resolve({
-        badges: createBadges({ ghInfo, pkg, }),
+        badges: createBadges({ github, pkg, }),
       })
     })
 }

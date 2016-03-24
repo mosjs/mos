@@ -1,4 +1,5 @@
 'use strict'
+const slice = Array.prototype.slice
 const badgeCreators = {
   travis: travisBadge,
   dependencies: dependenciesBadge,
@@ -7,7 +8,7 @@ const badgeCreators = {
 }
 
 module.exports = (opts) => {
-  const ghInfo = opts.ghInfo
+  const github = opts.github
   const pkg = opts.pkg
 
   const badges = styledBadge('flat')
@@ -18,11 +19,14 @@ module.exports = (opts) => {
   return badges
 
   function styledBadge (style) {
-    const badgeOpts = Object.assign({}, ghInfo, {style, pkg})
-    return badges => badges
-      .map(badgeName => badgeCreators[badgeName])
-      .map(createBade => createBade(badgeOpts))
-      .join('\n')
+    const badgeOpts = Object.assign({}, github, {style, pkg})
+    return function () {
+      const badges = slice.call(arguments)
+      return badges
+        .map(badgeName => badgeCreators[badgeName])
+        .map(createBade => createBade(badgeOpts))
+        .join('\n')
+    }
   }
 }
 
