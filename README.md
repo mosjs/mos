@@ -14,6 +14,13 @@ Keeps your markdown files up to date
 <!--/@-->
 
 
+## TL;DR
+
+**MOS** = *Markdown on steroids*! mos allows to inject content into your markdown files via hidden javascript snippets inside your md files. [This README](https://raw.githubusercontent.com/zkochan/mos/master/README.md) uses mos.
+
+![](http://i.imgur.com/GmU6VLR.png)
+
+
 <!--@installation()-->
 ## Installation
 
@@ -23,6 +30,37 @@ This module is installed via npm:
 npm install mos --save
 ```
 <!--/@-->
+
+
+## Usage
+
+`mos` uses a simple templating syntax to execute javascript inside markdown files. The result of the javascript execution is then inserted into the markdown file.
+
+The great thing is, that the template and the markdown file are actually the same file! The code snippets are written inside markdown comments, which are invisible when reading the generated markdown file.
+
+Lets use mos to write a readme with some dynamic data. Have you ever renamed your package and forgotten to update the readme? Good news! With mos it won't ever happen again:
+
+**README.md**
+
+``` md
+<!--@'# ' + package.name-->
+# mos
+<!--/@-->
+```
+
+If you view your readme now, it will be empty. However, you have the code that can insert the title in your readme. All you have to do now is to run `mos` in a terminal.
+
+Once you've ran `mos`, the readme will look like this:
+
+``` md
+<!--@'# ' + package.name-->
+# mos
+<!--/@-->
+```
+
+Now your readme has both the code that generates the content and the content itself. However, only the content is visible after the readme is generated to html by github or npm. Awesome!
+
+![Happy cat](http://i.imgur.com/JG9BXxe.jpg)
 
 
 ## Commands
