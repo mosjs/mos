@@ -7,6 +7,7 @@
     "lib",
     "plugins"
   ],
+  "bin": "./lib/cli.js",
   "main": "index.js",
   "scripts": {
     "test": "mocha lib/**/*.spec.js",
@@ -14,8 +15,8 @@
     "precoveralls": "istanbul cover _mocha lib/**/*.spec.js --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
-    "md:update": "node index",
-    "prepublish": "npm run md:update"
+    "md:update": "node ./lib/cli",
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "async-regex-replace": "1.0.2",
     "github-url-to-object": "2.2.1",
     "glob": "7.0.3",
+    "meow": "^3.7.0",
     "read-pkg-up": "^1.0.1",
     "run-async": "2.2.0"
   },
