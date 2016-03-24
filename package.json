@@ -43,11 +43,13 @@
   "homepage": "https://github.com/zkochan/mos#readme",
   "dependencies": {
     "async-regex-replace": "1.0.2",
+    "chalk": "1.1.1",
     "github-url-to-object": "2.2.1",
     "glob": "7.0.3",
     "meow": "^3.7.0",
     "normalize-newline": "2.0.0",
     "read-pkg-up": "^1.0.1",
+    "relative": "3.0.2",
     "run-async": "2.2.0"
   },
   "devDependencies": {
