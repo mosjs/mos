@@ -10,7 +10,8 @@
   "bin": "./lib/cli.js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha lib/**/*.spec.js",
+    "md:test": "node ./lib/cli test",
+    "test": "npm run md:test && mocha lib/**/*.spec.js",
     "coverage": "istanbul cover _mocha lib/**/*.spec.js -- -R spec",
     "precoveralls": "istanbul cover _mocha lib/**/*.spec.js --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
@@ -45,6 +46,7 @@
     "github-url-to-object": "2.2.1",
     "glob": "7.0.3",
     "meow": "^3.7.0",
+    "normalize-newline": "2.0.0",
     "read-pkg-up": "^1.0.1",
     "run-async": "2.2.0"
   },
