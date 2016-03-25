@@ -61,6 +61,18 @@ Now your readme has both the code that generates the content and the content its
 ![Happy cat](http://i.imgur.com/JG9BXxe.jpg)
 
 
+## Plugins
+
+In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are *declared by mos plugins*. The `package` variable is create by the [package-json](./plugins/package-json) plugin.
+
+There are a few mos plugins that are installed with mos by default:
+
+* [package-json](./plugins/package-json)
+* [badges](./plugins/badges)
+* [license](./plugins/license)
+* [installation](./plugins/installation)
+
+
 ## Commands
 
 * **mos** - regenerate the markdown files if they are out of date.
