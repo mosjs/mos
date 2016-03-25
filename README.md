@@ -42,21 +42,19 @@ Lets use mos to write a readme with some dynamic data. Have you ever renamed you
 
 **README.md**
 
-``` md
-<!--@'# ' + package.name-->
-# mos
-<!--/@-->
-```
+<!&dash;-@'# ' + package.name-&dash;>
+<br>
+<!&dash;-/@-&dash;>
 
 If you view your readme now, it will be empty. However, you have the code that can insert the title in your readme. All you have to do now is to run `mos` in a terminal.
 
 Once you've ran `mos`, the readme will look like this:
 
-``` md
-<!--@'# ' + package.name-->
-# mos
-<!--/@-->
-```
+<!&dash;-@'# ' + package.name-&dash;>
+<br>
+\# my-awesome-module
+<br>
+<!&dash;-/@-&dash;>
 
 Now your readme has both the code that generates the content and the content itself. However, only the content is visible after the readme is generated to html by github or npm. Awesome!
 
