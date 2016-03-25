@@ -11,7 +11,8 @@
   "main": "index.js",
   "scripts": {
     "md:test": "node ./lib/cli test",
-    "test": "mocha && npm run md:test",
+    "lint": "eslint lib/** plugins/** index.js",
+    "test": "mocha && npm run lint && npm run md:test",
     "coverage": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha -- -R spec",
     "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
@@ -54,6 +55,10 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "eslint": "2.5.0",
+    "eslint-config-standard": "5.1.0",
+    "eslint-plugin-promise": "1.1.0",
+    "eslint-plugin-standard": "1.3.2",
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4"
   }

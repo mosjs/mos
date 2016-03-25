@@ -1,5 +1,5 @@
 'use strict'
-module.exports = (pkg) => {
+module.exports = pkg => {
   if (pkg.private) {
     throw new Error('Cannot generate installation section for a private module')
   }

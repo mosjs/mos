@@ -7,7 +7,7 @@ const badgeCreators = {
   npm: npmBadge,
 }
 
-module.exports = (opts) => {
+module.exports = opts => {
   const github = opts.github
   const pkg = opts.pkg
 
@@ -52,7 +52,7 @@ function dependenciesBadge (opts) {
 function coverallsBadge (opts) {
   return createBadge({
     name: 'Coveralls',
-    imageURL: `https://img.shields.io/coveralls/` +
+    imageURL: 'https://img.shields.io/coveralls/' +
       `${opts.user}/${opts.repo}.svg?style=${opts.style}`,
     url: `https://coveralls.io/r/${opts.user}/${opts.repo}`,
   })

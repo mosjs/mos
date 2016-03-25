@@ -7,7 +7,7 @@ const createBadges = require('./create-badges')
 
 function createPlugin (opts) {
   return readPkgUp({cwd: opts.filePath})
-    .then((result) => {
+    .then(result => {
       const pkg = result.pkg
 
       const github = pkg.repository && pkg.repository.url &&
@@ -19,7 +19,7 @@ function createPlugin (opts) {
       }
 
       return Promise.resolve({
-        badges: createBadges({ github, pkg, }),
+        badges: createBadges({ github, pkg }),
       })
     })
 }
