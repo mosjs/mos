@@ -16,7 +16,7 @@ Keeps your markdown files up to date
 
 ## TL;DR
 
-**MOS** = *Markdown on steroids*! mos allows to inject content into your markdown files via hidden javascript snippets inside your md files. [This README](https://raw.githubusercontent.com/zkochan/mos/master/README.md) uses mos.
+*MOS = Markdown on Steroids!* Mos allows to inject content into your markdown files via hidden JavaScript snippets inside your md files. [This README](https://raw.githubusercontent.com/zkochan/mos/master/README.md) uses Mos.
 
 ![](http://i.imgur.com/GmU6VLR.png)
 
@@ -34,7 +34,7 @@ npm install mos --save
 
 ## Usage
 
-`mos` uses a simple templating syntax to execute javascript inside markdown files. The result of the javascript execution is then inserted into the markdown file.
+Mos uses a simple templating syntax to execute JavaScript inside markdown files. The result of the JavaScript execution is then inserted into the markdown file.
 
 The great thing is, that the template and the markdown file are actually the same file! The code snippets are written inside markdown comments, which are invisible when reading the generated markdown file.
 
@@ -56,14 +56,14 @@ Once you've ran `mos`, the readme will look like this:
 <br>
 <!&dash;-/@-&dash;>
 
-Now your readme has both the code that generates the content and the content itself. However, only the content is visible after the readme is generated to html by github or npm. Awesome!
+Now your readme has both the code that generates the content and the content itself. However, only the content is visible after the readme is generated to HTML by GitHub or npm. Awesome!
 
 ![Happy cat](http://i.imgur.com/JG9BXxe.jpg)
 
 
 ## Commands
 
-* **mos** - regenerate the markdown files if they out of date.
+* **mos** - regenerate the markdown files if they are out of date.
 
 * **mos test** - test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
 
