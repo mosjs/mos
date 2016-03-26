@@ -8,6 +8,7 @@ A mos plugin that combines example code files with their output
 There is an [example.js](./example.js) file in the current directory. Its content is:
 
 ``` js
+'use strict'
 console.log('Hello world!')
 
 function sum (a, b) {
@@ -39,6 +40,7 @@ It produces this code block, with the outputs written under the `console.log`s i
 
 <!--@example('./example.js')-->
 ``` js
+'use strict'
 console.log('Hello world!')
 //> Hello world!
 

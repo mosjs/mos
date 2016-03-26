@@ -2,61 +2,62 @@
 module.exports = stdoutToComments
 
 const removeLastEOL = require('./remove-last-eol')
+const fs = require('fs')
 
-function stdoutToComments (content) {
-  const originalLog = console.log
-  const outputs = []
+function stdoutToComments (filePath) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf8', (err, content) => {
+      if (err) return reject(err)
 
-  const wrapperFnName = randomFunctionName()
+      const originalLog = console.log
+      const outputs = []
 
-  console.log = function () {
-    const site = callsiteForFunction(wrapperFnName)
+      console.log = function () {
+        const site = callsiteForFile(filePath)
 
-    outputs.push({
-      message: getRealConsoleOutput.apply(null, arguments),
-      line: site.line,
+        outputs.push({
+          message: getRealConsoleOutput.apply(null, arguments),
+          line: site.line,
+        })
+      }
+
+      function getRealConsoleOutput () {
+        const originalWrite = process.stdout.write
+
+        let message
+        process.stdout.write = msg => { message = msg }
+
+        originalLog.apply(console, arguments)
+
+        process.stdout.write = originalWrite
+
+        return removeLastEOL(message)
+      }
+
+      try {
+        require(filePath)
+      } catch (err) {
+        throw err
+      } finally {
+        console.log = originalLog
+      }
+
+      resolve(content.split('\n').reduce((contentLines, line, index) => {
+        contentLines.push(line)
+
+        const lineNo = index + 1
+        while (outputs.length && outputs[0].line === lineNo) {
+          contentLines.push('//> ' + outputs.shift().message.replace(/\r?\n/g, '\n//  '))
+        }
+        return contentLines
+      }, []).join('\n'))
     })
-  }
-
-  function getRealConsoleOutput () {
-    const originalWrite = process.stdout.write
-
-    let message
-    process.stdout.write = msg => { message = msg }
-
-    originalLog.apply(console, arguments)
-
-    process.stdout.write = originalWrite
-
-    return removeLastEOL(message)
-  }
-
-  try {
-    eval(`void function ${wrapperFnName}() {${content}}()`) // eslint-disable-line no-eval
-  } catch (err) {
-    throw err
-  } finally {
-    console.log = originalLog
-  }
-
-  return content.split('\n').reduce((contentLines, line, index) => {
-    contentLines.push(line)
-
-    const lineNo = index + 1
-    while (outputs.length && outputs[0].line === lineNo) {
-      contentLines.push('//> ' + outputs.shift().message.replace(/\r?\n/g, '\n//  '))
-    }
-    return contentLines
-  }, []).join('\n')
+  })
 }
 
-function callsiteForFunction (fnName) {
+function callsiteForFile (fileName) {
   const stack = trace()
-  return stack.find(callSite => callSite.func === fnName)
-}
-
-function randomFunctionName () {
-  return '_' + Math.random().toString().replace('.', '')
+  return stack.reverse().find(callSite => callSite.file === fileName)
 }
 
 function trace () {
