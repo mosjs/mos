@@ -71,6 +71,7 @@ There are a few mos plugins that are installed with mos by default:
 * [badges](./plugins/badges)
 * [license](./plugins/license)
 * [installation](./plugins/installation)
+* [example](./plugins/mos-plugin-example)
 
 
 ## Commands
