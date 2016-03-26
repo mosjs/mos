@@ -67,10 +67,10 @@ In the usage example the `package` variable was used to access the package info.
 
 There are a few mos plugins that are installed with mos by default:
 
-* [package-json](./plugins/package-json)
-* [badges](./plugins/badges)
-* [license](./plugins/license)
-* [installation](./plugins/installation)
+* [package-json](./plugins/mos-plugin-package-json)
+* [badges](./plugins/mos-plugin-badges)
+* [license](./plugins/mos-plugin-license)
+* [installation](./plugins/mos-plugin-installation)
 * [example](./plugins/mos-plugin-example)
 
 
