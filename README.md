@@ -6,7 +6,7 @@
 Keeps your markdown files up to date
 <!--/@-->
 
-<!--@badges.flatSquare('travis', 'deps', 'coveralls', 'npm')-->
+<!--@shields.flatSquare('travis', 'deps', 'coveralls', 'npm')-->
 [![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
 [![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
 [![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
@@ -68,7 +68,7 @@ In the usage example the `package` variable was used to access the package info.
 There are a few mos plugins that are installed with mos by default:
 
 * [package-json](./plugins/mos-plugin-package-json)
-* [badges](./plugins/mos-plugin-badges)
+* [shields](./plugins/mos-plugin-shields)
 * [license](./plugins/mos-plugin-license)
 * [installation](./plugins/mos-plugin-installation)
 * [example](./plugins/mos-plugin-example)

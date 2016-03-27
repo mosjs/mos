@@ -3,7 +3,7 @@ module.exports = createPlugin
 
 const readPkgUp = require('read-pkg-up')
 const gh = require('github-url-to-object')
-const createBadges = require('./create-badges')
+const createShields = require('./create-shields')
 
 function createPlugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -15,11 +15,11 @@ function createPlugin (opts) {
 
       if (!github) {
         return Promise
-          .reject(new Error('The badges plugin only works for github repos'))
+          .reject(new Error('The shields plugin only works for github repos'))
       }
 
       return Promise.resolve({
-        badges: createBadges({ github, pkg }),
+        shields: createShields({ github, pkg }),
       })
     })
 }

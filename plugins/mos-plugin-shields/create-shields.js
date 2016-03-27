@@ -7,14 +7,14 @@ module.exports = opts => {
   const github = opts.github
   const pkg = opts.pkg
 
-  const badges = styledBadge('flat')
-  badges.flat = styledBadge('flat')
-  badges.flatSquare = styledBadge('flat-square')
-  badges.plastic = styledBadge('plastic')
+  const shields = styledShield('flat')
+  shields.flat = styledShield('flat')
+  shields.flatSquare = styledShield('flat-square')
+  shields.plastic = styledShield('plastic')
 
-  return badges
+  return shields
 
-  function styledBadge (style) {
+  function styledShield (style) {
     const getShieldProps = shielder({ style })
     const shieldOpts = {
       repo: github.user + '/' + github.repo,
