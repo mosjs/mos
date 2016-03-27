@@ -3,6 +3,7 @@ module.exports = createPlugin
 
 const readPkgUp = require('read-pkg-up')
 const createExample = require('./lib/create-example')
+const path = require('path')
 
 function createPlugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -10,7 +11,10 @@ function createPlugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        example: createExample(Object.assign({}, opts, { pkg, pkgRoot: result.path })),
+        example: createExample(Object.assign({}, opts, {
+          pkg,
+          pkgRoot: path.dirname(result.path),
+        })),
       })
     })
 }
