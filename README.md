@@ -72,6 +72,7 @@ There are a few mos plugins that are installed with mos by default:
 * [license](./plugins/mos-plugin-license)
 * [installation](./plugins/mos-plugin-installation)
 * [example](./plugins/mos-plugin-example)
+* [dependencies](./plugins/mos-plugin-dependencies)
 
 
 ## Commands
@@ -79,6 +80,39 @@ There are a few mos plugins that are installed with mos by default:
 * **mos** - regenerate the markdown files if they are out of date.
 
 * **mos test** - test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
+
+
+<!--@dependencies()-->
+## Dependencies
+
+- [async-regex-replace](https://github.com/pmarkert/async-regex-replace): regex replacements using asynchronous callback functions
+- [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
+- [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
+- [glob](https://github.com/isaacs/node-glob): a little globber
+- [meow](https://github.com/sindresorhus/meow): CLI app helper
+- [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
+- [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
+- [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
+- [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
+- [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
+<!--/@-->
+
+
+<!--@devDependencies()-->
+## Dev Dependencies
+
+- [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+- [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
+- [eslint](https://github.com/eslint/eslint): An AST-based pattern checker for JavaScript.
+- [eslint-config-standard](https://github.com/feross/eslint-config-standard): JavaScript Standard Style - ESLint Shareable Config
+- [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise): Enforce best practices for JavaScript promises
+- [eslint-plugin-standard](https://github.com/xjamundx/eslint-plugin-standard): ESlint Plugin for the Standard Linter
+- [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
+- [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests 
+- [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
+- [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
+<!--/@-->
 
 
 <!--@license()-->
