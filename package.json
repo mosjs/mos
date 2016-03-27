@@ -29,11 +29,17 @@
   },
   "keywords": [
     "markdown",
+    "mdown",
+    "mkdn",
+    "mkd",
     "md",
     "readme",
     "template",
     "generator",
-    "documentation"
+    "documentation",
+    "badges",
+    "shields",
+    "example"
   ],
   "author": {
     "name": "Zoltan Kochan",
