@@ -58,22 +58,22 @@ Comments that start with an exclamation will be inserted into the markdown outsi
 function printEachLetter (text) {
   for (let i = 0; i < text.length; i++) {
     console.log(text[i])
+    //> H
+    //> e
+    //> l
+    //> l
+    //> o
+    //>  
+    //> w
+    //> o
+    //> r
+    //> l
+    //> d
+    //> !
   }
 }
 
 printEachLetter('Hello world!')
-//> H
-//> e
-//> l
-//> l
-//> o
-//>  
-//> w
-//> o
-//> r
-//> l
-//> d
-//> !
 ```
 <!--/@-->
 

@@ -71,11 +71,11 @@ describe('stdoutToComments', () => {
       )
   })
 
-  it('should add the console output of a called function', () => {
+  it('should add the console output immediately after console.log', () => {
     return inlineStdoutToComments([
       'function foo (a) {',
       '  console.log(a)',
-      '  console.log(a)',
+      '  console.log(a + "\\n" + a)',
       '}',
       'foo("Hello world!")',
     ].join('\n'))
@@ -83,11 +83,12 @@ describe('stdoutToComments', () => {
       expect(actual).to.eq([
         'function foo (a) {',
         '  console.log(a)',
-        '  console.log(a)',
+        '  //> Hello world!',
+        '  console.log(a + "\\n" + a)',
+        '  //> Hello world!',
+        '  //  Hello world!',
         '}',
         'foo("Hello world!")',
-        '//> Hello world!',
-        '//> Hello world!',
       ].join('\n'))
     )
   })

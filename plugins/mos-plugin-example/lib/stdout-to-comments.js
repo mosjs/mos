@@ -47,7 +47,10 @@ function stdoutToComments (filePath) {
 
         const lineNo = index + 1
         while (outputs.length && outputs[0].line === lineNo) {
-          contentLines.push('//> ' + outputs.shift().message.replace(/\r?\n/g, '\n//  '))
+          const matches = (contentLines[contentLines.length - 1] || '').match(/^(\s*)/)
+          const linePadding = matches && matches[0] || ''
+          contentLines.push(linePadding + '//> ' +
+            outputs.shift().message.replace(/\r?\n/g, '\n' + linePadding + '//  '))
         }
         return contentLines
       }, []).join('\n'))
@@ -57,7 +60,7 @@ function stdoutToComments (filePath) {
 
 function callsiteForFile (fileName) {
   const stack = trace()
-  return stack.reverse().find(callSite => callSite.file === fileName)
+  return stack.find(callSite => callSite.file === fileName)
 }
 
 function trace () {
