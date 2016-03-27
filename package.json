@@ -1,6 +1,6 @@
 {
   "name": "mos",
-  "version": "0.2.2",
+  "version": "0.0.0-placeholder",
   "description": "Keeps your markdown files up to date",
   "files": [
     "index.js",
@@ -20,7 +20,8 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
     "md:update": "node ./lib/cli",
-    "prepublish": "npm test"
+    "prepublish": "npm test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -66,7 +67,8 @@
     "ghooks": "1.0.3",
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
-    "validate-commit-msg": "2.4.1"
+    "validate-commit-msg": "2.4.1",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "commitizen": {
@@ -76,5 +78,8 @@
       "commit-msg": "node ./node_modules/validate-commit-msg/index.js",
       "pre-commit": "npm test"
     }
+  },
+  "publishConfig": {
+    "tag": "canary"
   }
 }

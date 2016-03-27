@@ -1,1 +1,1 @@
-**/*.spec.js
+{lib,plugins}/**/*.spec.js
