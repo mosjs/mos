@@ -18,7 +18,7 @@ Keeps your markdown files up to date
 
 *MOS = Markdown on Steroids!* Mos allows to inject content into your markdown files via hidden JavaScript snippets inside your md files. [This README](https://raw.githubusercontent.com/zkochan/mos/master/README.md) uses Mos.
 
-![](http://i.imgur.com/GmU6VLR.png)
+![](http://i.imgur.com/tXcB20W.png)
 
 
 <!--@installation()-->
