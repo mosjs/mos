@@ -8,6 +8,8 @@ const path = require('path')
 describe('createExample', () => {
   const example = createExample({
     filePath: path.resolve(__dirname, './README.md'),
+    pkg: {},
+    pkgRoot: path.resolve('../', __dirname),
   })
 
   it('should generate example from a file', () => {
@@ -58,6 +60,26 @@ describe('createExample', () => {
           '``` js',
           'console.log(repeatText(\'foo\', 3))',
           '//> foofoofoo',
+          '```',
+        ].join('\n'))
+      })
+  })
+
+  it('should replace relative require path with package name', () => {
+    const example = createExample({
+      filePath: path.resolve(__dirname, './README.md'),
+      pkg: require('./test/require-example/package.json'),
+      pkgRoot: path.resolve(__dirname, './test/require-example'),
+    })
+
+    return example('./test/require-example/example.js')
+      .then(actual => {
+        expect(actual).to.eq([
+          '``` js',
+          '\'use strict\'',
+          'const fooBar = require(\'foo-bar\')',
+          'console.log(fooBar)',
+          '//> Hello world!',
           '```',
         ].join('\n'))
       })
