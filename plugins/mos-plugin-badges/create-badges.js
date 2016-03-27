@@ -1,11 +1,7 @@
 'use strict'
+const shielder = require('shields')
+
 const slice = Array.prototype.slice
-const badgeCreators = {
-  travis: travisBadge,
-  dependencies: dependenciesBadge,
-  coveralls: coverallsBadge,
-  npm: npmBadge,
-}
 
 module.exports = opts => {
   const github = opts.github
@@ -19,54 +15,21 @@ module.exports = opts => {
   return badges
 
   function styledBadge (style) {
-    const badgeOpts = Object.assign({}, github, {style, pkg})
+    const getShieldProps = shielder({ style })
+    const shieldOpts = {
+      repo: github.user + '/' + github.repo,
+      npmName: pkg.name,
+    }
     return function () {
-      const badges = slice.call(arguments)
-      return badges
-        .map(badgeName => badgeCreators[badgeName])
-        .map(createBade => createBade(badgeOpts))
+      const shields = slice.call(arguments)
+      return shields
+        .map(shieldName => getShieldProps(shieldName, shieldOpts))
+        .map(createShieldMD)
         .join('\n')
     }
   }
 }
 
-function travisBadge (opts) {
-  return createBadge({
-    name: 'Build Status',
-    imageURL: 'https://img.shields.io/travis/' +
-      opts.user + '/' + opts.repo + '.svg?style=' + opts.style,
-    url: 'https://travis-ci.org/' + opts.user + '/' + opts.repo +
-      '?branch=master',
-  })
-}
-
-function dependenciesBadge (opts) {
-  return createBadge({
-    name: 'David',
-    imageURL: 'https://img.shields.io/david/' + opts.user + '/' +
-      opts.repo + '.svg?style=' + opts.style,
-    url: `https://david-dm.org/${opts.user}/${opts.repo}`,
-  })
-}
-
-function coverallsBadge (opts) {
-  return createBadge({
-    name: 'Coveralls',
-    imageURL: 'https://img.shields.io/coveralls/' +
-      `${opts.user}/${opts.repo}.svg?style=${opts.style}`,
-    url: `https://coveralls.io/r/${opts.user}/${opts.repo}`,
-  })
-}
-
-function npmBadge (opts) {
-  return createBadge({
-    name: 'npm',
-    imageURL: `https://img.shields.io/npm/v/${opts.pkg.name}.svg?` +
-      `style=${opts.style}`,
-    url: `https://www.npmjs.com/package/${opts.pkg.name}`,
-  })
-}
-
-function createBadge (opts) {
-  return `[![${opts.name}](${opts.imageURL})](${opts.url})`
+function createShieldMD (shieldProps) {
+  return `[![${shieldProps.text}](${shieldProps.image})](${shieldProps.link})`
 }

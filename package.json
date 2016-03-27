@@ -55,7 +55,8 @@
     "read-pkg-up": "^1.0.1",
     "relative": "3.0.2",
     "resolve": "1.1.7",
-    "run-async": "2.2.0"
+    "run-async": "2.2.0",
+    "shields": "2.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.1",

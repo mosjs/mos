@@ -6,11 +6,11 @@
 Keeps your markdown files up to date
 <!--/@-->
 
-<!--@badges.flatSquare('travis', 'dependencies', 'coveralls', 'npm')-->
-[![Build Status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos?branch=master)
-[![David](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
-[![Coveralls](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos)
-[![npm](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
+<!--@badges.flatSquare('travis', 'deps', 'coveralls', 'npm')-->
+[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
+[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
 <!--/@-->
 
 
@@ -95,6 +95,7 @@ There are a few mos plugins that are installed with mos by default:
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
+- [shields](https://github.com/kenany/shields): Generate shields for your current project's README
 
 <!--/@-->
 
