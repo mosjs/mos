@@ -24,12 +24,12 @@ module.exports = opts => {
       const shields = slice.call(arguments)
       return shields
         .map(shieldName => getShieldProps(shieldName, shieldOpts))
-        .map(createShieldMD)
+        .map(renderShield)
         .join('\n')
     }
   }
 }
 
-function createShieldMD (shieldProps) {
+function renderShield (shieldProps) {
   return `[![${shieldProps.text}](${shieldProps.image})](${shieldProps.link})`
 }

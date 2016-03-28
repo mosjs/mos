@@ -3,7 +3,7 @@ module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
 const gh = require('github-url-to-object')
-const createShields = require('./lib/create-shields')
+const createShieldsRenderer = require('./lib/create-shields-renderer')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -19,7 +19,7 @@ function plugin (opts) {
       }
 
       return Promise.resolve({
-        shields: createShields({ github, pkg }),
+        shields: createShieldsRenderer({ github, pkg }),
       })
     })
 }

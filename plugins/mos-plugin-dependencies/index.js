@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createDeps = require('./lib/create-deps')
+const renderDeps = require('./lib/render-deps')
 const path = require('path')
 
 function plugin (opts) {
@@ -11,11 +11,11 @@ function plugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        dependencies: () => '## Dependencies\n\n' + createDeps({
+        dependencies: () => '## Dependencies\n\n' + renderDeps({
           deps: pkg.dependencies,
           pkgRoot: path.dirname(result.path),
         }) + '\n',
-        devDependencies: () => '## Dev Dependencies\n\n' + createDeps({
+        devDependencies: () => '## Dev Dependencies\n\n' + renderDeps({
           deps: pkg.devDependencies,
           pkgRoot: path.dirname(result.path),
         }) + '\n',

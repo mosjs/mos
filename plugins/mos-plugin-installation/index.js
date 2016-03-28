@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createInstallation = require('./lib/create-installation')
+const renderInstallation = require('./lib/render-installation')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -10,7 +10,7 @@ function plugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        installation: () => createInstallation(pkg),
+        installation: () => renderInstallation(pkg),
       })
     })
 }

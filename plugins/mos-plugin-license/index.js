@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createLicense = require('./lib/create-license')
+const renderLicense = require('./lib/render-license')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})
@@ -10,7 +10,7 @@ function plugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        license: () => createLicense(pkg),
+        license: () => renderLicense(pkg),
       })
     })
 }

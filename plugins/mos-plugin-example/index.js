@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createExample = require('./lib/create-example')
+const createExampleRenderer = require('./lib/create-example-renderer')
 const path = require('path')
 
 function plugin (opts) {
@@ -11,7 +11,7 @@ function plugin (opts) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        example: createExample(Object.assign({}, opts, {
+        example: createExampleRenderer(Object.assign({}, opts, {
           pkg,
           pkgRoot: path.dirname(result.path),
         })),

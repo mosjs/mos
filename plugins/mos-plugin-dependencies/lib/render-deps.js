@@ -1,9 +1,9 @@
 'use strict'
-module.exports = createDeps
+module.exports = renderDeps
 
 const getDeps = require('./get-deps')
 
-function createDeps (opts) {
+function renderDeps (opts) {
   const depDetails = getDeps(opts)
 
   if (!depDetails.length) return 'None'

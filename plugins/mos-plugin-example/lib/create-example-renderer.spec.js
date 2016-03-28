@@ -2,11 +2,11 @@
 const describe = require('mocha').describe
 const it = require('mocha').it
 const expect = require('chai').expect
-const createExample = require('./create-example')
+const createExampleRenderer = require('./create-example-renderer')
 const path = require('path')
 
-describe('createExample', () => {
-  const example = createExample({
+describe('createExampleRenderer', () => {
+  const example = createExampleRenderer({
     filePath: path.resolve(__dirname, './README.md'),
     pkg: {},
     pkgRoot: path.resolve('../', __dirname),
@@ -66,7 +66,7 @@ describe('createExample', () => {
   })
 
   it('should replace relative require path with package name', () => {
-    const example = createExample({
+    const example = createExampleRenderer({
       filePath: path.resolve(__dirname, './README.md'),
       pkg: require('./test/require-example/package.json'),
       pkgRoot: path.resolve(__dirname, './test/require-example'),

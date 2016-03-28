@@ -2,9 +2,9 @@
 const describe = require('mocha').describe
 const it = require('mocha').it
 const expect = require('chai').expect
-const createLicense = require('./create-license')
+const renderLicense = require('./render-license')
 
-describe('createLicense', () => {
+describe('renderLicense', () => {
   it("should create license with link to the author's website", () => {
     const pkg = {
       author: {
@@ -13,7 +13,7 @@ describe('createLicense', () => {
       },
       license: 'MIT',
     }
-    const license = createLicense(pkg)
+    const license = renderLicense(pkg)
     expect(license).to
       .eq('## License\n\nMIT © [Zoltan Kochan](http://kochan.io)')
   })
@@ -25,7 +25,7 @@ describe('createLicense', () => {
       },
       license: 'MIT',
     }
-    const license = createLicense(pkg)
+    const license = renderLicense(pkg)
     expect(license).to.eq('## License\n\nMIT © Zoltan Kochan')
   })
 })

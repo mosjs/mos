@@ -2,7 +2,7 @@
 const describe = require('mocha').describe
 const it = require('mocha').it
 const expect = require('chai').expect
-const createInstallation = require('./create-installation')
+const renderInstallation = require('./render-installation')
 
 describe('createInstallation', () => {
   it('should create installation section for global package', () => {
@@ -10,7 +10,7 @@ describe('createInstallation', () => {
       name: 'foo',
       preferGlobal: 'MIT',
     }
-    const installation = createInstallation(pkg)
+    const installation = renderInstallation(pkg)
     expect(installation).to.eq([
       '## Installation',
       '',
@@ -26,7 +26,7 @@ describe('createInstallation', () => {
     const pkg = {
       name: 'foo',
     }
-    const installation = createInstallation(pkg)
+    const installation = renderInstallation(pkg)
     expect(installation).to.eq([
       '## Installation',
       '',
@@ -43,6 +43,6 @@ describe('createInstallation', () => {
       name: 'foo',
       private: true,
     }
-    expect(() => createInstallation(pkg)).to.throw(Error, 'Cannot generate installation section for a private module')
+    expect(() => renderInstallation(pkg)).to.throw(Error, 'Cannot generate installation section for a private module')
   })
 })

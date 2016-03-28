@@ -2,11 +2,11 @@
 const describe = require('mocha').describe
 const it = require('mocha').it
 const expect = require('chai').expect
-const createShields = require('./create-shields')
+const createShieldsRenderer = require('./create-shields-renderer')
 
-describe('createShields', () => {
+describe('createShieldsRenderer', () => {
   it('should create flat shield by default', () => {
-    const shields = createShields({
+    const shields = createShieldsRenderer({
       github: {
         user: 'zkochan',
         repo: 'mos',
@@ -19,7 +19,7 @@ describe('createShields', () => {
   })
 
   it('should create flat travis shield', () => {
-    const shields = createShields({
+    const shields = createShieldsRenderer({
       github: {
         user: 'zkochan',
         repo: 'mos',
@@ -32,7 +32,7 @@ describe('createShields', () => {
   })
 
   it('should create flat square travis shield', () => {
-    const shields = createShields({
+    const shields = createShieldsRenderer({
       github: {
         user: 'zkochan',
         repo: 'mos',
@@ -45,7 +45,7 @@ describe('createShields', () => {
   })
 
   it('should create plastic travis shield', () => {
-    const shields = createShields({
+    const shields = createShieldsRenderer({
       github: {
         user: 'zkochan',
         repo: 'mos',
@@ -58,7 +58,7 @@ describe('createShields', () => {
   })
 
   it('should create several shields', () => {
-    const shields = createShields({
+    const shields = createShieldsRenderer({
       github: {
         user: 'zkochan',
         repo: 'mos',
