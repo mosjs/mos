@@ -110,11 +110,12 @@ There are a few mos plugins that are installed with mos by default:
 - [eslint-config-standard](https://github.com/feross/eslint-config-standard): JavaScript Standard Style - ESLint Shareable Config
 - [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise): Enforce best practices for JavaScript promises
 - [eslint-plugin-standard](https://github.com/xjamundx/eslint-plugin-standard): ESlint Plugin for the Standard Linter
+- [execa](https://github.com/sindresorhus/execa): A better `child_process`
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests 
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
-- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
+- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 
 <!--/@-->
 
