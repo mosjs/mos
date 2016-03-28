@@ -1,10 +1,10 @@
 'use strict'
-module.exports = createPlugin
+module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
 const createLicense = require('./create-license')
 
-function createPlugin (opts) {
+function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})
     .then(result => {
       const pkg = result.pkg

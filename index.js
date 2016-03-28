@@ -1,2 +1,2 @@
 'use strict'
-module.exports = require('./lib/render-all')
+module.exports = require('./lib/render-files')
