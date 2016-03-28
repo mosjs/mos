@@ -3,7 +3,7 @@ module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
 const gh = require('github-url-to-object')
-const createShields = require('./create-shields')
+const createShields = require('./lib/create-shields')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})

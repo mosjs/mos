@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createLicense = require('./create-license')
+const createLicense = require('./lib/create-license')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})

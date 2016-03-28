@@ -2,7 +2,7 @@
 module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
-const createInstallation = require('./create-installation')
+const createInstallation = require('./lib/create-installation')
 
 function plugin (opts) {
   return readPkgUp({cwd: opts.filePath})
