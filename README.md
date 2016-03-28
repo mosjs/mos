@@ -86,6 +86,7 @@ There are a few mos plugins that are installed with mos by default:
 ## Dependencies
 
 - [async-regex-replace](https://github.com/pmarkert/async-regex-replace): regex replacements using asynchronous callback functions
+- [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber

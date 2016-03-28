@@ -53,6 +53,7 @@
   "homepage": "https://github.com/zkochan/mos#readme",
   "dependencies": {
     "async-regex-replace": "1.0.2",
+    "callsites": "1.0.0",
     "chalk": "1.1.1",
     "github-url-to-object": "2.2.1",
     "glob": "7.0.3",

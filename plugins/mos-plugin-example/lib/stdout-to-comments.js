@@ -3,6 +3,7 @@ module.exports = stdoutToComments
 
 const removeLastEOL = require('./remove-last-eol')
 const fs = require('fs')
+const callsites = require('callsites')
 
 function stdoutToComments (filePath) {
   return new Promise((resolve, reject) => {
@@ -60,27 +61,12 @@ function stdoutToComments (filePath) {
 
 function callsiteForFile (fileName) {
   const stack = trace()
-  return stack.find(callSite => callSite.file === fileName)
+  return stack.find(callsite => callsite.file === fileName)
 }
 
 function trace () {
-  const stack = getStack()
-  return stack.map(parseCallSite)
-}
-
-function parseCallSite (callSite) {
-  return {
-    file: callSite.getFileName() || '?',
-    line: callSite.getLineNumber(),
-    func: callSite.getFunctionName() || '?',
-  }
-}
-
-function getStack () {
-  const orig = Error.prepareStackTrace
-  Error.prepareStackTrace = function (_, stack) { return stack }
-  const err = new Error()
-  const stack = err.stack
-  Error.prepareStackTrace = orig
-  return stack
+  return callsites().map(callsite => ({
+    file: callsite.getFileName() || '?',
+    line: callsite.getLineNumber(),
+  }))
 }
