@@ -77,9 +77,23 @@ There are a few mos plugins that are installed with mos by default:
 
 ## Commands
 
-* **mos** - regenerate the markdown files if they are out of date.
+### `mos`
 
-* **mos test** - test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
+Regenerate the markdown files if they are out of date.
+
+
+### `mos test`
+
+Test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
+
+
+#### Optional TAP output
+
+Mos can generate TAP output via `--tap` option for use with any [TAP reporter](https://github.com/sindresorhus/awesome-tap#reporters).
+
+``` console
+mos test --tap | tap-nyan
+```
 
 
 <!--@dependencies()-->
@@ -97,6 +111,7 @@ There are a few mos plugins that are installed with mos by default:
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [shields](https://github.com/kenany/shields): Generate shields for your current project's README
+- [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 <!--/@-->
