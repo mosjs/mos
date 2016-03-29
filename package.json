@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "md:test": "node ./lib/cli test",
+    "md:test": "node ./lib/cli test -x=\"lib/test-cli/**\"",
     "lint": "eslint lib/** plugins/** index.js",
     "test:code": "mocha",
     "test": "npm run test:code && npm run lint && npm run md:test",
@@ -19,7 +19,7 @@
     "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
-    "md:update": "node ./lib/cli",
+    "md:update": "node ./lib/cli -x=\"lib/test-cli/**\"",
     "prepublish": "npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
