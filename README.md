@@ -97,6 +97,7 @@ There are a few mos plugins that are installed with mos by default:
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [shields](https://github.com/kenany/shields): Generate shields for your current project's README
+- [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 <!--/@-->
 
