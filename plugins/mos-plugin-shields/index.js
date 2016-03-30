@@ -5,8 +5,8 @@ const readPkgUp = require('read-pkg-up')
 const gh = require('github-url-to-object')
 const createShieldsRenderer = require('./lib/create-shields-renderer')
 
-function plugin (opts) {
-  return readPkgUp({cwd: opts.filePath})
+function plugin (markdown) {
+  return readPkgUp({cwd: markdown.filePath})
     .then(result => {
       const pkg = result.pkg
 

@@ -3,8 +3,8 @@ module.exports = plugin
 
 const readPkgUp = require('read-pkg-up')
 
-function plugin (opts) {
-  return readPkgUp({cwd: opts.filePath})
+function plugin (markdown) {
+  return readPkgUp({cwd: markdown.filePath})
     .then(result => Promise.resolve({
       package: result.pkg,
     }))

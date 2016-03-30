@@ -5,8 +5,8 @@ const readPkgUp = require('read-pkg-up')
 const renderDeps = require('./lib/render-deps')
 const path = require('path')
 
-function plugin (opts) {
-  return readPkgUp({cwd: opts.filePath})
+function plugin (markdown) {
+  return readPkgUp({cwd: markdown.filePath})
     .then(result => {
       const pkg = result.pkg
 
