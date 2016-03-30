@@ -74,6 +74,8 @@ There are a few mos plugins that are installed with mos by default:
 * [example](./plugins/mos-plugin-example)
 * [dependencies](./plugins/mos-plugin-dependencies)
 
+Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
+
 
 ## Commands
 
