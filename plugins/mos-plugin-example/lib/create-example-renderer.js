@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const stdoutToComments = require('./stdout-to-comments')
-const removeLastEOL = require('./remove-last-eol')
+const removeLastEOL = require('../../remove-last-eol')
 const resolve = require('resolve')
 
 module.exports = opts => {

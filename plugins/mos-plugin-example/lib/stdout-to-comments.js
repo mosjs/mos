@@ -1,7 +1,7 @@
 'use strict'
 module.exports = stdoutToComments
 
-const removeLastEOL = require('./remove-last-eol')
+const removeLastEOL = require('../../remove-last-eol')
 const fs = require('fs')
 const callsites = require('callsites')
 
