@@ -1,0 +1,13 @@
+div {
+  display: none;
+}
+
+/*#bar*/
+#bar {
+  color: red;
+}
+/*#*/
+
+.foo {
+  margin: 0;
+}
