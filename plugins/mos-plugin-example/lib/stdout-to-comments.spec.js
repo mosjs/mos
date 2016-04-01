@@ -31,6 +31,13 @@ describe('stdoutToComments', () => {
       )
   })
 
+  it('should add the console output to the comments when the code executed asynchronously', () => {
+    return inlineStdoutToComments('setTimeout(() => console.log("Hello world!"), 0)')
+      .then(actual =>
+        expect(actual).to.eq('setTimeout(() => console.log("Hello world!"), 0)\n//> Hello world!')
+      )
+  })
+
   it('should add the multiline console output to the comments', () => {
     return inlineStdoutToComments('console.log("Hello world!\\nHello world!")')
       .then(actual =>
