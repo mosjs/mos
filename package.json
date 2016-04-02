@@ -92,8 +92,5 @@
       "commit-msg": "node ./node_modules/validate-commit-msg/index.js",
       "pre-commit": "npm test"
     }
-  },
-  "publishConfig": {
-    "tag": "canary"
   }
 }
