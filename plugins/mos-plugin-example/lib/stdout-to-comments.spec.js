@@ -99,4 +99,22 @@ describe('stdoutToComments', () => {
       ].join('\n'))
     )
   })
+
+  it('should add the console output after the multiline console log statement', () => {
+    return inlineStdoutToComments([
+      'console.log([',
+      '  1,',
+      '  2,',
+      '])',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'console.log([',
+        '  1,',
+        '  2,',
+        '])',
+        '//> [ 1, 2 ]',
+      ].join('\n'))
+    )
+  })
 })

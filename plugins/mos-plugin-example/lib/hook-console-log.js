@@ -12,7 +12,8 @@ function hookConsoleLog (filePath) {
 
     originalLog({
       message: getRealConsoleOutput.apply(null, arguments),
-      line: site.line,
+      line: site.line - 1,
+      column: site.column,
     })
   }
 }
@@ -39,5 +40,6 @@ function trace () {
   return callsites().map(callsite => ({
     file: callsite.getFileName() || '?',
     line: callsite.getLineNumber(),
+    column: callsite.getColumnNumber(),
   }))
 }

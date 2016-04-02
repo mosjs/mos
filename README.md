@@ -102,6 +102,7 @@ mos test --tap | tap-nyan
 <!--@dependencies()-->
 ## Dependencies
 
+- [acorn](https://github.com/ternjs/acorn): ECMAScript parser
 - [async-regex-replace](https://github.com/pmarkert/async-regex-replace): regex replacements using asynchronous callback functions
 - [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
