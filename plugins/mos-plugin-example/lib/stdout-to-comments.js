@@ -6,14 +6,14 @@ const walk = require('acorn/dist/walk')
 const fs = require('fs')
 const spawn = require('cross-spawn-async')
 const path = require('path')
+const SourceMapConsumer = require('source-map').SourceMapConsumer
 const hookPath = path.resolve(__dirname, './hook-console-log')
+const position = require('file-position')
 
 function stdoutToComments (filePath) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (err, content) => {
       if (err) return reject(err)
-
-      const ast = acorn.parse(content, {locations: true})
 
       const tmpFileName = filePath + Math.random() + '.js'
       fs.writeFileSync(tmpFileName, addHook({
@@ -46,52 +46,66 @@ function stdoutToComments (filePath) {
           return
         }
 
-        const codeLines = splitIntoLines(content)
-        const sOutputs = moveOutputsBeloveStatement(ast, outputs, codeLines)
-
-        resolve(codeLines.reduce((contentLines, line, index) => {
-          contentLines.push(line)
-          const lineNo = index + 1
-          while (sOutputs.length && sOutputs[0].line === lineNo) {
-            const matches = (contentLines[contentLines.length - 1] || '').match(/^(\s*)/)
-            const linePadding = matches && matches[0] || ''
-            contentLines.push(linePadding + '//> ' +
-              sOutputs.shift().message.replace(/\r?\n/g, '\n' + linePadding + '//  '))
+        fs.readFile(filePath + '.map', 'utf8', (err, sourceMap) => {
+          if (err) {
+            return resolve(insertOutputsToCode(content, outputs))
           }
-          return contentLines
-        }, []).join('\n'))
+          const consumer = new SourceMapConsumer(sourceMap)
+          const originalOutputs = outputs
+            .map(output => Object.assign({}, output, consumer.originalPositionFor({
+              line: output.line,
+              column: output.column,
+            })))
+          const sourcesContent = JSON.parse(sourceMap).sourcesContent
+          const sourceContent = sourcesContent[sourcesContent.length - 1]
+          resolve(insertOutputsToCode(sourceContent, originalOutputs))
+        })
       })
-
-      function moveOutputsBeloveStatement (ast, outputs, codeLines) {
-        let semanticLineNo = 0
-        const newOutputs = []
-        for (let i = 0, lineNo = 0; i < outputs.length; i++) {
-          if (outputs[i].line !== lineNo) {
-            const pos = locToPos(codeLines, outputs[i])
-            semanticLineNo = outputSemanticPosition(ast, pos)
-          }
-          newOutputs[i] = Object.assign(
-            {},
-            outputs[i],
-            {
-              line: semanticLineNo,
-            }
-          )
-        }
-        return newOutputs
-      }
     })
   })
 }
 
-function splitIntoLines (txt) {
-  return txt.split('\n')
+function insertOutputsToCode (content, outputs) {
+  const codeLines = splitIntoLines(content)
+  const sOutputs = moveOutputsBeloveStatement(outputs, codeLines, content)
+
+  return codeLines.reduce((contentLines, line, index) => {
+    contentLines.push(line)
+    const lineNo = index + 1
+    while (sOutputs.length && sOutputs[0].line === lineNo) {
+      const matches = (contentLines[contentLines.length - 1] || '').match(/^(\s*)/)
+      const linePadding = matches && matches[0] || ''
+      contentLines.push(linePadding + '//> ' +
+        sOutputs.shift().message.replace(/\r?\n/g, '\n' + linePadding + '//  '))
+    }
+    return contentLines
+  }, []).join('\n')
 }
 
-function locToPos (codeLines, loc) {
-  return codeLines
-    .slice(0, loc.line - 1)
-    .reduce((totalCols, codeLine) => totalCols + codeLine.length, 0) + loc.column
+function moveOutputsBeloveStatement (outputs, codeLines, content) {
+  const ast = acorn.parse(content, {locations: true, sourceType: 'module'})
+  const getPosition = position(content)
+
+  let semanticLineNo = 0
+  const newOutputs = []
+  for (let i = 0, lineNo = 0; i < outputs.length; i++) {
+    if (outputs[i].line !== lineNo) {
+      const pos = getPosition(outputs[i].line - 1, outputs[i].column)
+      semanticLineNo = outputSemanticPosition(ast, pos)
+    }
+    newOutputs[i] = Object.assign(
+      {},
+      outputs[i],
+      {
+        line: semanticLineNo,
+      }
+    )
+  }
+  return newOutputs
+}
+
+function splitIntoLines (txt) {
+  return txt.split('\n')
 }
 
 function outputSemanticPosition (ast, pos) {

@@ -10,6 +10,12 @@ function renderDeps (opts) {
 
   return depDetails
     .map(depDetails => '- ' + '[' + depDetails.name + '](' +
-      depDetails.repository.url + '): ' + depDetails.description)
+      getDepURL(depDetails) + '): ' + depDetails.description)
     .join('\n')
+}
+
+function getDepURL (depDetails) {
+  if (depDetails.repository) return depDetails.repository.url
+
+  return `https://npmjs.org/package/${depDetails.name}`
 }

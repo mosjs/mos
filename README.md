@@ -107,6 +107,7 @@ mos test --tap | tap-nyan
 - [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [cross-spawn-async](https://github.com/IndigoUnited/node-cross-spawn-async): Cross platform child_process#spawn
+- [file-position](https://github.com/hughsk/file-position): Given a row/column number, return the index of that character within the whole string
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
@@ -115,8 +116,12 @@ mos test --tap | tap-nyan
 - [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
+- [rollup](https://github.com/rollup/rollup): Next-generation ES6 module bundler
+- [rollup-plugin-babel](https://github.com/rollup/rollup-plugin-babel): Seamless integration between Rollup and Babel.
+- [rollup-plugin-includepaths](https://github.com/dot-build/rollup-plugin-includepaths): Rollup plugin to use relative paths in your project files
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [shields](https://github.com/kenany/shields): Generate shields for your current project's README
+- [source-map](https://github.com/mozilla/source-map): Generates and consumes source maps
 - [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
@@ -126,6 +131,8 @@ mos test --tap | tap-nyan
 <!--@devDependencies()-->
 ## Dev Dependencies
 
+- [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
+- [babel-preset-es2015-rollup](https://npmjs.org/package/babel-preset-es2015-rollup): This is [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/), minus [modules-commonjs](http://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/), plus [external-helpers](http://babeljs.io/docs/plugins/external-helpers/). Use it wi
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
 - [eslint](https://github.com/eslint/eslint): An AST-based pattern checker for JavaScript.
