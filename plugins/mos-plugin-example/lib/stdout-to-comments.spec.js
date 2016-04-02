@@ -149,4 +149,19 @@ describe('stdoutToComments', () => {
       ].join('\n'))
     )
   })
+
+  it('should output multiline results', () => {
+    return inlineStdoutToComments([
+      'console.log(JSON.stringify({ foo: 1, bar: 2 }, null, 2))',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'console.log(JSON.stringify({ foo: 1, bar: 2 }, null, 2))',
+        '//> {',
+        '//    "foo": 1,',
+        '//    "bar": 2',
+        '//  }',
+      ].join('\n'))
+    )
+  })
 })

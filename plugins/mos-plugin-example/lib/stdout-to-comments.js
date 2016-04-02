@@ -29,8 +29,10 @@ function stdoutToComments (filePath) {
       cp.stderr.setEncoding('utf8')
       cp.stdout.on('data', data => {
         try {
-          splitIntoLines(data)
-            .forEach(line => eval(`outputs.push(${line})`)) // eslint-disable-line no-eval
+          data.split('\n$\n')
+            .filter(outputJSON => !!outputJSON)
+            .map(outputJSON => JSON.parse(outputJSON))
+            .forEach(outputInfo => outputs.push(outputInfo))
         } catch (err) {
           failed = true
           reject(err)

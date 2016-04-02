@@ -10,11 +10,11 @@ function hookConsoleLog (filePath) {
   console.log = function () {
     const site = callsiteForFile(filePath)
 
-    originalLog({
+    originalLog('\n$\n' + JSON.stringify({
       message: getRealConsoleOutput.apply(null, arguments),
       line: site.line - 1,
       column: site.column,
-    })
+    }))
   }
 }
 
