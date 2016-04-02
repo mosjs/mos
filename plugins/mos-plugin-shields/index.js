@@ -1,25 +1,12 @@
 'use strict'
 module.exports = plugin
 
-const readPkgUp = require('read-pkg-up')
-const gh = require('github-url-to-object')
+const getShieldOpts = require('./lib/get-shield-opts')
 const createShieldsRenderer = require('./lib/create-shields-renderer')
 
 function plugin (markdown) {
-  return readPkgUp({cwd: markdown.filePath})
-    .then(result => {
-      const pkg = result.pkg
-
-      const github = pkg.repository && pkg.repository.url &&
-        gh(pkg.repository.url)
-
-      if (!github) {
-        return Promise
-          .reject(new Error('The shields plugin only works for github repos'))
-      }
-
-      return Promise.resolve({
-        shields: createShieldsRenderer({ github, pkg }),
-      })
-    })
+  return getShieldOpts(markdown)
+    .then(opts => Promise.resolve({
+      shields: createShieldsRenderer(opts),
+    }))
 }
