@@ -29,7 +29,8 @@ function stdoutToComments (filePath) {
       cp.stderr.setEncoding('utf8')
       cp.stdout.on('data', data => {
         try {
-          eval(`outputs.push(${data})`) // eslint-disable-line no-eval
+          splitIntoLines(data)
+            .forEach(line => eval(`outputs.push(${line})`)) // eslint-disable-line no-eval
         } catch (err) {
           failed = true
           reject(err)
@@ -43,7 +44,7 @@ function stdoutToComments (filePath) {
           return
         }
 
-        const codeLines = content.split('\n')
+        const codeLines = splitIntoLines(content)
         const sOutputs = moveOutputsBeloveStatement(ast, outputs, codeLines)
 
         resolve(codeLines.reduce((contentLines, line, index) => {
@@ -79,6 +80,10 @@ function stdoutToComments (filePath) {
       }
     })
   })
+}
+
+function splitIntoLines (txt) {
+  return txt.split('\n')
 }
 
 function locToPos (codeLines, loc) {

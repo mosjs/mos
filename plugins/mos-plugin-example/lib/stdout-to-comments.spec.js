@@ -117,4 +117,36 @@ describe('stdoutToComments', () => {
       ].join('\n'))
     )
   })
+
+  it('should add multiple outputs from the same line below', () => {
+    return inlineStdoutToComments([
+      'for (var i = 0; i < 2; i++) {',
+      '  console.log("Hello world!")',
+      '}',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'for (var i = 0; i < 2; i++) {',
+        '  console.log("Hello world!")',
+        Array(2).fill('  //> Hello world!').join('\n'),
+        '}',
+      ].join('\n'))
+    )
+  })
+
+  it('should parse properly glued output from child process', () => {
+    return inlineStdoutToComments([
+      'for (var i = 0; i < 100; i++) {',
+      '  console.log("Hello world!")',
+      '}',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'for (var i = 0; i < 100; i++) {',
+        '  console.log("Hello world!")',
+        Array(100).fill('  //> Hello world!').join('\n'),
+        '}',
+      ].join('\n'))
+    )
+  })
 })
