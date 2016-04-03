@@ -21,6 +21,14 @@ Keeps your markdown files up to date
 ![](http://i.imgur.com/tXcB20W.png)
 
 
+## Why mos?
+
+* Markdown files are always up to date
+* Examples in markdown files are always correct
+* Shields (a.k.a. badges) are auto-generated
+* All the commonly used README sections are auto-generated using info from `package.json`
+
+
 <!--@installation()-->
 ## Installation
 
@@ -89,6 +97,8 @@ Regenerate the markdown files if they are out of date.
 
 Test the markdown files. Fails if can't generate one of the markdown files or one of the markdown files is out of date. It is recommended to add this command to the `scripts.test` property of `package.json`.
 
+![](http://i.imgur.com/t6CLmMS.png?1)
+
 
 #### Optional TAP output
 
@@ -97,6 +107,8 @@ Mos can generate TAP output via `--tap` option for use with any [TAP reporter](h
 ``` console
 mos test --tap | tap-nyan
 ```
+
+![](http://i.imgur.com/jet4ZAG.png?2)
 
 
 <!--@dependencies()-->
