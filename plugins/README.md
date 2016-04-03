@@ -35,3 +35,10 @@ module.exports = markdown => ({
 The markdown object properties:
 
 * `filePath` - the path to the markdown file
+
+
+## Naming convention
+
+The name of plugin package has to be prefixed with `mos-plugin-`. Otherwise it won't be detected by mos.
+It is recommended to also add the `mos-plugin` keyword to the `keywords` property of the plugin's `package.json`.
+This will make it easier to search for mos plugins on npm.

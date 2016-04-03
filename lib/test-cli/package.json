@@ -1,8 +1,12 @@
 {
   "name": "slipsum-lite",
+  "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/zkochan/mos"
+  },
+  "dependencies": {
+    "mos-plugin-foo": "*"
   }
 }
