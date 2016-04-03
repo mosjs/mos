@@ -10,7 +10,7 @@ function renderDeps (opts) {
 
   return depDetails
     .map(depDetails => '- ' + '[' + depDetails.name + '](' +
-      getDepURL(depDetails) + '): ' + depDetails.description)
+      getDepURL(depDetails) + '): ' + depDetails.description.trim())
     .join('\n')
 }
 
