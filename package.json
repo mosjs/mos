@@ -39,7 +39,8 @@
     "documentation",
     "badges",
     "shields",
-    "example"
+    "example",
+    "test"
   ],
   "author": {
     "name": "Zoltan Kochan",
