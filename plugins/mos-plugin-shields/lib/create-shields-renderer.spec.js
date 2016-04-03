@@ -72,4 +72,18 @@ describe('createShieldsRenderer', () => {
       '[![NPM version](https://img.shields.io/npm/v/mos.svg?style=plastic)](https://www.npmjs.com/package/mos)',
     ].join('\n'))
   })
+
+  it('should throw exception if shield not supported', () => {
+    const shields = createShieldsRenderer({
+      github: {
+        user: 'zkochan',
+        repo: 'mos',
+      },
+      pkg: {
+        name: 'mos',
+      },
+    })
+    expect(() => shields('no-such-shield'))
+      .to.throw(Error, '`no-such-shield` shield is not supported')
+  })
 })

@@ -23,7 +23,13 @@ module.exports = opts => {
     return function () {
       const shields = slice.call(arguments)
       return shields
-        .map(shieldName => getShieldProps(shieldName, shieldOpts))
+        .map(shieldName => {
+          const shieldProps = getShieldProps(shieldName, shieldOpts)
+          if (!shieldProps) {
+            throw new Error('`' + shieldName + '` shield is not supported')
+          }
+          return shieldProps
+        })
         .map(renderShield)
         .join('\n')
     }
