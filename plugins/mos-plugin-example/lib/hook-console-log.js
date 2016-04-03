@@ -3,6 +3,7 @@ module.exports = hookConsoleLog
 
 const callsites = require('callsites')
 const removeLastEOL = require('../../remove-last-eol')
+const normalizePath = require('normalize-path')
 
 const originalLog = console.log
 
@@ -38,7 +39,7 @@ function callsiteForFile (fileName) {
 
 function trace () {
   return callsites().map(callsite => ({
-    file: callsite.getFileName() || '?',
+    file: normalizePath(callsite.getFileName()) || '?',
     line: callsite.getLineNumber(),
     column: callsite.getColumnNumber(),
   }))

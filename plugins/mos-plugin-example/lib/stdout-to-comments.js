@@ -7,7 +7,8 @@ const fs = require('fs')
 const spawn = require('cross-spawn-async')
 const path = require('path')
 const SourceMapConsumer = require('source-map').SourceMapConsumer
-const hookPath = path.resolve(__dirname, './hook-console-log')
+const normalizePath = require('normalize-path')
+const hookPath = normalizePath(path.resolve(__dirname, './hook-console-log'))
 const position = require('file-position')
 
 function stdoutToComments (filePath) {
@@ -15,7 +16,7 @@ function stdoutToComments (filePath) {
     fs.readFile(filePath, 'utf8', (err, content) => {
       if (err) return reject(err)
 
-      const tmpFileName = filePath + Math.random() + '.js'
+      const tmpFileName = normalizePath(filePath + Math.random() + '.js')
       fs.writeFileSync(tmpFileName, addHook({
         code: content,
         filePath: tmpFileName,
