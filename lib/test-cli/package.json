@@ -8,5 +8,8 @@
   },
   "dependencies": {
     "mos-plugin-foo": "*"
+  },
+  "devDependencies": {
+    "mos-plugin-bar": "*"
   }
 }
