@@ -2,8 +2,8 @@
 # mos
 <!--/@-->
 
-<!--@package.description-->
-Keeps your markdown files up to date
+<!--@'> ' + package.description-->
+> A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
 <!--@shields.flatSquare('travis', 'deps', 'coveralls', 'npm')-->
@@ -14,19 +14,20 @@ Keeps your markdown files up to date
 <!--/@-->
 
 
-## TL;DR
-
-*MOS = Markdown on Steroids!* Mos allows to inject content into your markdown files via hidden JavaScript snippets inside your md files. [This README](https://raw.githubusercontent.com/zkochan/mos/master/README.md) uses Mos.
-
-![](http://i.imgur.com/tXcB20W.png)
-
-
 ## Why mos?
 
 * Markdown files are always up to date
-* Examples in markdown files are always correct
-* Shields (a.k.a. badges) are auto-generated
-* All the commonly used README sections are auto-generated using info from `package.json`
+* [Examples are always correct][mos-plugin-example]
+* [Shields (a.k.a. badges) are auto-generated][mos-plugin-shields]
+* Commonly used README sections are auto-generated using info from `package.json`
+* Plugins can be used for tons of additional features
+
+
+## Preview
+
+The [readme][] you are currently reading uses mos!
+
+![](http://i.imgur.com/tXcB20W.png)
 
 
 <!--@installation()-->
@@ -69,24 +70,7 @@ Now your readme has both the code that generates the content and the content its
 ![Happy cat](http://i.imgur.com/JG9BXxe.jpg)
 
 
-## Plugins
-
-In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are *declared by mos plugins*. The `package` variable is create by the [package-json](./plugins/package-json) plugin.
-
-There are a few mos plugins that are installed with mos by default:
-
-* [package-json](./plugins/mos-plugin-package-json)
-* [shields](./plugins/mos-plugin-shields)
-* [license](./plugins/mos-plugin-license)
-* [installation](./plugins/mos-plugin-installation)
-* [example](./plugins/mos-plugin-example)
-* [dependencies](./plugins/mos-plugin-dependencies)
-* [snippet](./plugins/mos-plugin-snippet)
-
-Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
-
-
-## Commands
+## CLI Usage
 
 ### `mos`
 
@@ -110,6 +94,36 @@ mos test --tap | tap-nyan
 
 ![](http://i.imgur.com/jet4ZAG.png?2)
 
+
+## Plugins
+
+In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are *declared by mos plugins*. The `package` variable is create by the [package-json](./plugins/package-json) plugin.
+
+There are a few mos plugins that are installed with mos by default:
+
+* [package-json](./plugins/mos-plugin-package-json)
+* [shields][mos-plugin-shields]
+* [license](./plugins/mos-plugin-license)
+* [installation](./plugins/mos-plugin-installation)
+* [example][mos-plugin-example]
+* [dependencies](./plugins/mos-plugin-dependencies)
+* [snippet](./plugins/mos-plugin-snippet)
+
+Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
+
+
+## Who uses mos?
+
+* [magic-hook](https://github.com/zkochan/magic-hook)
+
+
+<!--@license()-->
+## License
+
+MIT © [Zoltan Kochan](http://kochan.io)
+<!--/@-->
+
+***
 
 <!--@dependencies()-->
 ## Dependencies
@@ -160,9 +174,12 @@ mos test --tap | tap-nyan
 
 <!--/@-->
 
+***
 
-<!--@license()-->
-## License
+**What does mos mean?**
+<br>
+It means *Markdown on Steroids*!
 
-MIT © [Zoltan Kochan](http://kochan.io)
-<!--/@-->
+[readme]: https://raw.githubusercontent.com/zkochan/mos/master/README.md
+[mos-plugin-example]: ./plugins/mos-plugin-example
+[mos-plugin-shields]: ./plugins/mos-plugin-shields

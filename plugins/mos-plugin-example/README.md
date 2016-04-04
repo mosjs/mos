@@ -101,5 +101,5 @@ console.log(sum(...numbers))
 
 ## API
 
-`example(relativePathToFile)`
-`example.es6(relativePathToFile)` - process an example written in ES6
+* `example(relativePathToFile)`
+* `example.es6(relativePathToFile)` - process an example written in ES6
