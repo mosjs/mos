@@ -32,9 +32,10 @@ We can load this file via the example plugin. The mos plugin will execute the co
 
 In the current `README.md` we have this code snippet:
 
-<!&dash;-@example('./example/index.js')-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@example('./example/index.js')-->
+<!--/@-->
+```
 
 It produces this code block, with the outputs written under the `console.log`s inside comments:
 

@@ -7,9 +7,10 @@ A mos plugin that allows to embed snippets from files to the markdown
 
 In this markdown file there is this template code:
 
-<!&dash;-@snippet('./lib/test/file-1.js#foo', { showSource: true })-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@snippet('./lib/test/file-1.js#foo', { showSource: true })-->
+<!--/@-->
+```
 
 And it is rendered into this snippet:
 

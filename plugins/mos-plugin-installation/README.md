@@ -7,9 +7,10 @@ A mos plugin that adds an installation section generator to the markdown scope
 
 Add this code snippet to your `README.md`
 
-<!&dash;-@installation()-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@installation()-->
+<!--/@-->
+```
 
 Run `mos` in the terminal.
 

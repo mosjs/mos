@@ -7,9 +7,10 @@ A mos plugin that adds that creates a dependencies section
 
 Add this code snippet somewhere in your markdown file:
 
-<!&dash;-@dependencies()-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@dependencies()-->
+<!--/@-->
+```
 
 Run `mos` in the terminal.
 

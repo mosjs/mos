@@ -51,19 +51,20 @@ Lets use mos to write a readme with some dynamic data. Have you ever renamed you
 
 **README.md**
 
-<!&dash;-@'# ' + package.name-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@'# ' + package.name-->
+<!--/@-->
+```
 
 If you view your readme now, it will be empty. However, you have the code that can insert the title in your readme. All you have to do now is to run `mos` in a terminal.
 
 Once you've ran `mos`, the readme will look like this:
 
-<!&dash;-@'# ' + package.name-&dash;>
-<br>
-\# my-awesome-module
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@'# ' + package.name-->
+# my-awesome-module
+<!--/@-->
+```
 
 Now your readme has both the code that generates the content and the content itself. However, only the content is visible after the readme is generated to HTML by GitHub or npm. Awesome!
 
@@ -128,8 +129,8 @@ MIT © [Zoltan Kochan](http://kochan.io)
 <!--@dependencies()-->
 ## Dependencies
 
+- [@zkochan/async-regex-replace](https://github.com/pmarkert/async-regex-replace): regex replacements using asynchronous callback functions
 - [acorn](https://github.com/ternjs/acorn): ECMAScript parser
-- [async-regex-replace](https://github.com/pmarkert/async-regex-replace): regex replacements using asynchronous callback functions
 - [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [cross-spawn-async](https://github.com/IndigoUnited/node-cross-spawn-async): Cross platform child_process#spawn

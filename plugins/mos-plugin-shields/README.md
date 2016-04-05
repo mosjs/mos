@@ -7,9 +7,10 @@ A mos plugin that adds shields generator to the markdown scope
 
 Add this code snippet to your `README.md`
 
-<!&dash;-@shields('travis', 'dependencies')-&dash;>
-<br>
-<!&dash;-/@-&dash;>
+``` md
+<!--@shields('travis', 'dependencies')-->
+<!--/@-->
+```
 
 Run `mos` in the terminal.
 
