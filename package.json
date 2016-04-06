@@ -53,7 +53,7 @@
   },
   "homepage": "https://github.com/zkochan/mos#readme",
   "dependencies": {
-    "@zkochan/async-regex-replace": "0.2.0",
+    "@zkochan/async-replace": "0.3.0",
     "acorn": "3.0.4",
     "callsites": "1.0.0",
     "chalk": "1.1.3",
