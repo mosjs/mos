@@ -118,6 +118,22 @@ describe('stdoutToComments', () => {
     )
   })
 
+  it('should add the console output after the multiline console log statement #2', () => {
+    return inlineStdoutToComments([
+      'console.log(',
+      '  "foo"',
+      ')',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'console.log(',
+        '  "foo"',
+        ')',
+        '//> foo',
+      ].join('\n'))
+    )
+  })
+
   it('should add multiple outputs from the same line below', () => {
     return inlineStdoutToComments([
       'for (var i = 0; i < 2; i++) {',

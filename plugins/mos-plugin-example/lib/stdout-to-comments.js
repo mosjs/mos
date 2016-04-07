@@ -110,7 +110,7 @@ function splitIntoLines (txt) {
 }
 
 function outputSemanticPosition (ast, pos) {
-  const node = walk.findNodeAfter(ast, pos)
+  const node = walk.findNodeAround(ast, pos, 'ExpressionStatement')
   return node.node.loc.end.line
 }
 
