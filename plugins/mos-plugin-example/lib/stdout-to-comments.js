@@ -10,11 +10,14 @@ const SourceMapConsumer = require('source-map').SourceMapConsumer
 const normalizePath = require('normalize-path')
 const hookPath = normalizePath(path.resolve(__dirname, './hook-console-log'))
 const position = require('file-position')
+const normalizeNewline = require('normalize-newline')
 
 function stdoutToComments (filePath) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (err, content) => {
       if (err) return reject(err)
+
+      content = normalizeNewline(content)
 
       const tmpFileName = normalizePath(filePath + Math.random() + '.js')
       fs.writeFileSync(tmpFileName, addHook({

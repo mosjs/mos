@@ -100,6 +100,24 @@ describe('stdoutToComments', () => {
     )
   })
 
+  it('should work with windows new lines', () => {
+    return inlineStdoutToComments([
+      'function foo (a) {\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n',
+      '  console.log(a)',
+      '}',
+      'foo("Hello world!")',
+    ].join('\n'))
+    .then(actual =>
+      expect(actual).to.eq([
+        'function foo (a) {\n\n\n\n\n\n\n\n\n\n\n\n',
+        '  console.log(a)',
+        '  //> Hello world!',
+        '}',
+        'foo("Hello world!")',
+      ].join('\n'))
+    )
+  })
+
   it('should add the console output after the multiline console log statement', () => {
     return inlineStdoutToComments([
       'console.log([',
