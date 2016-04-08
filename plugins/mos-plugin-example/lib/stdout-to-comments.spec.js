@@ -198,4 +198,13 @@ describe('stdoutToComments', () => {
       ].join('\n'))
     )
   })
+
+  it('should output syntax error', done => {
+    inlineStdoutToComments('+="')
+      .catch(err => {
+        expect(err).to.be.instanceOf(Error)
+        expect(err.message).to.match(/SyntaxError: Unexpected token \+=/)
+        done()
+      })
+  })
 })

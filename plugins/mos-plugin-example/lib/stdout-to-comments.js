@@ -42,9 +42,14 @@ function stdoutToComments (filePath) {
           reject(err)
         }
       })
-      cp.stderr.on('data', data => console.error(data))
+      let errData = ''
+      cp.stderr.on('data', data => { errData += data })
       cp.on('close', code => {
         fs.unlinkSync(tmpFileName)
+
+        if (errData) {
+          return reject(new Error(errData))
+        }
 
         if (failed) {
           return
