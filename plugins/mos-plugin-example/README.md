@@ -2,12 +2,11 @@
 
 A mos plugin that combines example code files with their output
 
-
 ## Usage
 
 There is an [example/index.js](./example/index.js) file in this module. Its content is:
 
-``` js
+```js
 'use strict'
 console.log('Hello world!')
 
@@ -32,7 +31,7 @@ We can load this file via the example plugin. The mos plugin will execute the co
 
 In the current `README.md` we have this code snippet:
 
-``` md
+```md
 <!--@example('./example/index.js')-->
 <!--/@-->
 ```
@@ -78,7 +77,6 @@ printEachLetter('Hello world!')
 ```
 <!--/@-->
 
-
 ## ES6
 
 example/ can be written in ES6, but they have to be loaded with `example.es6`.
@@ -99,8 +97,7 @@ console.log(sum(...numbers))
 ```
 <!--/@-->
 
-
 ## API
 
-* `example(relativePathToFile)`
-* `example.es6(relativePathToFile)` - process an example written in ES6
+- `example(relativePathToFile)`
+- `example.es6(relativePathToFile)` - process an example written in ES6

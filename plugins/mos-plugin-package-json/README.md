@@ -2,10 +2,9 @@
 
 A mos plugin that makes the package json available in the markdown scope
 
-
 ## Usage
 
-``` md
+```md
 <!--@'# ' + package.name-->
 # my-awesome-module
 <!--/@-->

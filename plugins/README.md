@@ -4,7 +4,7 @@ A mos plugin is a pure function that accepts a `markdown` parameter and returns 
 
 For instance, if you want to extend the markdown's scope with a `sum` function, you can write a plugin like this one:
 
-``` js
+```js
 module.exports = markdown => ({
   sum (a, b) {
     return a + b
@@ -14,7 +14,7 @@ module.exports = markdown => ({
 
 A plugin can return a Promise as well:
 
-``` js
+```js
 module.exports = markdown => Promise.resolve({
   sum (a, b) {
     return a + b
@@ -24,7 +24,7 @@ module.exports = markdown => Promise.resolve({
 
 The function in the scope can return the generated markdown content through Promise:
 
-``` js
+```js
 module.exports = markdown => ({
   sum (a, b) {
     return new Promise(resolve => setTimeout(() => resolve(a + b), 1000))
@@ -34,8 +34,7 @@ module.exports = markdown => ({
 
 The markdown object properties:
 
-* `filePath` - the path to the markdown file
-
+- `filePath` - the path to the markdown file
 
 ## Naming convention
 
