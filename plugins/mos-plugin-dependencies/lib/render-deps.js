@@ -9,8 +9,7 @@ function renderDeps (opts) {
   if (!depDetails.length) return 'None'
 
   return depDetails
-    .map(depDetails => '- ' + '[' + depDetails.name + '](' +
-      getDepURL(depDetails) + '): ' + depDetails.description.trim())
+    .map(depDetails => `- [${depDetails.name}](${getDepURL(depDetails)}): ${depDetails.description.trim()}`)
     .join('\n')
 }
 

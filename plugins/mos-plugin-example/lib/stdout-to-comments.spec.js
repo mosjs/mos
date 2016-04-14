@@ -12,7 +12,7 @@ describe('stdoutToComments', () => {
   let tmpFileName
 
   beforeEach(() => {
-    tmpFileName = path.resolve(__dirname, 'test-' + Math.random() + '.js')
+    tmpFileName = path.resolve(__dirname, `test-${Math.random()}.js`)
   })
 
   function inlineStdoutToComments (code) {

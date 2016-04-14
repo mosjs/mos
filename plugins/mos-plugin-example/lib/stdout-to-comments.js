@@ -19,7 +19,7 @@ function stdoutToComments (filePath) {
 
       content = normalizeNewline(content)
 
-      const tmpFileName = normalizePath(filePath + Math.random() + '.js')
+      const tmpFileName = normalizePath(`${filePath}${Math.random()}.js`)
       fs.writeFileSync(tmpFileName, addHook({
         code: content,
         filePath: tmpFileName,
@@ -55,7 +55,7 @@ function stdoutToComments (filePath) {
           return
         }
 
-        fs.readFile(filePath + '.map', 'utf8', (err, sourceMap) => {
+        fs.readFile(`${filePath}.map`, 'utf8', (err, sourceMap) => {
           if (err) {
             return resolve(insertOutputsToCode(content, outputs))
           }
@@ -84,11 +84,14 @@ function insertOutputsToCode (content, outputs) {
     while (sOutputs.length && sOutputs[0].line === lineNo) {
       const matches = (contentLines[contentLines.length - 1] || '').match(/^(\s*)/)
       const linePadding = matches && matches[0] || ''
-      contentLines.push(linePadding + '//> ' +
-        sOutputs.shift().message.replace(/\r?\n/g, '\n' + linePadding + '//  '))
+      contentLines.push(outputToComment(sOutputs.shift().message, linePadding))
     }
     return contentLines
   }, []).join('\n')
+}
+
+function outputToComment (output, padding) {
+  return `${padding}//> ${output.replace(/\r?\n/g, `\n${padding}//  `)}`
 }
 
 function moveOutputsBeloveStatement (outputs, codeLines, content) {

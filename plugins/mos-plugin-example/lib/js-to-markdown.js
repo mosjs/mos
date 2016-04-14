@@ -14,7 +14,7 @@ function jsToMarkdown (code) {
   const afterCode = code.slice(match.index + match[0].length, code.length).trim()
 
   const rest = jsToMarkdown(afterCode)
-  return (beforeCode ? codeBlock(beforeCode) + '\n\n' : '') + comment +
+  return (beforeCode ? `${codeBlock(beforeCode)}\n\n` : '') + comment +
     (rest ? '\n\n' + rest : '')
 }
 

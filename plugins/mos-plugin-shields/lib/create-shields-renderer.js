@@ -17,7 +17,7 @@ module.exports = opts => {
   function styledShield (style) {
     const getShieldProps = shielder({ style })
     const shieldOpts = {
-      repo: github.user + '/' + github.repo,
+      repo: `${github.user}/${github.repo}`,
       npmName: pkg.name,
     }
     return function () {

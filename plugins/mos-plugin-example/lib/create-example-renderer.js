@@ -30,7 +30,7 @@ module.exports = opts => {
 
   example.es6 = function (relativeFilePath) {
     return new Promise((resolve, reject) => {
-      const es5FilePath = relativeFilePath + 'es5.js'
+      const es5FilePath = `${relativeFilePath}es5.js`
       return rollup.rollup({
         entry: path.resolve(markdownDir, relativeFilePath),
         plugins: [
@@ -60,7 +60,7 @@ module.exports = opts => {
       function cleanUp () {
         try {
           fs.unlinkSync(path.resolve(markdownDir, es5FilePath))
-          fs.unlinkSync(path.resolve(markdownDir, es5FilePath + '.map'))
+          fs.unlinkSync(path.resolve(markdownDir, `${es5FilePath}.map`))
         } catch (err) {
           console.log(err)
         }

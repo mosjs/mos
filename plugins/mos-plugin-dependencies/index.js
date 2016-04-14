@@ -11,14 +11,18 @@ function plugin (markdown) {
       const pkg = result.pkg
 
       return Promise.resolve({
-        dependencies: () => '## Dependencies\n\n' + renderDeps({
-          deps: pkg.dependencies,
-          pkgRoot: path.dirname(result.path),
-        }) + '\n',
-        devDependencies: () => '## Dev Dependencies\n\n' + renderDeps({
-          deps: pkg.devDependencies,
-          pkgRoot: path.dirname(result.path),
-        }) + '\n',
+        dependencies: () => `## Dependencies\n\n${
+          renderDeps({
+            deps: pkg.dependencies,
+            pkgRoot: path.dirname(result.path),
+          })
+        }\n`,
+        devDependencies: () => `## Dev Dependencies\n\n${
+          renderDeps({
+            deps: pkg.devDependencies,
+            pkgRoot: path.dirname(result.path),
+          })
+        }\n`,
       })
     })
 }
