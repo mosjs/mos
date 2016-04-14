@@ -6,11 +6,11 @@
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
-<!--@shields.flatSquare('travis', 'deps', 'coveralls', 'npm')-->
-[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
-[![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
-[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+<!--@shields.flatSquare('npm', 'travis', 'coveralls', 'deps')-->
 [![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
+[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
 <!--/@-->
 
 
