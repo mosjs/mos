@@ -5,6 +5,6 @@ const renderLicense = require('./lib/render-license')
 
 function plugin (markdown) {
   return {
-    license: () => renderLicense(markdown.pkg),
+    license: () => renderLicense(markdown),
   }
 }
