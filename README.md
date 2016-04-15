@@ -26,7 +26,21 @@
 
 The [readme][] you are currently reading uses mos!
 
-![](http://i.imgur.com/tXcB20W.png)
+``` md
+<!--@'# ' + package.name-->
+# mos
+<!--/@-->
+
+<!--@'> ' + package.description-->
+> A pluggable module that injects content into your markdown files via hidden JavaScript snippets
+<!--/@-->
+
+<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
+[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+<!--/@-->
+```
 
 
 <!--@installation()-->
