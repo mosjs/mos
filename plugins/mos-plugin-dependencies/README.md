@@ -26,6 +26,8 @@ You'll get a dependencies section with the list of the dependencies used in the 
 
 ## API
 
-`dependencies()` - create a section with the list of dependencies
+`dependencies(opts)` - create a section with the list of dependencies
 
-`devDependencies()` - create a section with the list of dev dependencies
+`devDependencies(opts)` - create a section with the list of dev dependencies
+
+* `opts.shield` - *boolean* or *string* - tells whether to add a dependency shield or not. If `true`, adds a shield using default styling. If a `string`, adds a shield with the style specified by the string. Is `false` by default.
