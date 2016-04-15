@@ -137,6 +137,7 @@ MIT © [Zoltan Kochan](http://kochan.io)
 - [file-position](https://github.com/hughsk/file-position): Given a row/column number, return the index of that character within the whole string
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
+- [linemap](https://npmjs.org/package/linemap): linemap makes conversions between character offsets and line numbers
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
