@@ -1,12 +1,17 @@
 'use strict'
 module.exports = plugin
 
-const getShieldOpts = require('./lib/get-shield-opts')
 const createShieldsRenderer = require('./lib/create-shields-renderer')
 
 function plugin (markdown) {
-  return getShieldOpts(markdown)
-    .then(opts => Promise.resolve({
-      shields: createShieldsRenderer(opts),
-    }))
+  if (!markdown.repo || markdown.repo.host !== 'github.com') {
+    throw new Error('The shields plugin only works for github repos')
+  }
+
+  return {
+    shields: createShieldsRenderer({
+      github: markdown.repo,
+      pkg: markdown.pkg,
+    }),
+  }
 }

@@ -6,11 +6,10 @@
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
-<!--@shields.flatSquare('npm', 'travis', 'coveralls', 'deps')-->
+<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
 [![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
 [![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
 [![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
-[![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
 <!--/@-->
 
 
@@ -27,7 +26,21 @@
 
 The [readme][] you are currently reading uses mos!
 
-![](http://i.imgur.com/tXcB20W.png)
+``` md
+<!--@'# ' + package.name-->
+# mos
+<!--/@-->
+
+<!--@'> ' + package.description-->
+> A pluggable module that injects content into your markdown files via hidden JavaScript snippets
+<!--/@-->
+
+<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
+[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+<!--/@-->
+```
 
 
 <!--@installation()-->
@@ -121,22 +134,24 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 <!--@license()-->
 ## License
 
-MIT © [Zoltan Kochan](http://kochan.io)
+[MIT](./LICENSE) © [Zoltan Kochan](http://kochan.io)
 <!--/@-->
 
 ***
 
-<!--@dependencies()-->
-## Dependencies
+<!--@dependencies({ shield: 'flat-square' })-->
+## Dependencies [![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
 
 - [@zkochan/async-replace](https://github.com/zkochan/async-replace): Regex replacements using asynchronous callback functions
 - [acorn](https://github.com/ternjs/acorn): ECMAScript parser
 - [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [cross-spawn-async](https://github.com/IndigoUnited/node-cross-spawn-async): Cross platform child_process#spawn
+- [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [file-position](https://github.com/hughsk/file-position): Given a row/column number, return the index of that character within the whole string
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
+- [linemap](https://npmjs.org/package/linemap): linemap makes conversions between character offsets and line numbers
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
@@ -155,8 +170,8 @@ MIT © [Zoltan Kochan](http://kochan.io)
 <!--/@-->
 
 
-<!--@devDependencies()-->
-## Dev Dependencies
+<!--@devDependencies({ shield: 'flat-square' })-->
+## Dev Dependencies [![devDependency status](https://img.shields.io/david/dev/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos#info=devDependencies)
 
 - [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
 - [babel-preset-es2015-rollup](https://npmjs.org/package/babel-preset-es2015-rollup): This is [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/), minus [modules-commonjs](http://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/), plus [external-helpers](http://babeljs.io/docs/plugins/external-helpers/). Use it wi
