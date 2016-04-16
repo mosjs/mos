@@ -41,6 +41,15 @@ describe('createSnippetRenderer', () => {
       ].join('\n')))
   })
 
+  it('should get snippet from existing md file', () => {
+    return snippet('./file-4.md#bar')
+      .then(md => expect(md).to.eq([
+        '``` md',
+        'bar',
+        '```',
+      ].join('\n')))
+  })
+
   it('should get snippet from existing js file and add link to the source', () => {
     return snippet('./file-1.js#foo', { showSource: true })
       .then(md => expect(md).to.eq([

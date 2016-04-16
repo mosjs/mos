@@ -7,6 +7,7 @@ const regexes = {
   js: '\/\/ *#{anchor}\n([\\s\\S]*?)\/\/ *#',
   css: '\/\\* *#{anchor} *\\*\/\n([\\s\\S]*?)\/\\* *# *\\*\/',
   html: '<!-- *#{anchor} *-->\n([\\s\\S]*?)<!-- *# *-->',
+  md: '<!-- *#{anchor} *-->\n([\\s\\S]*?)<!-- *# *-->',
 }
 
 module.exports = markdown => {
