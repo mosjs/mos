@@ -72,7 +72,8 @@ function fenceCode (code, language) {
 }
 
 function getLinesCount (text) {
-  return text.match(/\n/g).length + 1
+  const matches = text.match(/\n/g) || []
+  return matches.length + 1
 }
 
 function parseSnippetId (id) {

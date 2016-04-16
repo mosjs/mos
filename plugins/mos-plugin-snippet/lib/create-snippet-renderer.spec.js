@@ -120,4 +120,14 @@ describe('createSnippetRenderer', () => {
         '> File [./file-1.js](./file-1.js)',
       ].join('\n')))
   })
+
+  it('should get snippet from beginning of file and add source', () => {
+    return snippet('./file-5.md#bar', { showSource: true })
+      .then(md => expect(md).to.eq([
+        '``` md',
+        'bar',
+        '```',
+        '> Excerpt from [./file-5.md](./file-5.md#L2-L2)',
+      ].join('\n')))
+  })
 })
