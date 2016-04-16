@@ -40,6 +40,7 @@ function plugin (markdown) {
     const getShieldProps = shielder({style})
     const shieldProps = getShieldProps(shieldName, {
       repo: `${markdown.repo.user}/${markdown.repo.repo}`,
+      branch: 'master',
     })
 
     return ` ${renderShield(shieldProps)}`

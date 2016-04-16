@@ -15,7 +15,7 @@ describe('createShieldsRenderer', () => {
         name: 'mos',
       },
     })
-    expect(shields('travis')).to.eq('[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat)](https://travis-ci.org/zkochan/mos)')
+    expect(shields('travis')).to.eq('[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat)](https://travis-ci.org/zkochan/mos)')
   })
 
   it('should create flat travis shield', () => {
@@ -28,7 +28,7 @@ describe('createShieldsRenderer', () => {
         name: 'mos',
       },
     })
-    expect(shields.flat('travis')).to.eq('[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat)](https://travis-ci.org/zkochan/mos)')
+    expect(shields.flat('travis')).to.eq('[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat)](https://travis-ci.org/zkochan/mos)')
   })
 
   it('should create flat square travis shield', () => {
@@ -41,7 +41,7 @@ describe('createShieldsRenderer', () => {
         name: 'mos',
       },
     })
-    expect(shields.flatSquare('travis')).to.eq('[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)')
+    expect(shields.flatSquare('travis')).to.eq('[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)')
   })
 
   it('should create plastic travis shield', () => {
@@ -54,7 +54,7 @@ describe('createShieldsRenderer', () => {
         name: 'mos',
       },
     })
-    expect(shields.plastic('travis')).to.eq('[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=plastic)](https://travis-ci.org/zkochan/mos)')
+    expect(shields.plastic('travis')).to.eq('[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=plastic)](https://travis-ci.org/zkochan/mos)')
   })
 
   it('should create several shields', () => {
@@ -68,7 +68,7 @@ describe('createShieldsRenderer', () => {
       },
     })
     expect(shields.plastic('travis', 'npm')).to.eq([
-      '[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=plastic)](https://travis-ci.org/zkochan/mos)',
+      '[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=plastic)](https://travis-ci.org/zkochan/mos)',
       '[![NPM version](https://img.shields.io/npm/v/mos.svg?style=plastic)](https://www.npmjs.com/package/mos)',
     ].join('\n'))
   })

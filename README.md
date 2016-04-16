@@ -8,8 +8,8 @@
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
 [![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
-[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
-[![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
 <!--/@-->
 
 ## Why mos?
@@ -35,7 +35,7 @@ The [readme][] you are currently reading uses mos!
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
 [![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
-[![Build status](https://img.shields.io/travis/zkochan/mos.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
+[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
 [![Test coverage](https://img.shields.io/coveralls/zkochan/mos.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
 <!--/@-->
 ```
@@ -130,7 +130,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 * * *
 
 <!--@dependencies({ shield: 'flat-square' })-->
-## Dependencies [![Dependency status](https://img.shields.io/david/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos)
+## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
 - [acorn](https://github.com/ternjs/acorn): ECMAScript parser
 - [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
@@ -160,7 +160,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 <!--/@-->
 
 <!--@devDependencies({ shield: 'flat-square' })-->
-## Dev Dependencies [![devDependency status](https://img.shields.io/david/dev/zkochan/mos.svg?style=flat-square)](https://david-dm.org/zkochan/mos#info=devDependencies)
+## Dev Dependencies [![devDependency status for master](https://img.shields.io/david/dev/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master#info=devDependencies)
 
 - [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
 - [babel-preset-es2015-rollup](https://npmjs.org/package/babel-preset-es2015-rollup): This is [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/), minus [modules-commonjs](http://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/), plus [external-helpers](http://babeljs.io/docs/plugins/external-helpers/). Use it wi

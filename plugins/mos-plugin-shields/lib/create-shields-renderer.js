@@ -19,6 +19,7 @@ module.exports = opts => {
     const shieldOpts = {
       repo: `${github.user}/${github.repo}`,
       npmName: pkg.name,
+      branch: 'master',
     }
     return function () {
       const shields = slice.call(arguments)

@@ -22,4 +22,6 @@ You'll get the travis and david shields in your readme via [shield.io](http://sh
 - `shields.flatSquare(...shields)`
 - `shields.plastic(...shields)`
 
-The currently supported shields are: travis, dependencies, coveralls, npm.
+The currently supported shields are: travis, coveralls, npm, deps, devDeps, peerDeps, gemnasium, climate.
+
+**NOTE:** The shields will be created for the master branch.
