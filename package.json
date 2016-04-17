@@ -59,6 +59,7 @@
     "file-exists": "1.0.0",
     "github-url-to-object": "2.2.1",
     "glob": "7.0.3",
+    "independent": "0.1.1",
     "meow": "^3.7.0",
     "normalize-newline": "2.0.0",
     "normalize-path": "^2.0.1",

@@ -138,6 +138,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
+- [independent](https://github.com/zkochan/independent): Change relative requires to import actual modules
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
