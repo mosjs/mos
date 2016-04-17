@@ -73,7 +73,7 @@
     "rollup-plugin-babel": "2.4.0",
     "rollup-plugin-includepaths": "0.1.2",
     "run-async": "2.2.0",
-    "shields": "2.0.1",
+    "shields": "2.1.0",
     "source-map": "0.5.3",
     "tap-diff": "0.1.1",
     "tape": "4.5.1"
