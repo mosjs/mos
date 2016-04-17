@@ -132,13 +132,10 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 <!--@dependencies({ shield: 'flat-square' })-->
 ## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
-- [acorn](https://github.com/ternjs/acorn): ECMAScript parser
 - [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
-- [callsites](https://github.com/sindresorhus/callsites): Get callsites from the V8 stack trace API
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
-- [cross-spawn-async](https://github.com/IndigoUnited/node-cross-spawn-async): Cross platform child_process#spawn
+- [codemo](https://github.com/zkochan/codemo): Embeds console output to the code
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
-- [file-position](https://github.com/hughsk/file-position): Given a row/column number, return the index of that character within the whole string
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
@@ -148,12 +145,8 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
-- [rollup](https://github.com/rollup/rollup): Next-generation ES6 module bundler
-- [rollup-plugin-babel](https://github.com/rollup/rollup-plugin-babel): Seamless integration between Rollup and Babel.
-- [rollup-plugin-includepaths](https://github.com/dot-build/rollup-plugin-includepaths): Rollup plugin to use relative paths in your project files
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [shields](https://github.com/kenany/shields): Generate shields for your current project's README
-- [source-map](https://github.com/mozilla/source-map): Generates and consumes source maps
 - [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 

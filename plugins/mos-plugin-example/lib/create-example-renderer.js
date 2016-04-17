@@ -1,12 +1,9 @@
 'use strict'
 const path = require('path')
-const stdoutToComments = require('./stdout-to-comments')
 const resolve = require('resolve')
-const fs = require('fs')
-const rollup = require('rollup')
-const babel = require('rollup-plugin-babel')
-const includePaths = require('rollup-plugin-includepaths')
 const jsToMarkdown = require('./js-to-markdown')
+
+const codemo = require('codemo')
 
 module.exports = opts => {
   const markdownPath = opts.filePath
@@ -16,56 +13,28 @@ module.exports = opts => {
 
   function example (relativeFilePath) {
     const filePath = path.resolve(markdownDir, relativeFilePath)
-    return stdoutToComments(filePath)
+    return codemo.processFile(filePath)
       .then(code => {
-        return Promise.resolve(
-          jsToMarkdown(
+        return jsToMarkdown(
             updateRequires(
               code.trim(),
               path.dirname(filePath)
             )
-          ))
+          )
       })
   }
 
   example.es6 = function (relativeFilePath) {
-    return new Promise((resolve, reject) => {
-      const es5FilePath = `${relativeFilePath}es5.js`
-      return rollup.rollup({
-        entry: path.resolve(markdownDir, relativeFilePath),
-        plugins: [
-          includePaths({
-            paths: [markdownDir],
-          }),
-          babel({
-            exclude: 'node_modules/**',
-          }),
-        ],
+    const filePath = path.resolve(markdownDir, relativeFilePath)
+    return codemo.processFile(filePath, { es6: true })
+      .then(code => {
+        return jsToMarkdown(
+            updateRequires(
+              code.trim(),
+              path.dirname(filePath)
+            )
+          )
       })
-      .then(bundle => bundle.write({
-        format: 'cjs',
-        sourceMap: true,
-        dest: path.resolve(markdownDir, es5FilePath),
-      }))
-      .then(() => example(es5FilePath))
-      .then(md => {
-        cleanUp()
-        resolve(md)
-      })
-      .catch(err => {
-        cleanUp()
-        reject(err)
-      })
-
-      function cleanUp () {
-        try {
-          fs.unlinkSync(path.resolve(markdownDir, es5FilePath))
-          fs.unlinkSync(path.resolve(markdownDir, `${es5FilePath}.map`))
-        } catch (err) {
-          console.log(err)
-        }
-      }
-    })
   }
 
   return example
