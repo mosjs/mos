@@ -86,7 +86,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "semantic-release": "^4.3.5",
-    "validate-commit-msg": "2.6.0"
+    "validate-commit-msg": "2.6.1"
   },
   "config": {
     "commitizen": {
