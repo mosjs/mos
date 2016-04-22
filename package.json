@@ -8,6 +8,9 @@
     "plugins"
   ],
   "bin": "./lib/cli.js",
+  "engines": {
+    "node": ">=4"
+  },
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
