@@ -68,7 +68,7 @@
     "normalize-path": "~2.0.1",
     "read-pkg-up": "~1.0.1",
     "relative": "~3.0.2",
-    "remark": "~4.2.0",
+    "remark": "~4.2.2",
     "resolve": "~1.1.7",
     "run-async": "~2.2.0",
     "shields": "~2.1.0",
@@ -76,10 +76,10 @@
     "tape": "~4.5.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.7.5",
+    "babel-cli": "^6.7.7",
     "babel-preset-es2015-rollup": "^1.1.1",
     "chai": "^3.4.1",
-    "cz-conventional-changelog": "^1.1.5",
+    "cz-conventional-changelog": "1.1.5",
     "eslint": "^2.8.0",
     "eslint-config-standard": "^5.1.0",
     "eslint-plugin-promise": "^1.1.0",
@@ -89,7 +89,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "semantic-release": "^4.3.5",
-    "validate-commit-msg": "^2.6.0"
+    "validate-commit-msg": "^2.6.1"
   },
   "config": {
     "commitizen": {
