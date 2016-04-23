@@ -101,9 +101,9 @@ mos test --tap | tap-nyan
 
 ![](http://i.imgur.com/jet4ZAG.png?2)
 
-## Plugins
+## Mos plugins
 
-In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is create by the [package-json](./plugins/package-json) plugin.
+In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is created by the [package-json](./plugins/package-json) plugin.
 
 There are a few mos plugins that are installed with mos by default:
 
@@ -116,6 +116,28 @@ There are a few mos plugins that are installed with mos by default:
 - [snippet](./plugins/mos-plugin-snippet)
 
 Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
+
+## Remark plugins
+
+Mos uses [remark](https://github.com/wooorm/remark) under the hood and as a consequence, can use remark plugins for processing the markdown files.
+
+These are the remark plugins installed with mos by default:
+
+- [remark-toc](https://github.com/wooorm/remark-toc)
+
+It is possible to extend mos with additional remark plugins, by registering them through a `mosfile.js`.
+
+Lets suppose we want to use [remark-word-wrap](https://www.npmjs.com/package/remark-word-wrap) to wrap the lines of markdown files to a specified width. We can install this remark plugin as a dev dependency and create a `mosfile` in the root directory of the package.
+
+```js
+const wordWrap = require('remark-word-wrap')
+
+module.exports.configureRemark = function (remark) {
+  remark.use(wordWrap, { width: 80 })
+}
+```
+
+Next time mos will be run, the markdown files will be processed by the remark plugins registered via mosfile (in this case by remark-word-wrap).
 
 ## Who uses mos?
 
