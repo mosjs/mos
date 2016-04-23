@@ -101,6 +101,19 @@ mos test --tap | tap-nyan
 
 ![](http://i.imgur.com/jet4ZAG.png?2)
 
+## API Usage
+
+```js
+const mos = require('mos')
+
+const processor = mos()
+  .use(require('mos-plugin-scripts')) // use mos plugins
+  .useRemarkPlugin(require('remark-word-wrap')) // use remark plugins
+
+processor.process('# Header', { filePath: '/home/src/README.md' })
+  .then(newmd => console.log(newmd))
+```
+
 ## Mos plugins
 
 In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is created by the [package-json](./plugins/package-json) plugin.
@@ -132,8 +145,8 @@ Lets suppose we want to use [remark-word-wrap](https://www.npmjs.com/package/rem
 ```js
 const wordWrap = require('remark-word-wrap')
 
-module.exports.configureRemark = function (remark) {
-  remark.use(wordWrap, { width: 80 })
+module.exports = function (mos) {
+  mos.useRemarkPlugin(wordWrap, { width: 80 })
 }
 ```
 

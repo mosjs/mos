@@ -4,4 +4,4 @@ process.on('unhandledRejection', function (reason, p) {
     reason)
 })
 
-module.exports = require('./lib/render-files')
+module.exports = require('./lib')
