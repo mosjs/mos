@@ -22,7 +22,7 @@
     "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
-    "md:update": "node ./lib/cli -x=\"lib/test-cli/**\"",
+    "md": "node ./lib/cli -x=\"lib/test-cli/**\"",
     "prepublish": "npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
