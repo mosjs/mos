@@ -1,12 +1,25 @@
 # Contributing
 
-Contents
+## Table of contents
 
-- [Pull Requests](#pull-requests)
-  - [Coding Style](#coding)
-  - [Commit Messages](#commit)
+- [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
 
-## <a name="pull-requests"></a> Submitting a Pull Request (PR)
+  - [After your pull request is merged](#after-your-pull-request-is-merged)
+
+- [Coding Style Guidelines](#coding-style-guidelines)
+
+- [Commit Message Guidelines](#commit-message-guidelines)
+
+  - [Commit Message Format](#commit-message-format)
+
+    - [Revert](#revert)
+    - [Type](#type)
+    - [Scope](#scope)
+    - [Subject](#subject)
+    - [Body](#body)
+    - [Footer](#footer)
+
+## Submitting a Pull Request (PR)
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
@@ -79,7 +92,7 @@ from the main (upstream) repository:
   git pull --ff upstream master
   ```
 
-### <a id="coding"></a> Coding Style Guidelines
+## Coding Style Guidelines
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
@@ -88,7 +101,7 @@ Use the [Standard Style](https://github.com/feross/standard) with two exceptions
 1. Use trailing commas. [Why you should enforce Dangling Commas for Multiline Statements](https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8#.z1hs2z49c)
 2. Don't use parenthesis in arrow functions when they are not required.
 
-### <a name="commit"></a> Commit Message Guidelines
+## Commit Message Guidelines
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
