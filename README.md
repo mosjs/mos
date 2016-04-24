@@ -167,7 +167,6 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 <!--@dependencies({ shield: 'flat-square' })-->
 ## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
-- [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [codemo](https://github.com/zkochan/codemo): Embeds console output to the code
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
@@ -180,6 +179,7 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 - [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
+- [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
 - [remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
