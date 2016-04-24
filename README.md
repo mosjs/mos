@@ -173,6 +173,7 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
+- [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
@@ -182,7 +183,6 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 - [remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
-- [shields](https://github.com/kenany/shields): Generate shields for your current project's README
 - [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
@@ -216,4 +216,4 @@ It means _Markdown on Steroids_!
 
 [mos-plugin-example]: https://github.com/zkochan/mos-plugin-example
 
-[mos-plugin-shields]: ./plugins/mos-plugin-shields
+[mos-plugin-shields]: https://github.com/zkochan/mos-plugin-shields
