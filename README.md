@@ -125,7 +125,7 @@ There are a few mos plugins that are installed with mos by default:
 - [license](./plugins/mos-plugin-license)
 - [installation](./plugins/mos-plugin-installation)
 - [example][mos-plugin-example]
-- [dependencies](./plugins/mos-plugin-dependencies)
+- [dependencies](https://github.com/zkochan/mos-plugin-dependencies)
 - [snippet](https://github.com/zkochan/mos-plugin-snippet)
 
 Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
@@ -172,6 +172,7 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
+- [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
 - [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
