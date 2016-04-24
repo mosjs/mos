@@ -168,12 +168,11 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 ## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
-- [codemo](https://github.com/zkochan/codemo): Embeds console output to the code
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
-- [independent](https://github.com/zkochan/independent): Change relative requires to import actual modules
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
+- [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
@@ -192,8 +191,6 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 <!--@devDependencies({ shield: 'flat-square' })-->
 ## Dev Dependencies [![devDependency status for master](https://img.shields.io/david/dev/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master#info=devDependencies)
 
-- [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
-- [babel-preset-es2015-rollup](https://npmjs.org/package/babel-preset-es2015-rollup): This is [babel-preset-es2015](http://babeljs.io/docs/plugins/preset-es2015/), minus [modules-commonjs](http://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/), plus [external-helpers](http://babeljs.io/docs/plugins/external-helpers/). Use it wi
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
 - [eslint](https://github.com/eslint/eslint): An AST-based pattern checker for JavaScript.
@@ -217,6 +214,6 @@ It means _Markdown on Steroids_!
 
 [readme]: https://raw.githubusercontent.com/zkochan/mos/master/README.md
 
-[mos-plugin-example]: ./plugins/mos-plugin-example
+[mos-plugin-example]: https://github.com/zkochan/mos-plugin-example
 
 [mos-plugin-shields]: ./plugins/mos-plugin-shields
