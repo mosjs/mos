@@ -70,7 +70,7 @@
     "read-pkg-up": "~1.0.1",
     "relative": "~3.0.2",
     "remark": "~4.2.2",
-    "remark-mos": "^1.0.1",
+    "remark-mos": "^1.0.2",
     "remark-toc": "~3.0.0",
     "resolve": "~1.1.7",
     "run-async": "~2.2.0",
