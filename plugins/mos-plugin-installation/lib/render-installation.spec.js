@@ -16,7 +16,7 @@ describe('createInstallation', () => {
       name: 'foo',
       preferGlobal: 'MIT',
     }
-    const installation = renderInstallation(pkg)
+    const installation = renderInstallation({pkg})
     expect(installation).to.eql([
       heading({ depth: 2 }, [
         text({
@@ -39,7 +39,7 @@ describe('createInstallation', () => {
     const pkg = {
       name: 'foo',
     }
-    const installation = renderInstallation(pkg)
+    const installation = renderInstallation({pkg})
     expect(installation).to.eql([
       heading({ depth: 2 }, [
         text({
@@ -58,11 +58,59 @@ describe('createInstallation', () => {
     ])
   })
 
-  it('should throw exception for private package', () => {
+  it('should create installation section for private package', () => {
     const pkg = {
       name: 'foo',
       private: true,
     }
-    expect(() => renderInstallation(pkg)).to.throw(Error, 'Cannot generate installation section for a private module')
+    const repo = {
+      repo: 'foo',
+      clone_url: 'https://github.com/zkochan/foo',
+    }
+    const installation = renderInstallation({pkg, repo})
+    expect(installation).to.eql([
+      heading({ depth: 2 }, [
+        text({
+          value: 'Installation',
+        }),
+      ]),
+      paragraph([
+        text({
+          value: 'This module is installed via npm:',
+        }),
+      ]),
+      code({
+        lang: 'sh',
+        value: 'git clone https://github.com/zkochan/foo && cd ./foo\nnpm install',
+      }),
+    ])
+  })
+
+  it('should create installation section for package with private license', () => {
+    const pkg = {
+      name: 'foo',
+      license: 'private',
+    }
+    const repo = {
+      repo: 'foo',
+      clone_url: 'https://github.com/zkochan/foo',
+    }
+    const installation = renderInstallation({pkg, repo})
+    expect(installation).to.eql([
+      heading({ depth: 2 }, [
+        text({
+          value: 'Installation',
+        }),
+      ]),
+      paragraph([
+        text({
+          value: 'This module is installed via npm:',
+        }),
+      ]),
+      code({
+        lang: 'sh',
+        value: 'git clone https://github.com/zkochan/foo && cd ./foo\nnpm install',
+      }),
+    ])
   })
 })

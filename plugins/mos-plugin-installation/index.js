@@ -5,6 +5,6 @@ const renderInstallation = require('./lib/render-installation')
 
 function plugin (markdown) {
   return {
-    installation: () => renderInstallation(markdown.pkg),
+    installation: () => renderInstallation(markdown),
   }
 }
