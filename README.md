@@ -72,7 +72,7 @@ Lets use mos to write a readme with some dynamic data. Have you ever renamed you
 
 If you view your readme now, it will be empty. However, you have the code that can insert the title in your readme. All you have to do now is to run `mos` in a terminal.
 
-Once you've ran `mos`, the readme will look like this:
+Once you've run `mos`, the readme will look like this:
 
 ```md
 <!--@'# ' + package.name-->
