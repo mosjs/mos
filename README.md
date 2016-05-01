@@ -28,7 +28,7 @@
 The [readme][] you are currently reading uses mos!
 
 <!--@snippet('README.md#preview')-->
-``` md
+```md
 <!--@'# ' + package.name-->
 # mos
 <!--/@-->
@@ -45,12 +45,27 @@ The [readme][] you are currently reading uses mos!
 ```
 <!--/@-->
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [CLI Usage](#cli-usage)
+  - [mos](#mos)
+  - [mos test](#mos-test)
+    - [Optional TAP output](#optional-tap-output)
+- [API Usage](#api-usage)
+- [Mos plugins](#mos-plugins)
+- [Who uses mos?](#who-uses-mos)
+- [License](#license)
+- [Dependencies](#dependencies-dependency-status-for-master)
+- [Dev Dependencies](#dev-dependencies-devdependency-status-for-master)
+
 <!--@installation()-->
 ## Installation
 
 This module is installed via npm:
 
-``` sh
+```sh
 npm install mos --save
 ```
 <!--/@-->
@@ -113,7 +128,6 @@ const mos = require('mos')
 
 const processor = mos()
   .use(require('mos-plugin-scripts')) // use mos plugins
-  .useRemarkPlugin(require('remark-word-wrap')) // use remark plugins
 
 processor.process('# Header', { filePath: '/home/src/README.md' })
   .then(newmd => console.log(newmd))
@@ -132,30 +146,9 @@ There are a few mos plugins that are installed with mos by default:
 - [example][mos-plugin-example]
 - [dependencies](https://github.com/zkochan/mos-plugin-dependencies)
 - [snippet](https://github.com/zkochan/mos-plugin-snippet)
+- [table-of-contents](https://github.com/zkochan/remark-toc)
 
 Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
-
-## Remark plugins
-
-Mos uses [remark](https://github.com/wooorm/remark) under the hood and as a consequence, can use remark plugins for processing the markdown files.
-
-These are the remark plugins installed with mos by default:
-
-- [remark-toc](https://github.com/wooorm/remark-toc)
-
-It is possible to extend mos with additional remark plugins, by registering them through a `mosfile.js`.
-
-Lets suppose we want to use [remark-word-wrap](https://www.npmjs.com/package/remark-word-wrap) to wrap the lines of markdown files to a specified width. We can install this remark plugin as a dev dependency and create a `mosfile` in the root directory of the package.
-
-```js
-const wordWrap = require('remark-word-wrap')
-
-module.exports = function (mos) {
-  mos.useRemarkPlugin(wordWrap, { width: 80 })
-}
-```
-
-Next time mos will be run, the markdown files will be processed by the remark plugins registered via mosfile (in this case by remark-word-wrap).
 
 ## Who uses mos?
 
@@ -172,6 +165,8 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 <!--@dependencies({ shield: 'flat-square' })-->
 ## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
+- [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
+- [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
@@ -185,9 +180,7 @@ Next time mos will be run, the markdown files will be processed by the remark pl
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
-- [remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
-- [remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter

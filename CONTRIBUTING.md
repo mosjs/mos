@@ -3,15 +3,10 @@
 ## Table of contents
 
 - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
-
   - [After your pull request is merged](#after-your-pull-request-is-merged)
-
 - [Coding Style Guidelines](#coding-style-guidelines)
-
 - [Commit Message Guidelines](#commit-message-guidelines)
-
   - [Commit Message Format](#commit-message-format)
-
     - [Revert](#revert)
     - [Type](#type)
     - [Scope](#scope)
