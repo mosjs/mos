@@ -57,8 +57,8 @@ The [readme][] you are currently reading uses mos!
 - [Mos plugins](#mos-plugins)
 - [Who uses mos?](#who-uses-mos)
 - [License](#license)
-- [Dependencies](#dependencies-dependency-status-for-master)
-- [Dev Dependencies](#dev-dependencies-devdependency-status-for-master)
+- [Dependencies](#dependencies)
+- [Dev Dependencies](#dev-dependencies)
 
 <!--@installation()-->
 ## Installation
@@ -163,7 +163,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 * * *
 
 <!--@dependencies({ shield: 'flat-square' })-->
-## Dependencies [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
+## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
 - [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
@@ -189,7 +189,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 <!--/@-->
 
 <!--@devDependencies({ shield: 'flat-square' })-->
-## Dev Dependencies [![devDependency status for master](https://img.shields.io/david/dev/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master#info=devDependencies)
+## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status for master](https://img.shields.io/david/dev/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master#info=devDependencies)
 
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
