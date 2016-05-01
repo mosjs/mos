@@ -13,7 +13,12 @@ Add this code snippet to your `README.md`
 
 Run `mos` in the terminal.
 
-You'll get an installation section in your README that will instuct how to install the package via npm.
+You'll get an installation section in your README that will instruct how to install the package via npm.
+
+The plugin will use information from the `package.json` in order to figure out what should the installation command look like.
+
+- If there is a `preferGlobal: true` specified in the `package.json`, the generated command will be `npm install --global`
+- Otherwise, the generated command will be `npm install --save`
 
 ## API
 
