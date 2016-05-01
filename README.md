@@ -135,11 +135,11 @@ processor.process('# Header', { filePath: '/home/src/README.md' })
 
 ## Mos plugins
 
-In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is created by the [package-json](./plugins/package-json) plugin.
+In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is created by the [package-json][mos-plugin-package-json] plugin.
 
 There are a few mos plugins that are installed with mos by default:
 
-- [package-json](./plugins/mos-plugin-package-json)
+- [package-json][mos-plugin-package-json]
 - [shields][mos-plugin-shields]
 - [license](./plugins/mos-plugin-license)
 - [installation](./plugins/mos-plugin-installation)
@@ -213,6 +213,8 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 It means _Markdown on Steroids_!
 
 [readme]: https://raw.githubusercontent.com/zkochan/mos/master/README.md
+
+[mos-plugin-package-json]: ./plugins/mos-plugin-package-json
 
 [mos-plugin-example]: https://github.com/zkochan/mos-plugin-example
 
