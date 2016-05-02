@@ -47,7 +47,6 @@ The [readme][] you are currently reading uses mos!
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Usage](#usage)
 - [CLI Usage](#cli-usage)
   - [mos](#mos)
@@ -59,16 +58,6 @@ The [readme][] you are currently reading uses mos!
 - [License](#license)
 - [Dependencies](#dependencies)
 - [Dev Dependencies](#dev-dependencies)
-
-<!--@installation()-->
-## Installation
-
-This module is installed via npm:
-
-```sh
-npm install mos --save
-```
-<!--/@-->
 
 ## Usage
 
@@ -123,15 +112,48 @@ mos test --tap | tap-nyan
 
 ## API Usage
 
+<!--@example('example.js')-->
+Require the package
+
 ```js
 const mos = require('mos')
-
-const processor = mos()
-  .use(require('mos-plugin-scripts')) // use mos plugins
-
-processor.process('# Header', { filePath: '/home/src/README.md' })
-  .then(newmd => console.log(newmd))
 ```
+
+Create a processor and use some mos plugins
+
+```js
+const processor = mos().use(require('mos-plugin-scripts'))
+```
+
+Process raw markdown
+
+```js
+processor.process('# Header', { filePath: 'README.md' })
+  .then(newmd => console.log(newmd))
+  //> # Header
+```
+
+Process a markdown AST
+
+```js
+const m = require('markdownscript')
+const ast = m.root([
+  m.heading({ depth: 1 }, [
+    m.text({ value: 'Foo' }),
+  ]),
+  m.paragraph([
+    m.text({
+      value: 'Bar qar qax',
+    }),
+  ]),
+])
+processor.process(ast, { filePath: 'README.md' })
+  .then(newmd => console.log(newmd))
+  //> # Foo
+  //  
+  //  Bar qar qax
+```
+<!--/@-->
 
 ## Mos plugins
 
@@ -167,6 +189,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 
 - [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
+- [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
@@ -202,6 +225,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [mos-plugin-scripts](https://github.com/zkochan/mos-plugin-scripts): A mos plugin that generates a section with npm scripts descriptions
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
 - [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 
