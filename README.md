@@ -137,15 +137,11 @@ Process a markdown AST
 
 ```js
 const m = require('markdownscript')
+const h1 = m.h1
+const p = m.paragraph
 const ast = m.root([
-  m.heading({ depth: 1 }, [
-    m.text({ value: 'Foo' }),
-  ]),
-  m.paragraph([
-    m.text({
-      value: 'Bar qar qax',
-    }),
-  ]),
+  h1(['Foo']),
+  p(['Bar qar qax']),
 ])
 processor.process(ast, { filePath: 'README.md' })
   .then(newmd => console.log(newmd))

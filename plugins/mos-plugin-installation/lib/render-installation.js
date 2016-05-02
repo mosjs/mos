@@ -1,21 +1,12 @@
 'use strict'
 const m = require('markdownscript')
-const heading = m.heading
-const text = m.text
-const paragraph = m.paragraph
+const h2 = m.h2
+const p = m.paragraph
 const code = m.code
 
 module.exports = md => [
-  heading({ depth: 2 }, [
-    text({
-      value: 'Installation',
-    }),
-  ]),
-  paragraph([
-    text({
-      value: 'This module is installed via npm:',
-    }),
-  ]),
+  h2(['Installation']),
+  p(['This module is installed via npm:']),
   code({
     lang: 'sh',
     value: createCommand(md),
