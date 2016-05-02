@@ -8,9 +8,7 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
-[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
-[![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos) [![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
 <!--/@-->
 
 <!--#-->
@@ -38,9 +36,7 @@ The [readme][] you are currently reading uses mos!
 <!--/@-->
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos)
-[![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos)
-[![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos) [![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
 <!--/@-->
 ```
 <!--/@-->
