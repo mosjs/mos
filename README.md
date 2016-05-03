@@ -1,9 +1,9 @@
 <!--#preview-->
-<!--@'# ' + package.name-->
+<!--@h1([package.name])-->
 # mos
 <!--/@-->
 
-<!--@'> ' + package.description-->
+<!--@blockquote([package.description])-->
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
@@ -27,11 +27,11 @@ The [readme][] you are currently reading uses mos!
 
 <!--@snippet('README.md#preview')-->
 ```md
-<!--@'# ' + package.name-->
+<!--@h1([package.name])-->
 # mos
 <!--/@-->
 
-<!--@'> ' + package.description-->
+<!--@blockquote([package.description])-->
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
@@ -66,7 +66,7 @@ Lets use mos to write a readme with some dynamic data. Have you ever renamed you
 **README.md**
 
 ```md
-<!--@'# ' + package.name-->
+<!--@h1([package.name])-->
 <!--/@-->
 ```
 
@@ -75,7 +75,7 @@ If you view your readme now, it will be empty. However, you have the code that c
 Once you've run `mos`, the readme will look like this:
 
 ```md
-<!--@'# ' + package.name-->
+<!--@h1([package.name])-->
 # my-awesome-module
 <!--/@-->
 ```
@@ -161,6 +161,7 @@ There are a few mos plugins that are installed with mos by default:
 - [dependencies](https://github.com/zkochan/mos-plugin-dependencies)
 - [snippet](https://github.com/zkochan/mos-plugin-snippet)
 - [table-of-contents](https://github.com/zkochan/remark-toc)
+- [markdownscript](https://github.com/zkochan/mos-plugin-markdownscript)
 
 Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 
@@ -193,6 +194,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
+- [mos-plugin-markdownscript](https://github.com/zkochan/mos-plugin-markdownscript): A [mos](https://github.com/zkochan/mos) plugin that adds markownscript helpers to the markdown scope
 - [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
