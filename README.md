@@ -166,6 +166,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 
 ## Who uses mos?
 
+- [npm-scripts-info](https://github.com/srph/npm-scripts-info)
 - [magic-hook](https://github.com/zkochan/magic-hook)
 
 <!--@license()-->
