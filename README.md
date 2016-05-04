@@ -182,6 +182,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 
 - [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
+- [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
 - [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
@@ -200,7 +201,6 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
-- [tap-diff](https://github.com/axross/tap-diff): The most human-friendly TAP reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 <!--/@-->
