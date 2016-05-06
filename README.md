@@ -180,6 +180,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 <!--@dependencies({ shield: 'flat-square' })-->
 ## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
+- [@zkochan/read-pkg-up](https://github.com/zkochan/read-pkg-up): Read the closest package.json file
 - [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
 - [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
@@ -196,7 +197,6 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
-- [read-pkg-up](https://github.com/sindresorhus/read-pkg-up): Read the closest package.json file
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
