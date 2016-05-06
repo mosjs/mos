@@ -199,6 +199,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
+- [reserved-words](https://github.com/zxqfox/reserved-words): ECMAScript reserved words checker
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
