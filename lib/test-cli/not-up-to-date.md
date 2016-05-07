@@ -1,4 +1,4 @@
-<!--@'# ' + package.name-->
+<!--@'# ' + pkg.name-->
 # Bad title
 <!--/@-->
 

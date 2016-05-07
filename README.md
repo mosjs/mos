@@ -1,9 +1,9 @@
 <!--#preview-->
-<!--@h1([package.name])-->
+<!--@h1([pkg.name])-->
 # mos
 <!--/@-->
 
-<!--@blockquote([package.description])-->
+<!--@blockquote([pkg.description])-->
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
@@ -27,11 +27,11 @@ The [readme][] you are currently reading uses mos!
 
 <!--@snippet('README.md#preview')-->
 ```md
-<!--@h1([package.name])-->
+<!--@h1([pkg.name])-->
 # mos
 <!--/@-->
 
-<!--@blockquote([package.description])-->
+<!--@blockquote([pkg.description])-->
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
@@ -66,7 +66,7 @@ Lets use mos to write a readme with some dynamic data. Have you ever renamed you
 **README.md**
 
 ```md
-<!--@h1([package.name])-->
+<!--@h1([pkg.name])-->
 <!--/@-->
 ```
 
@@ -75,7 +75,7 @@ If you view your readme now, it will be empty. However, you have the code that c
 Once you've run `mos`, the readme will look like this:
 
 ```md
-<!--@h1([package.name])-->
+<!--@h1([pkg.name])-->
 # my-awesome-module
 <!--/@-->
 ```
@@ -163,7 +163,7 @@ There are a few mos plugins that are installed with mos by default:
 - [table-of-contents](https://github.com/zkochan/remark-toc)
 - [markdownscript](https://github.com/zkochan/mos-plugin-markdownscript)
 
-Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
+Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 
 ## Who uses mos?
 
@@ -197,6 +197,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [mos-plugin-installation](https://github.com/zkochan/mos-plugin-installation): A mos plugin for creating installation section
 - [mos-plugin-license](https://github.com/zkochan/mos-plugin-license): A mos plugin for generating a license section
 - [mos-plugin-markdownscript](https://github.com/zkochan/mos-plugin-markdownscript): A [mos](https://github.com/zkochan/mos) plugin that adds markownscript helpers to the markdown scope
+- [mos-plugin-package-json](https://github.com/zkochan/mos-plugin-package-json): A mos plugin that makes the package.json available in the markdown scope
 - [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
@@ -237,7 +238,7 @@ It means _Markdown on Steroids_!
 
 [readme]: https://raw.githubusercontent.com/zkochan/mos/master/README.md
 
-[mos-plugin-package-json]: ./plugins/mos-plugin-package-json
+[mos-plugin-package-json]: https://github.com/zkochan/mos-plugin-package-json
 
 [mos-plugin-example]: https://github.com/zkochan/mos-plugin-example
 
