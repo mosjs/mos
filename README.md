@@ -156,7 +156,7 @@ There are a few mos plugins that are installed with mos by default:
 - [package-json][mos-plugin-package-json]
 - [shields][mos-plugin-shields]
 - [license](./plugins/mos-plugin-license)
-- [installation](./plugins/mos-plugin-installation)
+- [installation](https://github.com/zkochan/mos-plugin-installation)
 - [example][mos-plugin-example]
 - [dependencies](https://github.com/zkochan/mos-plugin-dependencies)
 - [snippet](https://github.com/zkochan/mos-plugin-snippet)
@@ -194,6 +194,7 @@ Do you want to write a new one? Read the [plugins readme](./plugins/README.md).
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
+- [mos-plugin-installation](https://github.com/zkochan/mos-plugin-installation): A mos plugin for creating installation section
 - [mos-plugin-markdownscript](https://github.com/zkochan/mos-plugin-markdownscript): A [mos](https://github.com/zkochan/mos) plugin that adds markownscript helpers to the markdown scope
 - [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
