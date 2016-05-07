@@ -44,6 +44,7 @@ The [readme][] you are currently reading uses mos!
 ## Table of Contents
 
 - [Installation](#installation)
+  - [Manual installation](#manual-installation)
 - [Usage](#usage)
 - [CLI Usage](#cli-usage)
   - [mos](#mos)
@@ -56,13 +57,45 @@ The [readme][] you are currently reading uses mos!
 - [Dependencies](#dependencies)
 - [Dev Dependencies](#dev-dependencies)
 
-<!--@installation({useShortAlias: true})-->
 ## Installation
+
+Install mos globally:
+
+```sh
+npm i -g mos
+```
+
+Make mos configure your `package.json`:
+
+```sh
+mos --init
+```
+
+Your package.json will be update with some new dependencies and script properties:
+
+```json
+{
+  "name": "awesome-package",
+  "scripts": {
+    "test": "mos test",
+    "md": "mos",
+    "?md": "echo \"Update the markdown files\""
+  },
+  "devDependencies": {
+    "mos": "^0.17.0"
+  }
+}
+```
+
+### Manual installation
+
+You can also install mos directly:
 
 ```sh
 npm i -D mos
 ```
-<!--/@-->
+
+You'll have to configure the `script` property in your `package.json` to use mos (see above).
 
 ## Usage
 
@@ -200,6 +233,7 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
+- [mos-init](https://github.com/zkochan/mos-init): Add mos to your project
 - [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
 - [mos-plugin-installation](https://github.com/zkochan/mos-plugin-installation): A mos plugin for creating installation section
