@@ -43,6 +43,7 @@ The [readme][] you are currently reading uses mos!
 
 ## Table of Contents
 
+- [Installation](#installation)
 - [Usage](#usage)
 - [CLI Usage](#cli-usage)
   - [mos](#mos)
@@ -54,6 +55,14 @@ The [readme][] you are currently reading uses mos!
 - [License](#license)
 - [Dependencies](#dependencies)
 - [Dev Dependencies](#dev-dependencies)
+
+<!--@installation({useShortAlias: true})-->
+## Installation
+
+```sh
+npm i -D mos
+```
+<!--/@-->
 
 ## Usage
 
