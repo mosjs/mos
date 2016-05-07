@@ -190,7 +190,6 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
-- [markdownscript](https://github.com/zkochan/markdownscript): Creates markdown Abstract Syntax Tree
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
@@ -223,6 +222,7 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [execa](https://github.com/sindresorhus/execa): A better `child_process`
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
+- [markdownscript](https://github.com/zkochan/markdownscript): Creates markdown Abstract Syntax Tree
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
 - [mos-plugin-scripts](https://github.com/zkochan/mos-plugin-scripts): A mos plugin that generates a section with npm scripts descriptions
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
