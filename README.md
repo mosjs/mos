@@ -71,7 +71,7 @@ Make mos configure your `package.json`:
 mos --init
 ```
 
-Your package.json will be update with some new dependencies and script properties:
+Your `package.json` will be updated with some new dependencies and `script` properties:
 
 ```json
 {
