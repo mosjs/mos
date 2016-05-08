@@ -83,7 +83,8 @@
     "reserved-words": "^0.1.1",
     "resolve": "~1.1.7",
     "run-async": "~2.2.0",
-    "tape": "~4.5.1"
+    "tape": "~4.5.1",
+    "update-notifier": "^0.7.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",

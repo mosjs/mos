@@ -250,6 +250,7 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
+- [update-notifier](https://github.com/yeoman/update-notifier): Update notifications for your CLI app
 
 <!--/@-->
 
