@@ -148,6 +148,8 @@ mos test --tap | tap-nyan
 
 ![](http://i.imgur.com/jet4ZAG.png?2)
 
+**NOTE:** the CLI will use your local install of mos when available, even when run globally.
+
 ## API Usage
 
 <!--@example('example.js')-->
