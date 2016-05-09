@@ -2,6 +2,8 @@ language: node_js
 sudo: false
 node_js:
   - v4
+  - v5
+  - v6
 
 cache:
   directories:
@@ -13,5 +15,5 @@ install:
   - npm install
 
 after_success:
-  - npm run coveralls
-  - npm run semantic-release
+  - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run coveralls; fi;
+  - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run semantic-release; fi;
