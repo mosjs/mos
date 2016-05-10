@@ -50,7 +50,6 @@ The [readme][] you are currently reading uses mos!
   - [mos](#mos)
   - [mos test](#mos-test)
     - [Optional TAP output](#optional-tap-output)
-- [API Usage](#api-usage)
 - [Mos plugins](#mos-plugins)
 - [Who uses mos?](#who-uses-mos)
 - [License](#license)
@@ -150,47 +149,6 @@ mos test --tap | tap-nyan
 
 **NOTE:** the CLI will use your local install of mos when available, even when run globally.
 
-## API Usage
-
-<!--@example('example.js')-->
-Require the package
-
-```js
-const mos = require('mos')
-```
-
-Create a processor and use some mos plugins
-
-```js
-const processor = mos().use(require('mos-plugin-scripts'))
-```
-
-Process raw markdown
-
-```js
-processor.process('# Header', { filePath: 'README.md' })
-  .then(newmd => console.log(newmd))
-  //> # Header
-```
-
-Process a markdown AST
-
-```js
-const m = require('markdownscript')
-const h1 = m.h1
-const p = m.paragraph
-const ast = m.root([
-  h1(['Foo']),
-  p(['Bar qar qax']),
-])
-processor.process(ast, { filePath: 'README.md' })
-  .then(newmd => console.log(newmd))
-  //> # Foo
-  //  
-  //  Bar qar qax
-```
-<!--/@-->
-
 ## Mos plugins
 
 In the usage example the `package` variable was used to access the package info. The variables available in the markdown scope are _declared by mos plugins_. The `package` variable is created by the [package-json][mos-plugin-package-json] plugin.
@@ -226,18 +184,15 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 ## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
 
 - [@zkochan/read-pkg-up](https://github.com/zkochan/read-pkg-up): Read the closest package.json file
-- [@zkochan/remark](https://github.com/wooorm/remark): Markdown processor powered by plugins
-- [@zkochan/remark-toc](https://github.com/wooorm/remark-toc): Generate a Table of Contents (TOC) for Markdown files
 - [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
-- [async-unist-util-visit](https://github.com/wooorm/unist-util-visit): Recursively walk over unist nodes
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
-- [file-exists](https://github.com/scottcorgan/file-exists): Check if filepath exists and is a file
-- [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [loud-rejection](https://github.com/sindresorhus/loud-rejection): Make unhandled promise rejections fail loudly instead of the default silent fail
+- [magic-hook](https://github.com/zkochan/magic-hook): Extends functions with pre hooks.
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
 - [mos-init](https://github.com/zkochan/mos-init): Add mos to your project
 - [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
+- [mos-plugin-ejs](https://github.com/zkochan/mos-plugin-ejs): A mos plugin that executes embedded js in markdown files
 - [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
 - [mos-plugin-installation](https://github.com/zkochan/mos-plugin-installation): A mos plugin for creating installation section
 - [mos-plugin-license](https://github.com/zkochan/mos-plugin-license): A mos plugin for generating a license section
@@ -245,13 +200,12 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [mos-plugin-package-json](https://github.com/zkochan/mos-plugin-package-json): A mos plugin that makes the package.json available in the markdown scope
 - [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
 - [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
+- [mos-plugin-toc](https://github.com/zkochan/mos-plugin-toc): A mos plugin for creating Table of Contents
+- [mos-processor](https://github.com/zkochan/mos-processor): A markdown processor for mos
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
-- [remark-mos](https://github.com/zkochan/remark-mos): Inject parts of markdown via hidden JavaScript snippets
-- [reserved-words](https://github.com/zxqfox/reserved-words): ECMAScript reserved words checker
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
-- [run-async](https://github.com/sboudrias/run-async): Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 - [update-notifier](https://github.com/yeoman/update-notifier): Update notifications for your CLI app
 
@@ -269,9 +223,7 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [execa](https://github.com/sindresorhus/execa): A better `child_process`
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
-- [markdownscript](https://github.com/zkochan/markdownscript): Creates markdown Abstract Syntax Tree
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
-- [mos-plugin-scripts](https://github.com/zkochan/mos-plugin-scripts): A mos plugin that generates a section with npm scripts descriptions
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
 - [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 

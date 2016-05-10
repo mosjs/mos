@@ -8,7 +8,7 @@ const cwd = process.cwd()
 
 let localCLI
 try {
-  localCLI = resolve.sync('mos/bin', { basedir: cwd })
+  localCLI = resolve.sync('mos/bin/mos', { basedir: cwd })
 } catch (err) {
   localCLI = __filename
 }

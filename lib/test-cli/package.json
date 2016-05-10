@@ -7,9 +7,25 @@
     "url": "https://github.com/zkochan/mos"
   },
   "dependencies": {
-    "mos-plugin-foo": "*"
+    "mos-plugin-foo": "*",
+    "mos-plugin-custom": "*"
   },
   "devDependencies": {
     "mos-plugin-bar": "*"
+  },
+  "mos": {
+    "plugins": [
+      "foo",
+      "mos-plugin-bar",
+      [
+        "custom",
+        {
+          "customText": "1234"
+        }
+      ]
+    ],
+    "toc": {
+      "heading": "boo"
+    }
   }
 }
