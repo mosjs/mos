@@ -72,7 +72,7 @@
     "mos-plugin-dependencies": "^1.0.2",
     "mos-plugin-example": "^0.1.0",
     "mos-plugin-installation": "^0.2.1",
-    "mos-plugin-license": "^0.1.0",
+    "mos-plugin-license": "^1.0.1",
     "mos-plugin-markdownscript": "^1.0.0",
     "mos-plugin-package-json": "^1.0.0",
     "mos-plugin-shields": "^1.0.1",
