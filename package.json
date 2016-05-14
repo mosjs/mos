@@ -76,7 +76,7 @@
     "mos-plugin-markdownscript": "^1.0.0",
     "mos-plugin-package-json": "^1.0.0",
     "mos-plugin-shields": "^1.0.1",
-    "mos-plugin-snippet": "^1.0.0",
+    "mos-plugin-snippet": "^2.0.0",
     "normalize-newline": "~2.0.0",
     "normalize-path": "~2.0.1",
     "relative": "~3.0.2",
