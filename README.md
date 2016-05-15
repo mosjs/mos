@@ -172,11 +172,9 @@ Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 - [npm-scripts-info](https://github.com/srph/npm-scripts-info)
 - [magic-hook](https://github.com/zkochan/magic-hook)
 
-<!--@license()-->
 ## License
 
 [MIT](./LICENSE) © [Zoltan Kochan](http://kochan.io)
-<!--/@-->
 
 * * *
 

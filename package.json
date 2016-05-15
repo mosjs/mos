@@ -68,7 +68,7 @@
     "mos-plugin-ejs": "^1.0.0",
     "mos-plugin-example": "^1.0.0",
     "mos-plugin-installation": "^1.0.0",
-    "mos-plugin-license": "^1.0.1",
+    "mos-plugin-license": "^1.1.0",
     "mos-plugin-markdownscript": "^2.0.1",
     "mos-plugin-package-json": "^2.0.1",
     "mos-plugin-shields": "^2.0.0",
