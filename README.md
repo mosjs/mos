@@ -8,7 +8,7 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos) [![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/mosjs/mos/master.svg?style=flat-square)](https://travis-ci.org/mosjs/mos) [![Test coverage for master](https://img.shields.io/coveralls/mosjs/mos/master.svg?style=flat-square)](https://coveralls.io/r/mosjs/mos?branch=master)
 <!--/@-->
 
 <!--#-->
@@ -36,7 +36,7 @@ The [readme][] you are currently reading uses mos!
 <!--/@-->
 
 <!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/zkochan/mos/master.svg?style=flat-square)](https://travis-ci.org/zkochan/mos) [![Test coverage for master](https://img.shields.io/coveralls/zkochan/mos/master.svg?style=flat-square)](https://coveralls.io/r/zkochan/mos?branch=master)
+[![NPM version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build status for master](https://img.shields.io/travis/mosjs/mos/master.svg?style=flat-square)](https://travis-ci.org/mosjs/mos) [![Test coverage for master](https://img.shields.io/coveralls/mosjs/mos/master.svg?style=flat-square)](https://coveralls.io/r/mosjs/mos?branch=master)
 <!--/@-->
 ```
 <!--/@-->
@@ -158,13 +158,13 @@ There are a few mos plugins that are installed with mos by default:
 
 - [package-json][mos-plugin-package-json]
 - [shields][mos-plugin-shields]
-- [license](https://github.com/zkochan/mos-plugin-license)
-- [installation](https://github.com/zkochan/mos-plugin-installation)
+- [license](https://github.com/mosjs/mos-plugin-license)
+- [installation](https://github.com/mosjs/mos-plugin-installation)
 - [example][mos-plugin-example]
-- [dependencies](https://github.com/zkochan/mos-plugin-dependencies)
-- [snippet](https://github.com/zkochan/mos-plugin-snippet)
-- [table-of-contents](https://github.com/zkochan/remark-toc)
-- [markdownscript](https://github.com/zkochan/mos-plugin-markdownscript)
+- [dependencies](https://github.com/mosjs/mos-plugin-dependencies)
+- [snippet](https://github.com/mosjs/mos-plugin-snippet)
+- [table-of-contents](https://github.com/mosjs/mos-plugin-toc)
+- [markdownscript](https://github.com/mosjs/mos-plugin-markdownscript)
 
 Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
 
@@ -204,7 +204,7 @@ To disable a default plugin, pass `false` instead of a config object:
 * * *
 
 <!--@dependencies({ shield: 'flat-square' })-->
-## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master)
+## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/mosjs/mos/master.svg?style=flat-square)](https://david-dm.org/mosjs/mos/master)
 
 - [@zkochan/read-pkg-up](https://github.com/zkochan/read-pkg-up): Read the closest package.json file
 - [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
@@ -213,18 +213,18 @@ To disable a default plugin, pass `false` instead of a config object:
 - [loud-rejection](https://github.com/sindresorhus/loud-rejection): Make unhandled promise rejections fail loudly instead of the default silent fail
 - [magic-hook](https://github.com/zkochan/magic-hook): Extends functions with pre hooks.
 - [meow](https://github.com/sindresorhus/meow): CLI app helper
-- [mos-init](https://github.com/zkochan/mos-init): Add mos to your project
-- [mos-plugin-dependencies](https://github.com/zkochan/mos-plugin-dependencies): A mos plugin that creates dependencies sections
-- [mos-plugin-ejs](https://github.com/zkochan/mos-plugin-ejs): A mos plugin that executes embedded js in markdown files
-- [mos-plugin-example](https://github.com/zkochan/mos-plugin-example): A mos plugin that combines example code files with their output
-- [mos-plugin-installation](https://github.com/zkochan/mos-plugin-installation): A mos plugin for creating installation section
-- [mos-plugin-license](https://github.com/zkochan/mos-plugin-license): A mos plugin for generating a license section
-- [mos-plugin-markdownscript](https://github.com/zkochan/mos-plugin-markdownscript): A [mos](https://github.com/zkochan/mos) plugin that adds markownscript helpers to the markdown scope
-- [mos-plugin-package-json](https://github.com/zkochan/mos-plugin-package-json): A mos plugin that makes the package.json available in the markdown scope
-- [mos-plugin-shields](https://github.com/zkochan/mos-plugin-shields): A mos plugin for creating markdown shields
-- [mos-plugin-snippet](https://github.com/zkochan/mos-plugin-snippet): A mos plugin for embedding snippets from files
-- [mos-plugin-toc](https://github.com/zkochan/mos-plugin-toc): A mos plugin for creating Table of Contents
-- [mos-processor](https://github.com/zkochan/mos-processor): A markdown processor for mos
+- [mos-init](https://github.com/mosjs/mos-init): Add mos to your project
+- [mos-plugin-dependencies](https://github.com/mosjs/mos-plugin-dependencies): A mos plugin that creates dependencies sections
+- [mos-plugin-ejs](https://github.com/mosjs/mos-plugin-ejs): A mos plugin that executes embedded js in markdown files
+- [mos-plugin-example](https://github.com/mosjs/mos-plugin-example): A mos plugin that combines example code files with their output
+- [mos-plugin-installation](https://github.com/mosjs/mos-plugin-installation): A mos plugin for creating installation section
+- [mos-plugin-license](https://github.com/mosjs/mos-plugin-license): A mos plugin for generating a license section
+- [mos-plugin-markdownscript](https://github.com/mosjs/mos-plugin-markdownscript): A [mos](https://github.com/mosjs/mos) plugin that adds markownscript helpers to the markdown scope
+- [mos-plugin-package-json](https://github.com/mosjs/mos-plugin-package-json): A mos plugin that makes the package.json available in the markdown scope
+- [mos-plugin-shields](https://github.com/mosjs/mos-plugin-shields): A mos plugin for creating markdown shields
+- [mos-plugin-snippet](https://github.com/mosjs/mos-plugin-snippet): A mos plugin for embedding snippets from files
+- [mos-plugin-toc](https://github.com/mosjs/mos-plugin-toc): A mos plugin for creating Table of Contents
+- [mos-processor](https://github.com/mosjs/mos-processor): A markdown processor for mos
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
@@ -235,7 +235,7 @@ To disable a default plugin, pass `false` instead of a config object:
 <!--/@-->
 
 <!--@devDependencies({ shield: 'flat-square' })-->
-## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status for master](https://img.shields.io/david/dev/zkochan/mos/master.svg?style=flat-square)](https://david-dm.org/zkochan/mos/master#info=devDependencies)
+## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status for master](https://img.shields.io/david/dev/mosjs/mos/master.svg?style=flat-square)](https://david-dm.org/mosjs/mos/master#info=devDependencies)
 
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
@@ -258,10 +258,10 @@ To disable a default plugin, pass `false` instead of a config object:
 <br>
 It means _Markdown on Steroids_!
 
-[readme]: https://raw.githubusercontent.com/zkochan/mos/master/README.md
+[readme]: https://raw.githubusercontent.com/mosjs/mos/master/README.md
 
-[mos-plugin-package-json]: https://github.com/zkochan/mos-plugin-package-json
+[mos-plugin-package-json]: https://github.com/mosjs/mos-plugin-package-json
 
-[mos-plugin-example]: https://github.com/zkochan/mos-plugin-example
+[mos-plugin-example]: https://github.com/mosjs/mos-plugin-example
 
-[mos-plugin-shields]: https://github.com/zkochan/mos-plugin-shields
+[mos-plugin-shields]: https://github.com/mosjs/mos-plugin-shields
