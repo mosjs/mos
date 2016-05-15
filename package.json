@@ -12,6 +12,9 @@
     "node": ">=4"
   },
   "main": "index.js",
+  "mos": {
+    "installation": false
+  },
   "scripts": {
     "commit": "git-cz",
     "md:test": "bin/mos.js test -x=\"lib/test-cli/**\"",
@@ -67,7 +70,7 @@
     "mos-plugin-dependencies": "^2.0.0",
     "mos-plugin-ejs": "^1.0.0",
     "mos-plugin-example": "^1.0.0",
-    "mos-plugin-installation": "^1.0.0",
+    "mos-plugin-installation": "^1.1.0",
     "mos-plugin-license": "^1.1.0",
     "mos-plugin-markdownscript": "^2.0.1",
     "mos-plugin-package-json": "^2.0.1",
