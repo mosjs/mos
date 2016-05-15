@@ -51,6 +51,7 @@ The [readme][] you are currently reading uses mos!
   - [mos test](#mos-test)
     - [Optional TAP output](#optional-tap-output)
 - [Mos plugins](#mos-plugins)
+  - [Configuring the default plugins](#configuring-the-default-plugins)
 - [Who uses mos?](#who-uses-mos)
 - [License](#license)
 - [Dependencies](#dependencies)
@@ -166,6 +167,30 @@ There are a few mos plugins that are installed with mos by default:
 - [markdownscript](https://github.com/zkochan/mos-plugin-markdownscript)
 
 Do you want to write a new one? Read the [plugins readme](./docs/PLUGINS.md).
+
+### Configuring the default plugins
+
+It is possible to pass options to the default mos plugins via the `mos` property in the `package.json`.
+
+```json
+{
+  "mos": {
+    "installation": {
+      "useShortAlias": true
+    }
+  }
+}
+```
+
+To disable a default plugin, pass `false` instead of a config object:
+
+```json
+{
+  "mos": {
+    "license": false
+  }
+}
+```
 
 ## Who uses mos?
 
