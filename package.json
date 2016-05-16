@@ -67,7 +67,7 @@
     "magic-hook": "^1.0.0",
     "meow": "~3.7.0",
     "mos-init": "^1.0.1",
-    "mos-plugin-dependencies": "^2.0.1",
+    "mos-plugin-dependencies": "^2.1.0",
     "mos-plugin-ejs": "^1.0.1",
     "mos-plugin-example": "^1.0.1",
     "mos-plugin-installation": "^1.1.1",
