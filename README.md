@@ -1,6 +1,8 @@
 <!--#preview-->
 <!--@h1([pkg.name])-->
 # mos
+
+[![Join the chat at https://gitter.im/mosjs/mos](https://badges.gitter.im/mosjs/mos.svg)](https://gitter.im/mosjs/mos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!--/@-->
 
 <!--@blockquote([pkg.description])-->
