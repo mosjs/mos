@@ -7,8 +7,8 @@
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
-<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![npm version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg?style=flat-square)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg?style=flat-square)](https://coveralls.io/r/mosjs/mos?branch=master)
+<!--@shields('npm', 'travis', 'coveralls', 'gitter')-->
+[![npm version](https://img.shields.io/npm/v/mos.svg)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg)](https://coveralls.io/r/mosjs/mos?branch=master) [![Gitter](https://img.shields.io/gitter/room/mosjs/mos.svg)](https://gitter.im/mosjs/mos)
 <!--/@-->
 
 <!--#-->
@@ -35,8 +35,8 @@ The [readme][] you are currently reading uses mos!
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
 <!--/@-->
 
-<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![npm version](https://img.shields.io/npm/v/mos.svg?style=flat-square)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg?style=flat-square)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg?style=flat-square)](https://coveralls.io/r/mosjs/mos?branch=master)
+<!--@shields('npm', 'travis', 'coveralls', 'gitter')-->
+[![npm version](https://img.shields.io/npm/v/mos.svg)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg)](https://coveralls.io/r/mosjs/mos?branch=master) [![Gitter](https://img.shields.io/gitter/room/mosjs/mos.svg)](https://gitter.im/mosjs/mos)
 <!--/@-->
 ```
 <!--/@-->
@@ -203,8 +203,8 @@ To disable a default plugin, pass `false` instead of a config object:
 
 * * *
 
-<!--@dependencies({ shield: 'flat-square' })-->
-## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/mosjs/mos/master.svg?style=flat-square)](https://david-dm.org/mosjs/mos/master)
+<!--@dependencies({ shield: true })-->
+## <a name="dependencies">Dependencies</a> [![Dependency status for master](https://img.shields.io/david/mosjs/mos/master.svg?style=flat)](https://david-dm.org/mosjs/mos/master)
 
 - [@zkochan/read-pkg-up](https://github.com/zkochan/read-pkg-up): Read the closest package.json file
 - [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
@@ -234,8 +234,8 @@ To disable a default plugin, pass `false` instead of a config object:
 
 <!--/@-->
 
-<!--@devDependencies({ shield: 'flat-square' })-->
-## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status for master](https://img.shields.io/david/dev/mosjs/mos/master.svg?style=flat-square)](https://david-dm.org/mosjs/mos/master#info=devDependencies)
+<!--@devDependencies({ shield: true })-->
+## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status for master](https://img.shields.io/david/dev/mosjs/mos/master.svg?style=flat)](https://david-dm.org/mosjs/mos/master#info=devDependencies)
 
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
