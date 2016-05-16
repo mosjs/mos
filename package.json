@@ -74,7 +74,7 @@
     "mos-plugin-license": "^1.1.1",
     "mos-plugin-markdownscript": "^2.0.3",
     "mos-plugin-package-json": "^2.0.2",
-    "mos-plugin-shields": "^2.0.1",
+    "mos-plugin-shields": "^2.1.0",
     "mos-plugin-snippet": "^2.0.1",
     "mos-plugin-toc": "^1.1.1",
     "mos-processor": "^1.1.1",
