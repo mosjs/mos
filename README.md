@@ -208,6 +208,7 @@ To disable a default plugin, pass `false` instead of a config object:
 
 - [@zkochan/read-pkg-up](https://github.com/zkochan/read-pkg-up): Read the closest package.json file
 - [@zkochan/tap-diff](https://github.com/zkochan/tap-diff): The most human-friendly TAP reporter
+- [babel-runtime](https://github.com/babel/babel/blob/master/packages): babel selfContained runtime
 - [chalk](https://github.com/chalk/chalk): Terminal string styling done right. Much color.
 - [glob](https://github.com/isaacs/node-glob): a little globber
 - [loud-rejection](https://github.com/sindresorhus/loud-rejection): Make unhandled promise rejections fail loudly instead of the default silent fail
@@ -237,7 +238,13 @@ To disable a default plugin, pass `false` instead of a config object:
 <!--@devDependencies({ shield: true })-->
 ## <a name="dev-dependencies">Dev Dependencies</a> [![devDependency status](https://img.shields.io/david/dev/mosjs/mos/master.svg)](https://david-dm.org/mosjs/mos/master#info=devDependencies)
 
+- [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
+- [babel-plugin-add-module-exports](https://github.com/59naga/babel-plugin-add-module-exports): Fix babel/babel#2212
+- [babel-plugin-transform-runtime](https://github.com/babel/babel/blob/master/packages): Externalise references to helpers and builtins, automatically polyfilling your code without polluting globals
+- [babel-preset-es2015](https://github.com/babel/babel/blob/master/packages): Babel preset for all es2015 plugins.
+- [babel-register](https://github.com/babel/babel/blob/master/packages): babel require hook
 - [chai](https://github.com/chaijs/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
+- [core-js](https://github.com/zloirock/core-js): Standard library
 - [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog): Commitizen adapter following the conventional-changelog format.
 - [eslint](https://github.com/eslint/eslint): An AST-based pattern checker for JavaScript.
 - [eslint-config-standard](https://github.com/feross/eslint-config-standard): JavaScript Standard Style - ESLint Shareable Config

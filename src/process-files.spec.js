@@ -3,6 +3,7 @@ const describe = require('mocha').describe
 const it = require('mocha').it
 const processFiles = require('./process-files')
 const path = require('path')
+const Promise = require('core-js/es6/promise')
 
 describe('render-files', () => {
   it('should render files by pattern', done => {

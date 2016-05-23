@@ -7,6 +7,7 @@ const pkg = require('../package.json')
 const path = require('path')
 const cli = path.resolve(__dirname, '../bin/mos.js')
 const testcwd = path.resolve(__dirname, 'test-cli')
+global.Promise = require('core-js/es6/promise')
 
 describe('cli', () => {
   it('show version', () => {

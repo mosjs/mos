@@ -1,5 +1,5 @@
 <!--@'# ' + pkg.name-->
-# Bad title
+# slipsum-lite
 <!--/@-->
 
 Content

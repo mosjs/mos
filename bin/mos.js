@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 'use strict'
-const loudRejection = require('loud-rejection')
+var loudRejection = require('loud-rejection')
 loudRejection()
 
-const resolve = require('resolve')
-const cwd = process.cwd()
+var resolve = require('resolve')
+var cwd = process.cwd()
 
-let localCLI
+var localCLI
 try {
   localCLI = resolve.sync('mos/bin/mos', { basedir: cwd })
 } catch (err) {
@@ -16,7 +16,6 @@ try {
 if (localCLI && localCLI !== __filename) {
   console.log('Using local install of mos')
   require(localCLI)
-  return // eslint-disable-line
+} else {
+  require('../dist/cli')
 }
-
-require('../lib/cli')
