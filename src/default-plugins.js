@@ -1,5 +1,4 @@
-'use strict'
-module.exports = [
+export default [
   require('mos-plugin-toc'),
   require('mos-plugin-ejs'),
   require('mos-plugin-package-json'),

@@ -1,10 +1,7 @@
-'use strict'
-module.exports = processFiles
+import fs from 'fs'
+import glob from 'glob'
 
-const fs = require('fs')
-const glob = require('glob')
-
-function processFiles (opts) {
+export default function processFiles (opts) {
   opts = opts || {}
   const afterEachRender = opts.afterEachRender
   const process = opts.process
