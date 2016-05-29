@@ -12,6 +12,9 @@
     "node": ">=0.10"
   },
   "mos": {
+    "plugins": [
+      "readme"
+    ],
     "installation": false
   },
   "scripts": {
@@ -105,6 +108,7 @@
     "ghooks": "^1.2.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
+    "mos-plugin-readme": "^1.0.1",
     "semantic-release": "^4.3.5",
     "validate-commit-msg": "^2.6.1"
   },

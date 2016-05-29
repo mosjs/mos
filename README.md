@@ -1,17 +1,10 @@
-<!--#preview-->
-<!--@h1([pkg.name])-->
 # mos
-<!--/@-->
 
-<!--@blockquote([pkg.description])-->
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
-<!--/@-->
 
 <!--@shields('npm', 'travis', 'coveralls', 'gitter')-->
 [![npm version](https://img.shields.io/npm/v/mos.svg)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg)](https://coveralls.io/r/mosjs/mos?branch=master) [![Gitter](https://img.shields.io/gitter/room/mosjs/mos.svg)](https://gitter.im/mosjs/mos)
 <!--/@-->
-
-<!--#-->
 
 ## Why mos?
 
@@ -23,23 +16,13 @@
 
 ## Preview
 
-The [readme][] you are currently reading uses mos!
+The [readme][] you are currently reading uses mos! Here's how the shields are generated:
 
-<!--@snippet('README.md#preview')-->
 ```md
-<!--@h1([pkg.name])-->
-# mos
-<!--/@-->
-
-<!--@blockquote([pkg.description])-->
-> A pluggable module that injects content into your markdown files via hidden JavaScript snippets
-<!--/@-->
-
 <!--@shields('npm', 'travis', 'coveralls', 'gitter')-->
 [![npm version](https://img.shields.io/npm/v/mos.svg)](https://www.npmjs.com/package/mos) [![Build Status](https://img.shields.io/travis/mosjs/mos/master.svg)](https://travis-ci.org/mosjs/mos) [![Coverage Status](https://img.shields.io/coveralls/mosjs/mos/master.svg)](https://coveralls.io/r/mosjs/mos?branch=master) [![Gitter](https://img.shields.io/gitter/room/mosjs/mos.svg)](https://gitter.im/mosjs/mos)
 <!--/@-->
 ```
-<!--/@-->
 
 ## Table of Contents
 
@@ -82,7 +65,7 @@ Your `package.json` will be updated with some new dependencies and `script` prop
     "?md": "echo \"Update the markdown files\""
   },
   "devDependencies": {
-    "mos": "^0.17.0"
+    "mos": "^1.2.0"
   }
 }
 ```
@@ -255,6 +238,7 @@ To disable a default plugin, pass `false` instead of a config object:
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [istanbul](https://github.com/gotwarlost/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests
 - [mocha](https://github.com/mochajs/mocha): simple, flexible, fun test framework
+- [mos-plugin-readme](https://github.com/mosjs/mos-plugin-readme): A mos plugin for generating README
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
 - [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 
