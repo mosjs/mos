@@ -228,6 +228,7 @@ To disable a default plugin, pass `false` instead of a config object:
 - [mos-processor](https://github.com/mosjs/mos-processor): A markdown processor for mos
 - [normalize-newline](https://github.com/sindresorhus/normalize-newline): Normalize the newline characters in a string to `\n`
 - [normalize-path](https://github.com/jonschlinkert/normalize-path): Normalize file path slashes to be unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes.
+- [rcfile](https://github.com/zkochan/rcfile): Loads library configuration in all possible ways
 - [relative](https://github.com/jonschlinkert/relative): Get the relative filepath from path A to path B. Calculates from file-to-directory, file-to-file, directory-to-file, and directory-to-directory.
 - [resolve](https://github.com/substack/node-resolve): resolve like require.resolve() on behalf of files asynchronously and synchronously
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers

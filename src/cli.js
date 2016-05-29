@@ -11,6 +11,7 @@ const path = require('path')
 const test = require('tape')
 const tapDiff = require('@zkochan/tap-diff')
 const readPkgUp = require('@zkochan/read-pkg-up')
+const rcfile = require('rcfile')
 const mos = require('mos-processor')
 const defaultPlugins = require('./default-plugins')
 const resolve = require('resolve')
@@ -58,13 +59,13 @@ if (cli.flags.init) {
 
   const processMD = md => readPkgUp({ cwd: md.filePath })
     .then(result => {
+      const pkg = result.pkg
+      const config = rcfile('mos', { cwd: path.dirname(md.filePath) })
       const allDeps = new Set(Object
-        .keys(result.pkg.dependencies || {})
-        .concat(Object.keys(result.pkg.devDependencies || {})))
+        .keys(pkg.dependencies || {})
+        .concat(Object.keys(pkg.devDependencies || {})))
 
-      result.pkg.mos = result.pkg.mos || {}
-
-      const pkgPlugins = (result.pkg.mos.plugins || [])
+      const pkgPlugins = (config.plugins || [])
         .map(plugin => plugin instanceof Array
           ? { name: plugin[0], options: plugin[1] || {} }
           : { name: plugin, options: {} }
@@ -85,7 +86,7 @@ if (cli.flags.init) {
 
       const defaultPluginsWithOpts = defaultPlugins.reduce((defPlugins, defPlugin) => {
         const defPluginName = defPlugin.attributes.pkg && defPlugin.attributes.pkg.name || defPlugin.attributes.name
-        const options = result.pkg.mos[defPluginName] || result.pkg.mos[defPluginName.replace(/^mos-plugin-/, '')]
+        const options = config[defPluginName] || config[defPluginName.replace(/^mos-plugin-/, '')]
         if (options === false) {
           return defPlugins
         }
