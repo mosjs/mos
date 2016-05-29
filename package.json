@@ -19,7 +19,7 @@
   },
   "scripts": {
     "commit": "git-cz",
-    "md:test": "bin/mos.js test -x=\"**/test-cli/**\"",
+    "md:test": "node bin/mos.js test -x=\"**/test-cli/**\"",
     "lint": "eslint src/ bin/",
     "test:code": "mocha --compilers js:babel-register",
     "pretest": "npm run transpile",
@@ -28,7 +28,7 @@
     "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
-    "md": "bin/mos.js -x=\"**/test-cli/**\"",
+    "md": "node bin/mos.js -x=\"**/test-cli/**\"",
     "prepublish": "npm run transpile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "transpile": "babel src --out-dir dist"
