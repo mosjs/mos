@@ -60,9 +60,10 @@ if (cli.flags.init) {
     .then(result => {
       const pkg = result.pkg
       const config = rcfile('mos', { cwd: path.dirname(md.filePath) })
-      const allDeps = new Set(Object
-        .keys(pkg.dependencies || {})
-        .concat(Object.keys(pkg.devDependencies || {})))
+      const allDeps = new Set([
+        ...Object.keys(pkg.dependencies || {}),
+        ...Object.keys(pkg.devDependencies || {}),
+      ])
 
       const pkgPlugins = (config.plugins || [])
         .map(plugin => plugin instanceof Array
@@ -72,16 +73,16 @@ if (cli.flags.init) {
         .map(plugin => {
           const namespacedName = 'mos-plugin-' + plugin.name
           if (allDeps.has(namespacedName)) {
-            return Object.assign({}, plugin, {name: namespacedName})
+            return {...plugin, name: namespacedName}
           }
           if (allDeps.has(plugin.name)) {
             return plugin
           }
           throw new Error(`${plugin.name} is not in the dependencies`)
         })
-        .map(plugin => Object.assign(plugin, {path: resolve.sync(plugin.name, { basedir: path.dirname(md.filePath) })}))
-        .map(plugin => Object.assign(plugin, {path: normalizePath(plugin.path)}))
-        .map(plugin => Object.assign(plugin, {register: require(plugin.path)}))
+        .map(plugin => ({...plugin, path: resolve.sync(plugin.name, { basedir: path.dirname(md.filePath) })}))
+        .map(plugin => ({...plugin, path: normalizePath(plugin.path)}))
+        .map(plugin => ({...plugin, register: require(plugin.path)}))
 
       const defaultPluginsWithOpts = defaultPlugins.reduce((defPlugins, defPlugin) => {
         const defPluginName = defPlugin.attributes.pkg && defPlugin.attributes.pkg.name || defPlugin.attributes.name
@@ -89,13 +90,16 @@ if (cli.flags.init) {
         if (options === false) {
           return defPlugins
         }
-        return defPlugins.concat({
-          register: defPlugin,
-          options: options,
-        })
+        return [
+          ...defPlugins,
+          {
+            register: defPlugin,
+            options: options,
+          },
+        ]
       }, [])
 
-      return mos(md, defaultPluginsWithOpts.concat(pkgPlugins))
+      return mos(md, [...defaultPluginsWithOpts, ...pkgPlugins])
     })
     .then(processor => processor.process())
 

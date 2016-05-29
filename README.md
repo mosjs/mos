@@ -224,6 +224,9 @@ To disable a default plugin, pass `false` instead of a config object:
 
 - [babel-cli](https://github.com/babel/babel/blob/master/packages): Babel command line.
 - [babel-plugin-add-module-exports](https://github.com/59naga/babel-plugin-add-module-exports): Fix babel/babel#2212
+- [babel-plugin-syntax-object-rest-spread](https://github.com/babel/babel/blob/master/packages): Allow parsing of object rest/spread
+- [babel-plugin-transform-es2015-spread](https://github.com/babel/babel/blob/master/packages): Compile ES2015 spread to ES5
+- [babel-plugin-transform-object-rest-spread](https://github.com/babel/babel/blob/master/packages): Compile object rest and spread to ES5
 - [babel-plugin-transform-runtime](https://github.com/babel/babel/blob/master/packages): Externalise references to helpers and builtins, automatically polyfilling your code without polluting globals
 - [babel-preset-es2015](https://github.com/babel/babel/blob/master/packages): Babel preset for all es2015 plugins.
 - [babel-register](https://github.com/babel/babel/blob/master/packages): babel require hook

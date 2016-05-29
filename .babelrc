@@ -2,6 +2,9 @@
   "presets": ["es2015"],
   "plugins": [
     "transform-runtime",
-    "add-module-exports"
+    "add-module-exports",
+    "transform-es2015-spread",
+    "syntax-object-rest-spread",
+    "transform-object-rest-spread"
   ]
 }
