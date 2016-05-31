@@ -85,7 +85,7 @@
     "mos-processor": "^1.2.0",
     "normalize-newline": "~2.0.0",
     "normalize-path": "~2.0.1",
-    "rcfile": "^1.0.2",
+    "rcfile": "^1.0.3",
     "relative": "~3.0.2",
     "resolve": "~1.1.7",
     "tape": "~4.5.1",
@@ -111,7 +111,7 @@
     "ghooks": "^1.2.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
-    "mos-plugin-readme": "^1.0.1",
+    "mos-plugin-readme": "^1.0.2",
     "semantic-release": "^4.3.5",
     "validate-commit-msg": "^2.6.1"
   },

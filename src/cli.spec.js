@@ -8,20 +8,32 @@ const cli = path.resolve(__dirname, '../bin/mos.js')
 const testcwd = path.resolve(__dirname, 'test-cli')
 global.Promise = require('core-js/es6/promise')
 
-describe('cli', () => {
+function mos (args, opts) {
+  return execa('node', [cli, ...args], opts)
+}
+
+describe('cli', function () {
+  this.timeout(1e4) // on AppVeyor the 2 seconds timeout is not enough
+
   it('show version', () => {
-    return execa(cli, ['--version'])
-      .then(result => expect(result.stdout).to.eq(pkg.version))
+    return mos(['--version'])
+      .then(result => {
+        expect(result.stderr).to.eq('')
+        expect(result.stdout).to.have.string(pkg.version)
+      })
   })
 
   it('show version, shortcut', () => {
-    return execa(cli, ['-v'])
-      .then(result => expect(result.stdout).to.eq(pkg.version))
+    return mos(['-v'])
+      .then(result => {
+        expect(result.stderr).to.eq('')
+        expect(result.stdout).to.have.string(pkg.version)
+      })
   })
 
   describe('test', () => {
     it('should pass markdown that is up to date', () => {
-      return execa(cli, ['test', 'up-to-date.md', '--tap'], {
+      return mos(['test', 'up-to-date.md', '--tap'], {
         cwd: testcwd,
       })
         .then(result => expect(result.stdout).to.eq([
@@ -39,7 +51,7 @@ describe('cli', () => {
     })
 
     it('should fail markdown that is not up to date', () => {
-      return execa(cli, ['test', 'not-up-to-date.md', '--tap'], {
+      return mos(['test', 'not-up-to-date.md', '--tap'], {
         cwd: testcwd,
       })
         .catch(result => {
@@ -67,7 +79,7 @@ describe('cli', () => {
     })
 
     it('should use custom options for third-party plugins', () => {
-      return execa(cli, ['test', 'plugin-options.md', '--tap'], {
+      return mos(['test', 'plugin-options.md', '--tap'], {
         cwd: testcwd,
       })
         .then(result => expect(result.stdout).to.eq([
@@ -85,7 +97,7 @@ describe('cli', () => {
     })
 
     it('should disable default plugin', () => {
-      return execa(cli, ['test', 'disable-default-plugin.md', '--tap'], {
+      return mos(['test', 'disable-default-plugin.md', '--tap'], {
         cwd: testcwd,
       })
         .then(result => expect(result.stdout).to.eq([
