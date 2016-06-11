@@ -7,7 +7,7 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-markdownscript.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-markdownscript)
+[![npm version](https://img.shields.io/npm/v/mos-plugin-markdownscript.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-markdownscript)
 <!--/@-->
 
 ## Installation

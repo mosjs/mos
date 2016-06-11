@@ -7,16 +7,14 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-toc.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-toc)
+[![npm version](https://img.shields.io/npm/v/mos-plugin-toc.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-toc)
 <!--/@-->
 
-<!--@installation()-->
 ## Installation
 
 ```sh
 npm install --save mos-plugin-toc
 ```
-<!--/@-->
 
 ## Usage
 
@@ -24,8 +22,6 @@ npm install --save mos-plugin-toc
 const mosPluginToc = require('mos-plugin-toc')
 ```
 
-<!--@license()-->
 ## License
 
 [MIT](./LICENSE) © [Zoltan Kochan](http://kochan.io)
-<!--/@-->

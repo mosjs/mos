@@ -5,7 +5,7 @@
 Add [mos](https://github.com/mosjs/mos) to your project
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-init.svg?style=flat-square)](https://www.npmjs.com/package/mos-init)
+[![npm version](https://img.shields.io/npm/v/mos-init.svg?style=flat-square)](https://www.npmjs.com/package/mos-init)
 <!--/@-->
 
 <!--@installation()-->

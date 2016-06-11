@@ -1,24 +1,20 @@
-<!--@'# ' + package.name-->
+<!--@'# ' + pkg.name-->
 # mos-plugin-example
 <!--/@-->
 
-<!--@'> ' + package.description-->
+<!--@'> ' + pkg.description-->
 > A mos plugin that combines example code files with their output
 <!--/@-->
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-example.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-example)
+[![npm version](https://img.shields.io/npm/v/mos-plugin-example.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-example)
 <!--/@-->
 
-<!--@installation()-->
 ## Installation
 
-This module is installed via npm:
-
-``` sh
-npm install mos-plugin-example --save
+```sh
+npm install --save mos-plugin-example
 ```
-<!--/@-->
 
 ## Usage
 
@@ -57,7 +53,7 @@ In the current `README.md` we have this code snippet:
 It produces this code block, with the outputs written under the `console.log`s inside comments:
 
 <!--@example('./example/index.js')-->
-``` js
+```js
 'use strict'
 console.log('Hello world!')
 //> Hello world!
@@ -72,7 +68,7 @@ console.log(sum(1, 2))
 
 Comments that start with an exclamation will be inserted into the markdown outside the code block.
 
-``` js
+```js
 function printEachLetter (text) {
   for (let i = 0; i < text.length; i++) {
     console.log(text[i])
@@ -106,7 +102,7 @@ your example folder and configure babel the way it is described [here](https://g
 Here is an example that is using ES6 in the current package:
 
 <!--@example.es6('./example/es6.js')-->
-``` js
+```js
 const sum = (a, b) => a + b
 
 const numbers = [1, 2]
@@ -120,8 +116,6 @@ console.log(sum(...numbers))
 - `example(relativePathToFile)`
 - `example.es6(relativePathToFile)` - process an example written in ES6
 
-<!--@license()-->
 ## License
 
 [MIT](./LICENSE) © [Zoltan Kochan](http://kochan.io)
-<!--/@-->

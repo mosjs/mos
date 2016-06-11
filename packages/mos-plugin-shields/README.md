@@ -7,7 +7,7 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-shields.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-shields)
+[![npm version](https://img.shields.io/npm/v/mos-plugin-shields.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-shields)
 <!--/@-->
 
 ## Installation

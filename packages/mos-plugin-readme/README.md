@@ -6,7 +6,7 @@
 > A mos plugin for generating README
 <!--/@-->
 
-<!--@shields('npm'-->
+<!--@shields('npm')-->
 [![npm version](https://img.shields.io/npm/v/mos-plugin-readme.svg)](https://www.npmjs.com/package/mos-plugin-readme)
 <!--/@-->
 

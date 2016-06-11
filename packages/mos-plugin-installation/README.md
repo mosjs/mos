@@ -7,16 +7,14 @@
 <!--/@-->
 
 <!--@shields.flatSquare('npm')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-installation.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-installation)
+[![npm version](https://img.shields.io/npm/v/mos-plugin-installation.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-installation)
 <!--/@-->
 
-<!--@installation({useShortAlias: true})-->
 ## Installation
 
 ```sh
-npm i -S mos-plugin-installation
+npm install --save mos-plugin-installation
 ```
-<!--/@-->
 
 ## Usage
 
@@ -46,8 +44,6 @@ If the package has `peerDependencies`, the installation command will suggest to 
 
 - `opts.useShortAlias` - _Boolean_, false by default. If true, uses shorter aliases in the installation command. `i` instead of `install`, `-S` instead of `--save`, etc.
 
-<!--@license()-->
 ## License
 
 [MIT](./LICENSE) © [Zoltan Kochan](http://kochan.io)
-<!--/@-->
