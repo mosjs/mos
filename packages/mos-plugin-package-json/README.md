@@ -6,8 +6,8 @@
 > A mos plugin that makes the package.json available in the markdown scope
 <!--/@-->
 
-<!--@shields.flatSquare('npm', 'travis', 'coveralls')-->
-[![NPM version](https://img.shields.io/npm/v/mos-plugin-package-json.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-package-json) [![Build status for master](https://img.shields.io/travis/mosjs/mos-plugin-package-json/master.svg?style=flat-square)](https://travis-ci.org/mosjs/mos-plugin-package-json) [![Test coverage for master](https://img.shields.io/coveralls/mosjs/mos-plugin-package-json/master.svg?style=flat-square)](https://coveralls.io/r/mosjs/mos-plugin-package-json?branch=master)
+<!--@shields.flatSquare('npm'-->
+[![NPM version](https://img.shields.io/npm/v/mos-plugin-package-json.svg?style=flat-square)](https://www.npmjs.com/package/mos-plugin-package-json)
 <!--/@-->
 
 <!--@installation()-->

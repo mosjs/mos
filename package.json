@@ -3,7 +3,9 @@
   "scripts": {
     "commit": "git-cz",
     "bootstrap": "lerna bootstrap",
-    "test": "lerna run test"
+    "pretest": "lerna run transpile",
+    "test": "lerna run test",
+    "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done"
   },
   "devDependencies": {
     "cz-lerna-changelog": "^0.2.1",

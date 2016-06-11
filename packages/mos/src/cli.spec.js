@@ -36,7 +36,7 @@ describe('cli', function () {
       return mos(['test', 'up-to-date.md', '--tap'], {
         cwd: testcwd,
       })
-        .then(result => expect(result.stdout).to.eq([
+        .then(result => expect(result.stdout).to.contain([
           'TAP version 13',
           '# markdown',
           'ok 1 up-to-date.md',
@@ -82,7 +82,7 @@ describe('cli', function () {
       return mos(['test', 'plugin-options.md', '--tap'], {
         cwd: testcwd,
       })
-        .then(result => expect(result.stdout).to.eq([
+        .then(result => expect(result.stdout).to.contain([
           'TAP version 13',
           '# markdown',
           'ok 1 plugin-options.md',
@@ -100,7 +100,7 @@ describe('cli', function () {
       return mos(['test', 'disable-default-plugin.md', '--tap'], {
         cwd: testcwd,
       })
-        .then(result => expect(result.stdout).to.eq([
+        .then(result => expect(result.stdout).to.contain([
           'TAP version 13',
           '# markdown',
           'ok 1 disable-default-plugin.md',

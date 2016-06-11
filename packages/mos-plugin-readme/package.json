@@ -10,13 +10,13 @@
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register && npm run lint && mos test",
+    "test": "mocha --compilers js:babel-register && npm run lint && node ../mos/bin/mos.js test",
     "lint": "eslint src/",
     "coverage": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-register -R spec",
     "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec && npm i coveralls@2",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
-    "md": "mos",
+    "md": "node ../mos/bin/mos.js",
     "transpile": "babel src --out-dir dist",
     "prepublish": "npm run transpile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
