@@ -1,0 +1,8 @@
+{
+  "name": "foo",
+  "author": {
+    "name": "James Bond",
+    "url": "http://jbond.uk"
+  },
+  "license": "MIT"
+}
