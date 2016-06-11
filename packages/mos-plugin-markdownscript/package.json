@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-markdownscript",
-  "version": "0.0.0-placeholder",
+  "version": "2.1.0",
   "description": "A [mos](https://github.com/mosjs/mos) plugin that adds markownscript helpers to the markdown scope",
   "files": [
     "src/",

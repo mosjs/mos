@@ -1,6 +1,6 @@
 {
   "name": "mos-init",
-  "version": "0.0.0-placeholder",
+  "version": "1.1.0",
   "description": "Add mos to your project",
   "files": [
     "index.js"

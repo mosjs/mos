@@ -1,5 +1,6 @@
 {
   "name": "mos-plugin-dependencies",
+  "version": "2.2.0",
   "description": "A mos plugin that creates dependencies sections",
   "files": [
     "src/",

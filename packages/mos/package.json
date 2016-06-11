@@ -1,6 +1,6 @@
 {
   "name": "mos",
-  "version": "0.0.0-placeholder",
+  "version": "1.3.0",
   "description": "A pluggable module that injects content into your markdown files via hidden JavaScript snippets",
   "files": [
     "dist/",

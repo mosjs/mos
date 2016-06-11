@@ -1,6 +1,6 @@
 {
   "name": "mos-processor",
-  "version": "0.0.0-placeholder",
+  "version": "1.2.0",
   "description": "A markdown processor for mos",
   "files": [
     "src/",

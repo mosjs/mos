@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-package-json",
-  "version": "0.0.0-placeholder",
+  "version": "2.1.0",
   "description": "A mos plugin that makes the package.json available in the markdown scope",
   "files": [
     "src/",

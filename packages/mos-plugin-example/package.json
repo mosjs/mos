@@ -1,5 +1,6 @@
 {
   "name": "mos-plugin-example",
+  "version": "1.1.0",
   "description": "A mos plugin that combines example code files with their output",
   "files": [
     "src/",

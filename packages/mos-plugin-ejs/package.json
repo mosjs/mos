@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-ejs",
-  "version": "0.0.0-placeholder",
+  "version": "1.1.0",
   "description": "A mos plugin that executes embedded js in markdown files",
   "files": [
     "src/",

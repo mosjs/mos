@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-readme",
-  "version": "0.0.0-placeholder",
+  "version": "1.0.2",
   "description": "A mos plugin for generating README",
   "preferDev": true,
   "files": [

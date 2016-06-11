@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-toc",
-  "version": "0.0.0-placeholder",
+  "version": "1.2.1",
   "description": "A mos plugin for creating Table of Contents",
   "files": [
     "src/",

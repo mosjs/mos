@@ -1,5 +1,6 @@
 {
   "name": "mos-plugin-snippet",
+  "version": "2.1.1",
   "description": "A mos plugin for embedding snippets from files",
   "files": [
     "src/",

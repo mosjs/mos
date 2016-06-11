@@ -1,6 +1,6 @@
 {
   "name": "mos-core",
-  "version": "0.0.0-placeholder",
+  "version": "0.2.1",
   "description": "Markdown parser",
   "files": [
     "index.js",

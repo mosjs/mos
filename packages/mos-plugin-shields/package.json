@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-shields",
-  "version": "0.0.0-placeholder",
+  "version": "2.2.0",
   "description": "A mos plugin for creating markdown shields",
   "files": [
     "src/",

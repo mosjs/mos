@@ -1,6 +1,6 @@
 {
   "name": "mos-plugin-installation",
-  "version": "0.0.0-placeholder",
+  "version": "1.2.0",
   "description": "A mos plugin for creating installation section",
   "files": [
     "src/",
