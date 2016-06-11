@@ -70,7 +70,7 @@ Comments that start with an exclamation will be inserted into the markdown outsi
 
 ```js
 function printEachLetter (text) {
-  for (let i = 0; i < text.length; i++) {
+  for (var i = 0; i < text.length; i++) {
     console.log(text[i])
     //> H
     //> e
