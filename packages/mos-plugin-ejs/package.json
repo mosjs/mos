@@ -14,10 +14,7 @@
     "test:md": "npm run transpile && node ../mos/bin/mos.js test",
     "test": "npm run test-es5 && npm run test:md",
     "lint": "eslint src/**/*.js index.js",
-    "coverage": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha -- --compilers js:babel-register -R spec",
-    "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec && npm i coveralls@2",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "postcoveralls": "rm -rf ./coverage",
+    "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
     "md": "npm run transpile && node ../mos/bin/mos.js",
     "transpile": "babel src --out-dir dist",
     "prepublish": "npm run transpile && tonic-example"

@@ -17,10 +17,7 @@
     "test-es5": "mocha --compilers js:babel-register && npm run lint",
     "test": "npm run test-es5 && node ../mos/bin/mos.js test -x=\"test/**\"",
     "lint": "eslint src/**/*.js",
-    "coverage": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha -- -R spec",
-    "precoveralls": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && npm i coveralls@2",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "postcoveralls": "rm -rf ./coverage",
+    "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
     "md": "node ../mos/bin/mos.js -x=\"test/**\"",
     "transpile": "babel src --out-dir dist",
     "prepublish": "npm run transpile"
