@@ -3,6 +3,7 @@
   "scripts": {
     "commit": "git-cz",
     "bootstrap": "lerna bootstrap",
+    "postinstall": "npm run bootstrap",
     "pretest": "lerna run transpile",
     "test": "lerna run test",
     "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done"
