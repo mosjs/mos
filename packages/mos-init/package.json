@@ -7,10 +7,9 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test-es5": "mocha && npm run lint",
-    "test": "npm run test-es5 && node ../mos/bin/mos.js test",
+    "test": "mocha && npm run lint && node ../mos/bin/mos.js test",
     "lint": "eslint lib/**/*.js index.js",
-    "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
+    "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
     "md": "node ../mos/bin/mos.js"
   },
   "repository": {

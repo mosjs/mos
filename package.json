@@ -7,11 +7,15 @@
     "postinstall": "npm run bootstrap",
     "pretest": "lerna run transpile",
     "test": "lerna run test",
-    "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done"
+    "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done",
+    "precoveralls": "lerna run cover",
+    "coveralls": "./node_modules/.bin/lcov-result-merger \"packages/*/coverage/lcov.info\" | ./node_modules/coveralls/bin/coveralls.js"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
     "cz-lerna-changelog": "^0.2.1",
     "ghooks": "^1.2.3",
+    "lcov-result-merger": "^1.2.0",
     "lerna": "2.0.0-beta.18",
     "validate-commit-msg": "^2.6.1"
   },
