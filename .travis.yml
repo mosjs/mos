@@ -18,5 +18,6 @@ script:
   - npm run test -- --concurrency 1
 after_success:
   - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run coveralls; fi;
+  - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run release; fi;
 
 after_failure: "cat /home/travis/build/mosjs/mos/packages/mos-core/npm-debug.log"
