@@ -9,7 +9,7 @@
   "bin": "./bin/mos.js",
   "preferDev": true,
   "engines": {
-    "node": ">=0.10"
+    "node": ">=0.12"
   },
   "mos": {
     "plugins": [

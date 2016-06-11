@@ -61,6 +61,6 @@
     "mos-processor": "^1.2.0"
   },
   "engines": {
-    "node": ">=0.10"
+    "node": ">=0.12"
   }
 }
