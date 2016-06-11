@@ -23,7 +23,7 @@ npm install --save mos-plugin-ejs
 <!--@example('./example.js')-->
 ```js
 'use strict'
-const ejs = require('mos-plugin-ejs')
+var ejs = require('mos-plugin-ejs')
 ```
 <!--/@-->
 

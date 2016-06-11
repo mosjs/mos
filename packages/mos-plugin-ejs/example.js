@@ -1,2 +1,2 @@
 'use strict'
-const ejs = require('./dist')
+var ejs = require('./dist')
