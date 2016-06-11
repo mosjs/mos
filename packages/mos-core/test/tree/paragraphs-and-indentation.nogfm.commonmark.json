@@ -1,0 +1,484 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "Without lines.",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 3,
+              "offset": 2
+            },
+            "end": {
+              "line": 1,
+              "column": 17,
+              "offset": 16
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 17,
+          "offset": 16
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph\n    and this is further text",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 18
+            },
+            "end": {
+              "line": 4,
+              "column": 29,
+              "offset": 66
+            },
+            "indent": [
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 18
+        },
+        "end": {
+          "line": 4,
+          "column": 29,
+          "offset": 66
+        },
+        "indent": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph\n   and this is further text",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "offset": 68
+            },
+            "end": {
+              "line": 7,
+              "column": 28,
+              "offset": 115
+            },
+            "indent": [
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 6,
+          "column": 1,
+          "offset": 68
+        },
+        "end": {
+          "line": 7,
+          "column": 28,
+          "offset": 115
+        },
+        "indent": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph with some asterisks\n    ***",
+          "position": {
+            "start": {
+              "line": 9,
+              "column": 1,
+              "offset": 117
+            },
+            "end": {
+              "line": 10,
+              "column": 8,
+              "offset": 164
+            },
+            "indent": [
+              1
+            ]
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 9,
+          "column": 1,
+          "offset": 117
+        },
+        "end": {
+          "line": 10,
+          "column": 8,
+          "offset": 164
+        },
+        "indent": [
+          1
+        ]
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph followed by a horizontal rule",
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 1,
+              "offset": 166
+            },
+            "end": {
+              "line": 12,
+              "column": 50,
+              "offset": 215
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 12,
+          "column": 1,
+          "offset": 166
+        },
+        "end": {
+          "line": 12,
+          "column": 50,
+          "offset": 215
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 13,
+          "column": 1,
+          "offset": 216
+        },
+        "end": {
+          "line": 13,
+          "column": 7,
+          "offset": 222
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "With lines.",
+          "position": {
+            "start": {
+              "line": 15,
+              "column": 3,
+              "offset": 226
+            },
+            "end": {
+              "line": 15,
+              "column": 14,
+              "offset": 237
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 15,
+          "column": 1,
+          "offset": 224
+        },
+        "end": {
+          "line": 15,
+          "column": 14,
+          "offset": 237
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph",
+          "position": {
+            "start": {
+              "line": 17,
+              "column": 1,
+              "offset": 239
+            },
+            "end": {
+              "line": 17,
+              "column": 20,
+              "offset": 258
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 17,
+          "column": 1,
+          "offset": 239
+        },
+        "end": {
+          "line": 17,
+          "column": 20,
+          "offset": 258
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "code",
+      "lang": null,
+      "value": "and this is code",
+      "position": {
+        "start": {
+          "line": 19,
+          "column": 1,
+          "offset": 260
+        },
+        "end": {
+          "line": 19,
+          "column": 21,
+          "offset": 280
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph",
+          "position": {
+            "start": {
+              "line": 21,
+              "column": 1,
+              "offset": 282
+            },
+            "end": {
+              "line": 21,
+              "column": 20,
+              "offset": 301
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 21,
+          "column": 1,
+          "offset": 282
+        },
+        "end": {
+          "line": 21,
+          "column": 20,
+          "offset": 301
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "   and this is a new paragraph",
+          "position": {
+            "start": {
+              "line": 23,
+              "column": 1,
+              "offset": 303
+            },
+            "end": {
+              "line": 23,
+              "column": 31,
+              "offset": 333
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 23,
+          "column": 1,
+          "offset": 303
+        },
+        "end": {
+          "line": 23,
+          "column": 31,
+          "offset": 333
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph with some asterisks in a code block",
+          "position": {
+            "start": {
+              "line": 25,
+              "column": 1,
+              "offset": 335
+            },
+            "end": {
+              "line": 25,
+              "column": 56,
+              "offset": 390
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 25,
+          "column": 1,
+          "offset": 335
+        },
+        "end": {
+          "line": 25,
+          "column": 56,
+          "offset": 390
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "code",
+      "lang": null,
+      "value": "***",
+      "position": {
+        "start": {
+          "line": 27,
+          "column": 1,
+          "offset": 392
+        },
+        "end": {
+          "line": 27,
+          "column": 8,
+          "offset": 399
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a paragraph followed by a horizontal rule",
+          "position": {
+            "start": {
+              "line": 29,
+              "column": 1,
+              "offset": 401
+            },
+            "end": {
+              "line": 29,
+              "column": 50,
+              "offset": 450
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 29,
+          "column": 1,
+          "offset": 401
+        },
+        "end": {
+          "line": 29,
+          "column": 50,
+          "offset": 450
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "thematicBreak",
+      "position": {
+        "start": {
+          "line": 31,
+          "column": 1,
+          "offset": 452
+        },
+        "end": {
+          "line": 31,
+          "column": 7,
+          "offset": 458
+        },
+        "indent": []
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 33,
+      "column": 1,
+      "offset": 460
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "foo",
+  "peerDependencies": {
+    "bar": "1.0.0",
+    "qar": "2.0.0"
+  }
+}

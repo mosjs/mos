@@ -1,0 +1,73 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Ticks:",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 7,
+              "offset": 6
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 7,
+          "offset": 6
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "value": "alert('Hello World!');",
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 8
+        },
+        "end": {
+          "line": 5,
+          "column": 4,
+          "offset": 48
+        },
+        "indent": [
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 6,
+      "column": 1,
+      "offset": 49
+    }
+  }
+}

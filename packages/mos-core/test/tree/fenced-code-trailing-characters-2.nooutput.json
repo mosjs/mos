@@ -1,0 +1,38 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "code",
+      "lang": null,
+      "value": "``` aaa",
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 4,
+          "offset": 15
+        },
+        "indent": [
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "position": {
+    "start": {
+      "line": 1,
+      "column": 1,
+      "offset": 0
+    },
+    "end": {
+      "line": 4,
+      "column": 1,
+      "offset": 16
+    }
+  }
+}

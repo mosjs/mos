@@ -1,0 +1,13 @@
+{
+  "name": "test-pkg",
+  "dependencies": {
+    "foo": "*"
+  },
+  "devDependencies": {
+    "foo": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkochan/test-pkg"
+  }
+}

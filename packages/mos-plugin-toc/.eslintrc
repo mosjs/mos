@@ -1,0 +1,7 @@
+{
+  "extends": "standard",
+  "rules": {
+    "comma-dangle": [2, "always-multiline"],
+    "arrow-parens": [2, "as-needed"]
+  }
+}

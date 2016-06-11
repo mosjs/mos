@@ -1,0 +1,5 @@
+{
+  "name": "foo",
+  "private": true,
+  "repository": "https://github.com/zkochan/foo"
+}
