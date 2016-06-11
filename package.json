@@ -1,4 +1,9 @@
 {
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test"
+  },
   "devDependencies": {
     "lerna": "2.0.0-beta.18"
   }
