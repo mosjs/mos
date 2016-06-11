@@ -84,7 +84,12 @@ function parseOptions (name) {
 
   while (++index < length) {
     part = parts[index].split('=')
-    const {key, value} = augment(part[0], part.slice(1).join('='))
+    let {key, value} = augment(part[0], part.slice(1).join('='))
+
+    // a hack for Windows, because file names cannot contain *
+    if (value === 'asterisk') {
+      value = '*'
+    }
 
     if (key === 'output') {
       options[key] = value
