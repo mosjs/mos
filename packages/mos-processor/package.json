@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mosjs/mos-processor"
+    "url": "https://github.com/mosjs/mos/tree/master/packages/mos-processor"
   },
   "keywords": [
     "mos",

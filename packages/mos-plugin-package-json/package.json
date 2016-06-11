@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mosjs/mos-plugin-package-json"
+    "url": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-package-json"
   },
   "keywords": [
     "mos-plugin",
