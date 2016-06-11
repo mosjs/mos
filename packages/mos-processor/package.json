@@ -63,7 +63,7 @@
     "istanbul": "^0.4.2",
     "markdownscript": "^1.3.0",
     "mocha": "^2.3.4",
-    "mos": "^0.17.0",
+    "mos": "^1.3.0",
     "plugiator": "^0.2.1",
     "semantic-release": "^4.3.5"
   },
