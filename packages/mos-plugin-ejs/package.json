@@ -19,7 +19,6 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "postcoveralls": "rm -rf ./coverage",
     "md": "npm run transpile && node ../mos/bin/mos.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "transpile": "babel src --out-dir dist",
     "prepublish": "npm run transpile && tonic-example"
   },
@@ -64,7 +63,6 @@
     "mocha": "^2.3.4",
     "mos": "^1.3.0",
     "mos-processor": "^1.2.0",
-    "semantic-release": "^4.3.5",
     "tonic-example": "^0.2.0"
   },
   "engines": {

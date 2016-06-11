@@ -18,8 +18,7 @@
     "postcoveralls": "rm -rf ./coverage",
     "md": "node ../mos/bin/mos.js",
     "transpile": "babel src --out-dir dist",
-    "prepublish": "npm run transpile",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "prepublish": "npm run transpile"
   },
   "repository": {
     "type": "git",
@@ -61,8 +60,7 @@
     "eslint-plugin-standard": "^1.3.2",
     "istanbul": "^1.0.0-alpha.1",
     "mocha": "^2.3.4",
-    "mos": "^1.2.0",
-    "semantic-release": "^4.3.5"
+    "mos": "^1.2.0"
   },
   "engines": {
     "node": ">=0.10"
