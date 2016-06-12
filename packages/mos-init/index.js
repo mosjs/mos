@@ -1,7 +1,7 @@
 'use strict'
 var fs = require('fs')
 var path = require('path')
-var childProcess = require('child_process')
+var spawn = require('cross-spawn')
 var argv = require('the-argv')
 var readPkgUp = require('@zkochan/read-pkg-up')
 var writePkg = require('write-pkg')
@@ -51,7 +51,7 @@ module.exports = function (opts) {
     return Promise.resolve()
   }
 
-  var child = childProcess.spawn('npm', ['install', '--save-dev', 'mos'], {
+  var child = spawn('npm', ['install', '--save-dev', 'mos'], {
     cwd: path.dirname(pkgPath),
     stdio: 'inherit',
   })

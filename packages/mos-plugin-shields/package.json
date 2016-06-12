@@ -39,7 +39,7 @@
   "homepage": "https://github.com/mosjs/mos-plugin-shields#readme",
   "dependencies": {
     "babel-runtime": "^6.9.0",
-    "shieldman": "^1.0.0"
+    "shieldman": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

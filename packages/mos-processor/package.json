@@ -41,6 +41,7 @@
     "github-url-to-object": "^2.2.1",
     "magic-hook": "^1.0.0",
     "mos-core": "^0.2.1",
+    "normalize-path": "^2.0.1",
     "remi": "^1.1.1",
     "remi-runner": "^1.1.0",
     "vfile": "^1.4.0"

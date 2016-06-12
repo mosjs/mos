@@ -15,6 +15,7 @@
     "postrelease": "lerna-semantic-release post"
   },
   "devDependencies": {
+    "commitizen": "^2.8.2",
     "coveralls": "^2.11.9",
     "cz-lerna-changelog": "^0.2.1",
     "ghooks": "^1.2.3",

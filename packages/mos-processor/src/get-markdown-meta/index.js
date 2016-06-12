@@ -1,6 +1,7 @@
 import readPkgUp from '@zkochan/read-pkg-up'
 import gh from 'github-url-to-object'
 import path from 'path'
+import normalizePath from 'normalize-path'
 
 export default function getMarkdownMeta (filePath) {
   return readPkgUp({cwd: filePath})
@@ -11,7 +12,7 @@ export default function getMarkdownMeta (filePath) {
 
       return {
         pkg,
-        pkgRoot: path.dirname(result.path),
+        pkgRoot: normalizePath(path.dirname(result.path)),
         repo: pkg.repository && pkg.repository.url && gh(pkg.repository.url),
       }
     })

@@ -41,6 +41,7 @@
     "@zkochan/read-pkg-up": "^1.0.2",
     "arr-exclude": "^1.0.0",
     "core-js": "^2.4.0",
+    "cross-spawn": "^4.0.0",
     "the-argv": "^1.0.0",
     "write-pkg": "^1.0.0"
   },
