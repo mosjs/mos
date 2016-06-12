@@ -12,6 +12,7 @@ cache:
 
 before_install:
   - npm install -g npm@3
+  - npm set fetch-retry-maxtimeout 180000
 install:
   - npm install
 script:
