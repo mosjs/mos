@@ -7,6 +7,7 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install -g npm@latest || (timeout 30 && npm install -g npm@latest)
+  - npm set fetch-retry-maxtimeout 180000
   - npm install || (timeout 30 && npm install)
 matrix:
   fast_finish: true
