@@ -99,7 +99,7 @@ describe('mos-init', function () {
   })
 
   it('installs the mos dependency', function () {
-    this.timeout(12e4)
+    this.timeout(30e4)
     var filepath = tempWrite.sync(JSON.stringify({}), 'package.json')
 
     return mosInit({
