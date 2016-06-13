@@ -36,11 +36,11 @@
   },
   "homepage": "https://github.com/mosjs/mos-processor#readme",
   "dependencies": {
-    "@zkochan/read-pkg-up": "^1.0.2",
     "babel-runtime": "^6.9.0",
     "github-url-to-object": "^2.2.1",
     "magic-hook": "^1.0.0",
     "mos-core": "^0.2.1",
+    "mos-read-pkg-up": "^1.0.0",
     "normalize-path": "^2.0.1",
     "remi": "^1.1.1",
     "remi-runner": "^1.1.0"

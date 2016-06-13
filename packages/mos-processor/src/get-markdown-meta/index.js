@@ -1,4 +1,4 @@
-import readPkgUp from '@zkochan/read-pkg-up'
+import readPkgUp from 'mos-read-pkg-up'
 import gh from 'github-url-to-object'
 import path from 'path'
 import normalizePath from 'normalize-path'

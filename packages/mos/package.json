@@ -58,7 +58,6 @@
   "homepage": "https://github.com/mosjs/mos#readme",
   "dependencies": {
     "@zkochan/read-pkg-up": "^1.0.2",
-    "@zkochan/tap-diff": "^1.1.1",
     "babel-runtime": "^6.9.0",
     "chalk": "~1.1.3",
     "glob": "~7.0.3",
@@ -77,6 +76,8 @@
     "mos-plugin-snippet": "^2.1.1",
     "mos-plugin-toc": "^1.2.1",
     "mos-processor": "^1.2.0",
+    "mos-read-pkg-up": "^1.0.0",
+    "mos-tap-diff": "^1.0.0",
     "normalize-newline": "~2.0.0",
     "normalize-path": "~2.0.1",
     "rcfile": "^1.0.3",
