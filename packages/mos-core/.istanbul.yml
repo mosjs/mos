@@ -1,0 +1,3 @@
+reporting:
+  dir: ./coverage/esnext
+  report: lcovonly

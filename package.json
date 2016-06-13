@@ -9,7 +9,7 @@
     "test": "lerna run test",
     "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done",
     "precoveralls": "lerna run cover --concurrency 1",
-    "coveralls": "./node_modules/.bin/lcov-result-merger \"packages/*/coverage/lcov.info\" | ./node_modules/coveralls/bin/coveralls.js",
+    "coveralls": "./node_modules/.bin/lcov-result-merger \"packages/*/{coverage/,coverage/ts/}lcov.info\" | ./node_modules/coveralls/bin/coveralls.js",
     "prerelease": "lerna-semantic-release pre",
     "release": "lerna-semantic-release perform",
     "postrelease": "lerna-semantic-release post"
@@ -29,8 +29,7 @@
       "path": "./node_modules/cz-lerna-changelog"
     },
     "ghooks": {
-      "commit-msg": "node ./node_modules/validate-commit-msg/index.js",
-      "pre-commit": "npm test"
+      "commit-msg": "node ./node_modules/validate-commit-msg/index.js"
     }
   },
   "publishConfig": {
