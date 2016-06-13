@@ -78,7 +78,7 @@ export default function plugin (mos, md) {
   })
 
   function generateMarkdown (parser, code) {
-    return parser.file.asyncScopeEval(code)
+    return asyncScopeEval(code)
       .then(ast => {
         if (ast instanceof Array) return ast
         if (typeof ast === 'object') return [ast]
@@ -88,9 +88,10 @@ export default function plugin (mos, md) {
   }
 
   mos.root.scope = {}
+  let asyncScopeEval
 
   mos.parse.pre((next, md, opts) => {
-    md.vfile.asyncScopeEval = createAsyncScopeEval(mos.root.scope, {
+    asyncScopeEval = createAsyncScopeEval(mos.root.scope, {
       useStrict: true,
     })
     return next.applySame()

@@ -1,8 +1,7 @@
-import mosCore from 'mos-core'
+import * as mosCore from 'mos-core'
 import remi from 'remi'
 import remiRunner from 'remi-runner'
 import hook from 'magic-hook/es5'
-import VFile from 'vfile'
 import getMarkdownMeta from './get-markdown-meta'
 
 export default function mos (md, plugins) {
@@ -19,13 +18,13 @@ export default function mos (md, plugins) {
         inlineTokenizers: processor.inlineTokenizers,
         blockTokenizers: processor.blockTokenizers,
         data: mosCore.data,
-      })(md.vfile, opts)
+      })(md.content, opts)
     }),
     compile: hook((ast, opts) => {
       return Promise.resolve(mosCore.compiler(processor.visitors)(ast, opts))
     }),
     process: opts => processor
-      .parse(Object.assign(md, {vfile: new VFile(md.content)}), opts || defaultOpts)
+      .parse(opts || defaultOpts)
       .then(ast => {
         return processor.compile(ast, opts || defaultOpts)
       }),

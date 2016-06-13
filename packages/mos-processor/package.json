@@ -43,8 +43,7 @@
     "mos-core": "^0.2.1",
     "normalize-path": "^2.0.1",
     "remi": "^1.1.1",
-    "remi-runner": "^1.1.0",
-    "vfile": "^1.4.0"
+    "remi-runner": "^1.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

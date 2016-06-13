@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import camelcase from 'camelcase'
 import clone from 'clone'
-import * as defaults from '../src/defaults.js'
+import * as defaults from '../dist/esnext/defaults.js'
 
 /*
  * Methods.
