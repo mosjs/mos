@@ -1,6 +1,6 @@
 {
   "name": "mos-core",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Markdown parser",
   "files": [
     "dist/"
@@ -72,7 +72,7 @@
     "extend": "^3.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
-    "mos": "^1.3.0",
+    "mos": "^2.0.0-alpha.1",
     "remap-istanbul": "^0.6.4",
     "tslint": "^3.11.0",
     "typescript": "^1.8.10"
