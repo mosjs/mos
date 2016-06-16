@@ -11,8 +11,8 @@ const EXPRESSION_INITIAL_TAB = /^( {4}|\t)?/gm
  * @example
  *   tokenizeFootnoteDefinition(eat, '[^foo]: Bar.')
  *
- * @property {boolean} onlyAtTop
- * @property {boolean} notInBlockquote
+ * @property {boolean} notInList
+ * @property {boolean} notInBlock
  * @param {function(string)} eat - Eater.
  * @param {string} value - Rest of content.
  * @param {boolean?} [silent] - Whether this is a dry run.
@@ -160,12 +160,12 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
     return ''
   })
 
-  parser.context.inBlockquote = true
+  parser.context.inBlock = true
 
   return parser.eat(subvalue)(
     parser.tokenizeBlock(content, now)
     .then(children => {
-      parser.context.inBlockquote = false
+      parser.context.inBlock = false
       return <Node>{
         type: 'footnoteDefinition',
         identifier,
@@ -174,7 +174,7 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
     }))
 }
 
-tokenizeFootnoteDefinition.onlyAtTop = true
-tokenizeFootnoteDefinition.notInBlockquote = true
+tokenizeFootnoteDefinition.notInList = true
+tokenizeFootnoteDefinition.notInBlock = true
 
 export default tokenizeFootnoteDefinition

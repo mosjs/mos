@@ -20,7 +20,7 @@ const TABLE_ALIGN_NONE: string = null
  * @example
  *   tokenizeTable(eat, ' | foo |\n | --- |\n | bar |')
  *
- * @property {boolean} onlyAtTop
+ * @property {boolean} notInList
  * @param {function(string)} eat - Eater.
  * @param {string} value - Rest of content.
  * @param {boolean?} [silent] - Whether this is a dry run.
@@ -283,6 +283,6 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
   })
 }
 
-tokenizeTable.onlyAtTop = true
+tokenizeTable.notInList = true
 
 export default tokenizeTable

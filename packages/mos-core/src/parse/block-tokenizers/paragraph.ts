@@ -105,11 +105,11 @@ const tokenizeParagraph: Tokenizer = function (parser, value, silent) {
       .then(found => {
         if (found) return index
 
-        return parser.tryTokenizeBlock(parser.eat, 'heading', subvalue, true)
+        return parser.tryTokenizeBlock(parser.eat, 'atxHeading', subvalue, true)
           .then(found => {
             if (found) return index
 
-            return parser.tryTokenizeBlock(parser.eat, 'fences', subvalue, true)
+            return parser.tryTokenizeBlock(parser.eat, 'fencedCode', subvalue, true)
               .then(found => {
                 if (found) return index
 
@@ -139,7 +139,7 @@ const tokenizeParagraph: Tokenizer = function (parser, value, silent) {
 
     function lastCheck () {
       if (!commonmark) {
-        return parser.tryTokenizeBlock(parser.eat, 'lineHeading', subvalue, true)
+        return parser.tryTokenizeBlock(parser.eat, 'setextHeading', subvalue, true)
           .then(found => {
             if (found) return index
 
@@ -147,7 +147,7 @@ const tokenizeParagraph: Tokenizer = function (parser, value, silent) {
               .then(found => {
                 if (found) return index
 
-                return parser.tryTokenizeBlock(parser.eat, 'footnoteDefinition', subvalue, true)
+                return parser.tryTokenizeBlock(parser.eat, 'footnote', subvalue, true)
                   .then(found => {
                     if (found) return index
 

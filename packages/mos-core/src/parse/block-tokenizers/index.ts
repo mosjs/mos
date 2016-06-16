@@ -1,14 +1,14 @@
 import yamlFrontMatter from './yaml-front-matter'
 import newline from './new-line'
-import code from './code'
-import fences from './fences'
+import intendedCode from './intended-code'
+import fencedCode from './fenced-code'
 import blockquote from './blockquote'
-import heading from './heading'
+import atxHeading from './atx-heading'
 import thematicBreak from './thematic-break'
 import list from './list'
-import lineHeading from './line-heading'
+import setextHeading from './setext-heading'
 import html from './html'
-import footnoteDefinition from './footnote'
+import footnote from './footnote'
 import definition from './definition'
 import table from './table'
 import paragraph from './paragraph'
@@ -24,20 +24,20 @@ export default [
     func: newline,
   },
   {
-    name: 'code',
-    func: code,
+    name: 'intendedCode',
+    func: intendedCode,
   },
   {
-    name: 'fences',
-    func: fences,
+    name: 'fencedCode',
+    func: fencedCode,
   },
   {
     name: 'blockquote',
     func: blockquote,
   },
   {
-    name: 'heading',
-    func: heading,
+    name: 'atxHeading',
+    func: atxHeading,
   },
   {
     name: 'thematicBreak',
@@ -48,16 +48,16 @@ export default [
     func: list,
   },
   {
-    name: 'lineHeading',
-    func: lineHeading,
+    name: 'setextHeading',
+    func: setextHeading,
   },
   {
     name: 'html',
     func: html,
   },
   {
-    name: 'footnoteDefinition',
-    func: footnoteDefinition,
+    name: 'footnote',
+    func: footnote,
   },
   {
     name: 'definition',

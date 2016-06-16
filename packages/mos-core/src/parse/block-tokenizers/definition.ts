@@ -41,8 +41,8 @@ function isUnclosedURLCharacter (character: string): boolean {
  *   var value = '[foo]: http://example.com "Example Domain"'
  *   tokenizeDefinition(eat, value)
  *
- * @property {boolean} onlyAtTop
- * @property {boolean} notInBlockquote
+ * @property {boolean} notInList
+ * @property {boolean} notInBlock
  * @param {function(string)} eat - Eater.
  * @param {string} value - Rest of content.
  * @param {boolean?} [silent] - Whether this is a dry run.
@@ -284,7 +284,7 @@ const tokenizeDefinition: Tokenizer = function (parser, value, silent) {
   return false
 }
 
-tokenizeDefinition.onlyAtTop = true
-tokenizeDefinition.notInBlockquote = true
+tokenizeDefinition.notInList = true
+tokenizeDefinition.notInBlock = true
 
 export default tokenizeDefinition

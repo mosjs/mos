@@ -275,9 +275,9 @@ function parserFactory (processor: Processor) {
 
     context: {
       inLink: false,
-      atTop: true,
+      inList: true,
       atStart: true,
-      inBlockquote: false,
+      inBlock: false,
       inAutoLink: false,
     },
   }

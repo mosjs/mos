@@ -125,16 +125,16 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
       })
     )
     .then((node: ListNode) => {
-      parser.context.atTop = false
-      parser.context.inBlockquote = true
+      parser.context.inList = false
+      parser.context.inBlock = true
       let isLoose = false
       length = items.length
       const parent = node
 
       return tokenizeEach(items)
         .then(() => {
-          parser.context.atTop = true
-          parser.context.inBlockquote = false
+          parser.context.inList = true
+          parser.context.inBlock = false
 
           node.loose = isLoose
 
@@ -323,7 +323,7 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
           .then(found => {
             if (found) return
 
-            return parser.tryTokenizeBlock(parser.eat, 'footnoteDefinition', line, true)
+            return parser.tryTokenizeBlock(parser.eat, 'footnote', line, true)
               .then(found => {
                 if (found) return
 
@@ -372,7 +372,7 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
         }
 
         if (!pedantic) {
-          return parser.tryTokenizeBlock(parser.eat, 'fences', line, true)
+          return parser.tryTokenizeBlock(parser.eat, 'fencedCode', line, true)
             .then(found => {
               if (found) return
 

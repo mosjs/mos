@@ -49,11 +49,11 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
         indent(indents[index])
       }
 
-      parser.context.inBlockquote = true
+      parser.context.inBlock = true
 
       return add(parser.tokenizeBlock(contents.join('\n'), now)
         .then(children => {
-          parser.context.inBlockquote = false
+          parser.context.inBlock = false
           return <Node>{
             type: 'blockquote',
             children,
@@ -106,19 +106,19 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
 
     if (!prefixed) {
       if (parser.options.commonmark) {
-        return parser.tryTokenizeBlock(parser.eat, 'code', rest, true)
+        return parser.tryTokenizeBlock(parser.eat, 'intendedCode', rest, true)
           .then((found: boolean) => {
             if (found) return index
 
-            return parser.tryTokenizeBlock(parser.eat, 'fences', rest, true)
+            return parser.tryTokenizeBlock(parser.eat, 'fencedCode', rest, true)
               .then((found: boolean) => {
                 if (found) return index
 
-                return parser.tryTokenizeBlock(parser.eat, 'heading', rest, true)
+                return parser.tryTokenizeBlock(parser.eat, 'atxHeading', rest, true)
                   .then((found: boolean) => {
                     if (found) return index
 
-                    return parser.tryTokenizeBlock(parser.eat, 'lineHeading', rest, true)
+                    return parser.tryTokenizeBlock(parser.eat, 'setextHeading', rest, true)
                       .then((found: boolean) => {
                         if (found) return index
 
@@ -168,7 +168,7 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
           .then((found: boolean) => {
             if (found) return index
 
-            return parser.tryTokenizeBlock(parser.eat, 'footnoteDefinition', rest, true)
+            return parser.tryTokenizeBlock(parser.eat, 'footnote', rest, true)
               .then((found: boolean): any => {
                 if (found) return index
 

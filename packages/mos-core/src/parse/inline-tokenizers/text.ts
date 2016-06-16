@@ -21,7 +21,7 @@ const tokenizeText: Tokenizer = function (parser, value, silent) {
   let min = value.length
 
   parser.inlineTokenizers
-    .filter(tokenizer => tokenizer.name !== 'inlineText')
+    .filter(tokenizer => tokenizer.name !== 'text')
     .forEach(tokenizer => {
       const locator = tokenizer.func.locator
 

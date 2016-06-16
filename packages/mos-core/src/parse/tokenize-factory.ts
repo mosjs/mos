@@ -436,8 +436,8 @@ export default function tokenizeFactory (parser: Parser, type: string): Tokenize
         if (
           tokenizer && tokenizer.func &&
           (!tokenizer.func.onlyAtStart || parser.context.atStart) &&
-          (!tokenizer.func.onlyAtTop || parser.context.atTop) &&
-          (!tokenizer.func.notInBlockquote || !parser.context.inBlockquote) &&
+          (!tokenizer.func.notInList || parser.context.inList) &&
+          (!tokenizer.func.notInBlock || !parser.context.inBlock) &&
           (!tokenizer.func.notInLink || !parser.context.inLink) &&
           (!tokenizer.func.notInAutoLink || !parser.context.inAutoLink)
         ) {

@@ -1,13 +1,13 @@
 import escape from './escape'
 import autoLink from './auto-link'
 import url from './url'
-import tag from './tag'
+import html from './html'
 import link from './link'
 import reference from './reference'
 import strong from './strong'
 import emphasis from './emphasis'
 import deletion from './deletion'
-import inlineCode from './code'
+import code from './code'
 import breakTokenizer from './break'
 import text from './text'
 import Tokenizer from '../tokenizer'
@@ -26,8 +26,8 @@ export default [
     func: url,
   },
   {
-    name: 'tag',
-    func: tag,
+    name: 'html',
+    func: html,
   },
   {
     name: 'link',
@@ -51,15 +51,15 @@ export default [
     func: deletion,
   },
   {
-    name: 'inlineCode',
-    func: inlineCode,
+    name: 'code',
+    func: code,
   },
   {
     name: 'break',
     func: breakTokenizer,
   },
   {
-    name: 'inlineText',
+    name: 'text',
     func: text,
   },
 ]

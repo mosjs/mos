@@ -44,9 +44,9 @@ export type SimpleParser = {
   offset?: {[line: number]: number},
   context: {
     inLink: boolean,
-    atTop: boolean,
+    inList: boolean,
     atStart: boolean,
-    inBlockquote: boolean,
+    inBlock: boolean,
     inAutoLink: boolean,
   },
   options: ParserOptions,
