@@ -18,7 +18,7 @@ const MAILTO_PROTOCOL = 'mailto:'
  */
 const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
   if (value.charAt(0) !== '<') {
-    return
+    return false
   }
 
   let subvalue = ''
@@ -32,7 +32,7 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
   subvalue = '<'
 
   while (index < length) {
-    var character = value.charAt(index)
+    let character = value.charAt(index)
 
     if (
       character === ' ' ||
@@ -48,13 +48,13 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
   }
 
   if (!queue) {
-    return
+    return false
   }
 
   link += queue
   queue = ''
 
-  character = value.charAt(index)
+  let character = value.charAt(index)
   link += character
   index++
 
@@ -65,7 +65,7 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
       character !== ':' ||
       value.charAt(index + 1) !== '/'
     ) {
-      return
+      return false
     }
 
     link += '/'
@@ -86,7 +86,7 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
   character = value.charAt(index)
 
   if (!queue || character !== '>') {
-    return
+    return false
   }
 
   /* istanbul ignore if - never used (yet) */

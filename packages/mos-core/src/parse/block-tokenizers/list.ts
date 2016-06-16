@@ -143,7 +143,9 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
 
       function tokenizeEach (items: any): any {
         const rawItem = items.shift()
-        if (!rawItem) return
+        if (!rawItem) {
+          return
+        }
         item = rawItem.value.join('\n')
         const now = parser.eat.now()
 
@@ -167,7 +169,9 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
     })
 
   function tokenizeEach (index: number): any {
-    if (index >= length) return Promise.resolve()
+    if (index >= length) {
+      return Promise.resolve()
+    }
 
     nextIndex = value.indexOf('\n', index)
     startIndex = index
@@ -321,11 +325,15 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
       if (!commonmark) {
         return parser.tryTokenizeBlock(parser.eat, 'definition', line, true)
           .then(found => {
-            if (found) return
+            if (found) {
+              return false
+            }
 
             return parser.tryTokenizeBlock(parser.eat, 'footnote', line, true)
               .then(found => {
-                if (found) return
+                if (found) {
+                  return false
+                }
 
                 return next()
               })
@@ -374,11 +382,15 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
         if (!pedantic) {
           return parser.tryTokenizeBlock(parser.eat, 'fencedCode', line, true)
             .then(found => {
-              if (found) return
+              if (found) {
+                return false
+              }
 
               return parser.tryTokenizeBlock(parser.eat, 'thematicBreak', line, true)
                 .then(found => {
-                  if (found) return
+                  if (found) {
+                    return false
+                  }
 
                   return notCommonmarkNext()
                 })

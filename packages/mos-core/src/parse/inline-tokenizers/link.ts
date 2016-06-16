@@ -73,7 +73,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
    */
 
   if (character !== '[') {
-    return
+    return false
   }
 
   /*
@@ -82,7 +82,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
    */
 
   if (!isImage && parser.context.inLink) {
-    return
+    return false
   }
 
   subvalue += character
@@ -139,7 +139,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
     value.charAt(index) !== ']' ||
     value.charAt(++index) !== '('
   ) {
-    return
+    return false
   }
 
   subvalue += `${queue}](`
@@ -183,7 +183,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
       }
 
       if (commonmark && character === '\n') {
-        return
+        return false
       }
 
       queue += character
@@ -191,7 +191,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
     }
 
     if (value.charAt(index) !== '>') {
-      return
+      return false
     }
 
     subvalue += `<${queue}>`
@@ -304,7 +304,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
       character = value.charAt(index)
 
       if (character !== marker) {
-        return
+        return false
       }
 
       title = queue
@@ -354,7 +354,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
   }
 
   if (value.charAt(index) !== ')') {
-    return
+    return false
   }
 
   /* istanbul ignore if - never used (yet) */

@@ -22,7 +22,7 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
   let character: string
 
   if (!parser.options.footnotes) {
-    return
+    return false
   }
 
   let index = 0
@@ -46,7 +46,7 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
     value.charAt(index) !== '[' ||
     value.charAt(index + 1) !== '^'
   ) {
-    return
+    return false
   }
 
   subvalue += '[^'
@@ -73,7 +73,7 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
     value.charAt(index) !== ']' ||
     value.charAt(index + 1) !== ':'
   ) {
-    return
+    return false
   }
 
   if (silent) {

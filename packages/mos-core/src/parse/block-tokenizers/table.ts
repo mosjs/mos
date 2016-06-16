@@ -32,7 +32,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
    */
 
   if (!parser.options.gfm) {
-    return
+    return false
   }
 
   /*
@@ -60,7 +60,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
       pipeIndex > lineIndex
     ) {
       if (lineCount < MIN_TABLE_ROWS) {
-        return
+        return false
       }
 
       break
@@ -92,7 +92,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
 
       if (alignment === false) {
         if (first === false) {
-          return
+          return false
         }
       } else {
         align.push(alignment)
@@ -112,7 +112,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
         alignment = TABLE_ALIGN_LEFT
       }
     } else if (!isWhiteSpace(character)) {
-      return
+      return false
     }
 
     index++
@@ -127,7 +127,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
    */
 
   if (align.length < MIN_TABLE_COLUMNS) {
-    return
+    return false
   }
 
   /* istanbul ignore if - never used (yet) */
@@ -144,7 +144,9 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
     return eachRow(lines, 0)
 
     function eachRow (lines: string[], position: number): Promise<void> {
-      if (!lines.length) return
+      if (!lines.length) {
+        return undefined
+      }
       const line = lines.shift()
       const row: Node = {
         type: 'tableRow',
@@ -183,7 +185,7 @@ const tokenizeTable: Tokenizer = function (parser, value, silent) {
                 parser.eat(`\n${alignments}`)
               }
 
-              return
+              return undefined
             }
 
             let index = 0

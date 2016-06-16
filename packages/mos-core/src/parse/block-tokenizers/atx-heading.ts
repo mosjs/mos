@@ -60,7 +60,7 @@ const tokenizeHeading: Tokenizer = function (parser, value, silent) {
     !depth ||
     (!settings.pedantic && value.charAt(index + 1) === '#')
   ) {
-    return
+    return false
   }
 
   length = value.length + 1
@@ -92,7 +92,7 @@ const tokenizeHeading: Tokenizer = function (parser, value, silent) {
     character &&
     character !== '\n'
   ) {
-    return
+    return false
   }
 
   if (silent) {

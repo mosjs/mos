@@ -55,7 +55,7 @@ const tokenizeHTML: Tokenizer = function (parser, value, silent) {
         eatHTMLOpeningTag(value, true)
 
   if (!queue) {
-    return
+    return false
   }
 
   if (silent) {

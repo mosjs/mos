@@ -27,13 +27,13 @@ const beginsWithProtocol = new RegExp(`^(${protocolPattern.source})`, 'i')
  */
 const tokenizeURL: Tokenizer = function (parser, value, silent) {
   if (!parser.options.gfm) {
-    return
+    return false
   }
 
   const match = value.match(beginsWithProtocol)
 
   if (!match) {
-    return
+    return false
   }
 
   let subvalue = match[0]
@@ -84,7 +84,7 @@ const tokenizeURL: Tokenizer = function (parser, value, silent) {
   }
 
   if (!queue) {
-    return
+    return false
   }
 
   subvalue += queue
@@ -94,7 +94,7 @@ const tokenizeURL: Tokenizer = function (parser, value, silent) {
     const position = queue.indexOf('@')
 
     if (position === -1 || position === length - 1) {
-      return
+      return false
     }
 
     content = content.substr(MAILTO_PROTOCOL.length)

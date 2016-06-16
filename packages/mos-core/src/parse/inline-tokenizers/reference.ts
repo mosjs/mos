@@ -47,7 +47,7 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   }
 
   if (character !== '[') {
-    return
+    return false
   }
 
   index++
@@ -103,7 +103,7 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   character = value.charAt(index)
 
   if (character !== ']') {
-    return
+    return false
   }
 
   index++
@@ -126,7 +126,7 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   let identifier: string
   if (character !== '[') {
     if (!text) {
-      return
+      return false
     }
 
     identifier = text
@@ -176,7 +176,7 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
    */
 
   if (referenceType !== REFERENCE_TYPE_FULL && bracketed) {
-    return
+    return false
   }
 
   /*

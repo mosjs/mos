@@ -23,7 +23,7 @@ const tokenizeFences: Tokenizer = function (parser, value, silent) {
   let character: string
 
   if (!settings.gfm) {
-    return
+    return false
   }
 
   /*
@@ -50,7 +50,7 @@ const tokenizeFences: Tokenizer = function (parser, value, silent) {
   character = value.charAt(index)
 
   if (character !== '~' && character !== '`') {
-    return
+    return false
   }
 
   index++
@@ -71,7 +71,7 @@ const tokenizeFences: Tokenizer = function (parser, value, silent) {
   }
 
   if (fenceCount < MIN_FENCE_COUNT) {
-    return
+    return false
   }
 
   /*
@@ -120,7 +120,7 @@ const tokenizeFences: Tokenizer = function (parser, value, silent) {
   character = value.charAt(index)
 
   if (character && character !== '\n') {
-    return
+    return false
   }
 
   if (silent) {

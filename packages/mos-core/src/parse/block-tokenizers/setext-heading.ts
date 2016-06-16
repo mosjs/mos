@@ -86,7 +86,7 @@ const SETEXT_MARKERS = {
     character !== '\n' ||
     !SETEXT_MARKERS[marker]
   ) {
-    return
+    return false
   }
 
   if (silent) {
@@ -107,7 +107,7 @@ const SETEXT_MARKERS = {
 
     if (character !== marker) {
       if (character !== '\n') {
-        return
+        return false
       }
 
       index--

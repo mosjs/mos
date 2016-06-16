@@ -31,7 +31,7 @@ const tokenizeParagraph: Tokenizer = function (parser, value, silent) {
       if (subvalue.trim() === '') {
         parser.eat(subvalue)
 
-        return
+        return false
       }
 
       /* istanbul ignore if - never used (yet) */

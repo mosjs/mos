@@ -31,7 +31,7 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
   }
 
   if (value.charAt(index) !== '>') {
-    return
+    return false
   }
 
   if (silent) {
@@ -108,31 +108,45 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
       if (parser.options.commonmark) {
         return parser.tryTokenizeBlock(parser.eat, 'intendedCode', rest, true)
           .then((found: boolean) => {
-            if (found) return index
+            if (found) {
+              return index
+            }
 
             return parser.tryTokenizeBlock(parser.eat, 'fencedCode', rest, true)
               .then((found: boolean) => {
-                if (found) return index
+                if (found) {
+                  return index
+                }
 
                 return parser.tryTokenizeBlock(parser.eat, 'atxHeading', rest, true)
                   .then((found: boolean) => {
-                    if (found) return index
+                    if (found) {
+                      return index
+                    }
 
                     return parser.tryTokenizeBlock(parser.eat, 'setextHeading', rest, true)
                       .then((found: boolean) => {
-                        if (found) return index
+                        if (found) {
+                          return index
+                        }
 
                         return parser.tryTokenizeBlock(parser.eat, 'thematicBreak', rest, true)
                           .then((found: boolean) => {
-                            if (found) return index
+                            if (found) {
+                              return index
+                            }
 
                             return parser.tryTokenizeBlock(parser.eat, 'html', rest, true)
                               .then((found: boolean) => {
-                                if (found) return index
+                                if (found) {
+                                  return index
+                                }
 
                                 return parser.tryTokenizeBlock(parser.eat, 'list', rest, true)
                                   .then((found: boolean) => {
-                                    if (found) return index
+                                    if (found) {
+                                      return index
+                                    }
 
                                     return nextNotCommonmark()
                                   })
@@ -166,11 +180,15 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
       if (!parser.options.commonmark) {
         return parser.tryTokenizeBlock(parser.eat, 'definition', rest, true)
           .then((found: boolean) => {
-            if (found) return index
+            if (found) {
+              return index
+            }
 
             return parser.tryTokenizeBlock(parser.eat, 'footnote', rest, true)
               .then((found: boolean): any => {
-                if (found) return index
+                if (found) {
+                  return index
+                }
 
                 return next()
               })

@@ -30,7 +30,7 @@ const tokenizeTag: Tokenizer = function (parser, value, silent) {
     eatHTMLOpeningTag(value)
 
   if (!subvalue) {
-    return
+    return false
   }
 
   /* istanbul ignore if - never used (yet) */
