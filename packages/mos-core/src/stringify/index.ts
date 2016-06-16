@@ -4,60 +4,10 @@ import {stringify as defaultOptions} from '../defaults'
 import encodeFactory from './encode-factory'
 import escapeFactory from './escape-factory'
 import LIST_BULLETS from './list-bullets'
-import {Node, ReferenceNode} from '../node'
+import {Node} from '../node'
 import {VisitorsMap} from './visitor'
 
 import {Compiler, CompilerOptions} from './compiler'
-
-/**
- * Construct a state `toggler`: a function which inverses
- * `property` in context based on its current value.
- * The by `toggler` returned function restores that value.
- *
- * @example
- *   var context = {};
- *   var key = 'foo';
- *   var val = true;
- *   context[key] = val;
- *   context.enter = stateToggler(key, val);
- *   context[key]; // true
- *   var exit = context.enter();
- *   context[key]; // false
- *   var nested = context.enter();
- *   context[key]; // false
- *   nested();
- *   context[key]; // false
- *   exit();
- *   context[key]; // true
- *
- * @param {string} key - Property to toggle.
- * @param {boolean} state - It's default state.
- * @return {function(): function()} - Enter.
- */
-function stateToggler (key: string, state: boolean): Function {
-  /**
-   * Construct a toggler for the bound `key`.
-   *
-   * @return {Function} - Exit state.
-   */
-  function enter () {
-    const self = this
-    const current = self[key]
-
-    self[key] = !state
-
-    /**
-     * State canceler, cancels the state, if allowed.
-     */
-    function exit () {
-      self[key] = current
-    }
-
-    return exit
-  }
-
-  return enter
-}
 
 /*
  * Constants.
@@ -188,49 +138,32 @@ function compilerFactory (visitors: VisitorsMap) {
         raise(ruleRepetition, 'options.ruleRepetition')
       }
 
-      compiler.encode = encodeFactory(String(options.entities))
-      compiler.escape = escapeFactory(options)
+      const encode = encodeFactory(String(options.entities))
+      compiler.encode = (value: string, node: Node): string => {
+        if (compiler.context.inShortcutReference || compiler.context.inCollapsedReference) {
+          return value
+        }
+        return encode(value, node)
+      }
+
+      const escape = escapeFactory(compiler.context, options)
+      compiler.escape = (value: string, node: Node, parent?: Node): string => {
+        if (compiler.context.inShortcutReference || compiler.context.inCollapsedReference) {
+          return value
+        }
+        return escape(value, node, parent)
+      }
 
       compiler.options = options
 
       return compiler
     },
 
-    enterLink: stateToggler('inLink', false),
-    enterTable: stateToggler('inTable', false),
-
-    /**
-     * Shortcut and collapsed link references need no escaping
-     * and encoding during the processing of child nodes (it
-     * must be implied from identifier).
-     *
-     * This toggler turns encoding and escaping off for shortcut
-     * and collapsed references.
-     *
-     * Implies `enterLink`.
-     *
-     * @param {Compiler} compiler - Compiler instance.
-     * @param {LinkReference} node - LinkReference node.
-     * @return {Function} - Exit state.
-     */
-    enterLinkReference (compiler: Compiler, node: ReferenceNode): Function {
-      const encode = compiler.encode
-      const escape = compiler.escape
-      const exitLink = compiler.enterLink()
-
-      if (
-          node.referenceType === 'shortcut' ||
-          node.referenceType === 'collapsed'
-      ) {
-        compiler.encode = compiler.escape = (value: string) => value
-        return () => {
-          compiler.encode = encode
-          compiler.escape = escape
-          exitLink()
-        }
-      } else {
-        return exitLink
-      }
+    context: {
+      inLink: false,
+      inTable: false,
+      inShortcutReference: false,
+      inCollapsedReference: false,
     },
 
     /**

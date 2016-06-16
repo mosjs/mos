@@ -14,11 +14,11 @@ const MAILTO = 'mailto:'
 
 const visitor: SpecificVisitor<LinkNode> = (compiler, node) => {
   let url = compiler.encode(node.url, node)
-  const exit = compiler.enterLink()
+  compiler.context.inLink = true
   const escapedURL = compiler.encode(compiler.escape(node.url, node))
   let value = compiler.all(node).join('')
 
-  exit()
+  compiler.context.inLink = false
 
   if (
     node.title === null &&

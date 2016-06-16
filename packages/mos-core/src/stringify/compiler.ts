@@ -21,12 +21,17 @@ export type CompilerOptions = {
   emphasis?: string,
 }
 
+export type CompilerContext = {
+  inShortcutReference: boolean,
+  inCollapsedReference: boolean,
+  inLink: boolean,
+  inTable: boolean,
+}
+
 export type Compiler = {
   options: CompilerOptions,
   setOptions: Function,
-  enterLink: Function,
-  enterTable: Function,
-  enterLinkReference: Function,
+  context: CompilerContext,
   visit(node: Node, parent?: Node): string,
   all(parent: Node): string[],
   compile(tree: Node, opts: CompilerOptions): string,

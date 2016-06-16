@@ -1,6 +1,6 @@
 export default escapeFactory
 import {Node, ReferenceNode} from '../node'
-import {CompilerOptions} from './compiler'
+import {CompilerOptions, CompilerContext} from './compiler'
 import entityPrefixLength from './entity-prefix-length'
 import LIST_BULLETS from './list-bullets'
 
@@ -110,7 +110,7 @@ function isInAlignmentRow (value: string, index: number): boolean {
  *   takes a value and a node and (optionally) its parent and returns
  *   its escaped value.
  */
-function escapeFactory (options: CompilerOptions): Function {
+function escapeFactory (context: CompilerContext, options: CompilerOptions): Function {
     /**
      * Escape punctuation characters in a node's value.
      *
@@ -120,7 +120,6 @@ function escapeFactory (options: CompilerOptions): Function {
      * @return {string} - Escaped `value`.
      */
   return function escape (value: string, node: Node, parent?: Node): string {
-    const self = this
     const gfm = options.gfm
     const commonmark = options.commonmark
     const pedantic = options.pedantic
@@ -163,12 +162,12 @@ function escapeFactory (options: CompilerOptions): Function {
                   !isAlphanumeric(value.charAt(position + 1))
               )
           ) ||
-          (self.inLink && character === ']') ||
+          (context.inLink && character === ']') ||
           (
               gfm &&
               character === '|' &&
               (
-                  self.inTable ||
+                  context.inTable ||
                   isInAlignmentRow(value, position)
               )
           )
@@ -186,7 +185,7 @@ function escapeFactory (options: CompilerOptions): Function {
         }
       } else if (
           gfm &&
-          !self.inLink &&
+          !context.inLink &&
           character === ':' &&
           (
               queue.slice(-6).join('') === 'mailto' ||
@@ -298,7 +297,7 @@ function escapeFactory (options: CompilerOptions): Function {
 
       if (
           gfm &&
-          !self.inLink &&
+          !context.inLink &&
           prev &&
           prev.type === 'text' &&
           value.charAt(0) === ':'

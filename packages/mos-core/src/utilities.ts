@@ -147,55 +147,6 @@ export function normalizeIdentifier (value: string): string {
 }
 
 /**
- * Construct a state `toggler`: a function which inverses
- * `property` in context based on its current value.
- * The by `toggler` returned function restores that value.
- *
- * @example
- *   var context = {};
- *   var key = 'foo';
- *   var val = true;
- *   context[key] = val;
- *   context.enter = stateToggler(key, val);
- *   context[key]; // true
- *   var exit = context.enter();
- *   context[key]; // false
- *   var nested = context.enter();
- *   context[key]; // false
- *   nested();
- *   context[key]; // false
- *   exit();
- *   context[key]; // true
- *
- * @param {string} key - Property to toggle.
- * @param {boolean} state - It's default state.
- * @return {function(): function()} - Enter.
- */
-export function stateToggler (target: Object, key: string, state: boolean): Function {
-    /**
-     * Construct a toggler for the bound `key`.
-     *
-     * @return {Function} - Exit state.
-     */
-  function enter () {
-    const current = target[key]
-
-    target[key] = !state
-
-    /**
-     * State canceler, cancels the state, if allowed.
-     */
-    function exit () {
-      target[key] = current
-    }
-
-    return exit
-  }
-
-  return enter
-}
-
-/**
  * Check whether a node is mergeable with adjacent nodes.
  *
  * @param {Object} node - Node to check.

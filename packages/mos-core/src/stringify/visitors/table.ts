@@ -4,14 +4,14 @@ import table from 'markdown-table'
 
 const visitor: SpecificVisitor<TableNode> = (compiler, node) => {
   let index = node.children.length
-  const exit = compiler.enterTable()
+  compiler.context.inTable = true
   const result: string[][] = []
 
   while (index--) {
     result[index] = compiler.all(node.children[index])
   }
 
-  exit()
+  compiler.context.inTable = false
 
   const start = compiler.options.looseTable
     ? ''

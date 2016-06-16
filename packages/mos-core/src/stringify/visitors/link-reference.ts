@@ -88,10 +88,14 @@ function copyIdentifierEncoding (value: string, identifier: string): string {
 }
 
 const visitor: SpecificVisitor<LinkNode> = (compiler, node) => {
-  const exitLinkReference = compiler.enterLinkReference(compiler, node)
+  compiler.context.inLink = true
+  compiler.context.inShortcutReference = node.referenceType === 'shortcut'
+  compiler.context.inCollapsedReference = node.referenceType === 'collapsed'
   let value = compiler.all(node).join('')
 
-  exitLinkReference()
+  compiler.context.inLink = false
+  compiler.context.inShortcutReference = false
+  compiler.context.inCollapsedReference = false
 
   if (
     node.referenceType === 'shortcut' ||
