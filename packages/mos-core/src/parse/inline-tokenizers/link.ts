@@ -81,7 +81,7 @@ const tokenizeLink: Tokenizer = function (parser, value, silent) {
    * a link.
    */
 
-  if (!isImage && parser.state.inLink) {
+  if (!isImage && parser.context.inLink) {
     return
   }
 

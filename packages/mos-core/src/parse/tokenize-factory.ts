@@ -292,8 +292,8 @@ export default function tokenizeFactory (parser: Parser, type: string): Tokenize
         children.push(node)
       }
 
-      if (parser.state.atStart && tokens.length) {
-        parser.state.exitStart()
+      if (parser.context.atStart && tokens.length) {
+        parser.context.atStart = false
       }
 
       return node
@@ -435,11 +435,11 @@ export default function tokenizeFactory (parser: Parser, type: string): Tokenize
 
         if (
           tokenizer && tokenizer.func &&
-          (!tokenizer.func.onlyAtStart || parser.state.atStart) &&
-          (!tokenizer.func.onlyAtTop || parser.state.atTop) &&
-          (!tokenizer.func.notInBlockquote || !parser.state.inBlockquote) &&
-          (!tokenizer.func.notInLink || !parser.state.inLink) &&
-          (!tokenizer.func.notInAutoLink || !parser.state.inAutoLink)
+          (!tokenizer.func.onlyAtStart || parser.context.atStart) &&
+          (!tokenizer.func.onlyAtTop || parser.context.atTop) &&
+          (!tokenizer.func.notInBlockquote || !parser.context.inBlockquote) &&
+          (!tokenizer.func.notInLink || !parser.context.inLink) &&
+          (!tokenizer.func.notInAutoLink || !parser.context.inAutoLink)
         ) {
           const valueLength = value.length
 

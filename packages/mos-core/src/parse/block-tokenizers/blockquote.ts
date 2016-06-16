@@ -49,11 +49,11 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
         indent(indents[index])
       }
 
-      const exitBlockquote = parser.state.enterBlockquote()
+      parser.context.inBlockquote = true
 
       return add(parser.tokenizeBlock(contents.join('\n'), now)
         .then(children => {
-          exitBlockquote()
+          parser.context.inBlockquote = false
           return <Node>{
             type: 'blockquote',
             children,
@@ -62,7 +62,9 @@ const tokenizeBlockquote: Tokenizer = function (parser, value, silent) {
     })
 
   function tokenizeEach (index: number): Promise<any> {
-    if (index >= value.length) return Promise.resolve()
+    if (index >= value.length) {
+      return Promise.resolve()
+    }
 
     let nextIndex = value.indexOf('\n', index)
     const startIndex = index

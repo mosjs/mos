@@ -2,7 +2,7 @@ import {Node, Location} from '../node'
 import decode from 'parse-entities'
 import filePosition from 'file-position'
 import removePosition from 'unist-util-remove-position'
-import {raise, clean, validate, stateToggler} from '../utilities'
+import {raise, clean, validate} from '../utilities'
 import {parse as defaultOptions} from '../defaults'
 import tokenizeFactory from './tokenize-factory'
 import {Eater} from './tokenize-factory'
@@ -182,14 +182,6 @@ function parserFactory (processor: Processor) {
    * Enter and exit helpers.
    */
 
-  const state = {
-    inLink: false,
-    atTop: true,
-    atStart: true,
-    inBlockquote: false,
-    inAutoLink: false,
-  }
-
   const parser: SimpleParser = {
     /**
      * Set options.  Does not overwrite previously set
@@ -281,13 +273,13 @@ function parserFactory (processor: Processor) {
      */
     options: Object.assign({}, defaultOptions),
 
-    state: Object.assign(state, {
-      enterLink: stateToggler(state, 'inLink', false),
-      enterAutoLink: stateToggler(state, 'inAutoLink', false),
-      exitTop: stateToggler(state, 'atTop', true),
-      exitStart: stateToggler(state, 'atStart', true),
-      enterBlockquote: stateToggler(state, 'inBlockquote', false),
-    }),
+    context: {
+      inLink: false,
+      atTop: true,
+      atStart: true,
+      inBlockquote: false,
+      inAutoLink: false,
+    },
   }
 
   const normalParser: Parser = Object.assign(parser, {

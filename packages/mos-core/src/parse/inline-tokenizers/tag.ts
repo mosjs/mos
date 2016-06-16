@@ -38,10 +38,10 @@ const tokenizeTag: Tokenizer = function (parser, value, silent) {
     return true
   }
 
-  if (!parser.state.inLink && EXPRESSION_HTML_LINK_OPEN.test(subvalue)) {
-    parser.state.inLink = true
-  } else if (parser.state.inLink && EXPRESSION_HTML_LINK_CLOSE.test(subvalue)) {
-    parser.state.inLink = false
+  if (!parser.context.inLink && EXPRESSION_HTML_LINK_OPEN.test(subvalue)) {
+    parser.context.inLink = true
+  } else if (parser.context.inLink && EXPRESSION_HTML_LINK_CLOSE.test(subvalue)) {
+    parser.context.inLink = false
   }
 
   return parser.eat(subvalue)({

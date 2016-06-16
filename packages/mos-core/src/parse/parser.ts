@@ -42,17 +42,12 @@ export type SimpleParser = {
   indent(start: number): (offset: number) => void,
   toOffset?: Function,
   offset?: {[line: number]: number},
-  state: {
+  context: {
     inLink: boolean,
     atTop: boolean,
     atStart: boolean,
     inBlockquote: boolean,
     inAutoLink: boolean,
-    enterAutoLink: Function,
-    enterLink: Function,
-    exitTop: Function,
-    exitStart: Function,
-    enterBlockquote: Function,
   },
   options: ParserOptions,
   escape?: string[],

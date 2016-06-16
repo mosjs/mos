@@ -114,11 +114,11 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
     }
   }
 
-  const exitAutoLink = parser.state.enterAutoLink()
+  parser.context.inAutoLink = true
   const eater = parser.eat(subvalue)
   return renderLink(parser, decode(link), content, null, now)
     .then(node => {
-      exitAutoLink()
+      parser.context.inAutoLink = false
       const addedNode = eater(node)
       return addedNode
     })

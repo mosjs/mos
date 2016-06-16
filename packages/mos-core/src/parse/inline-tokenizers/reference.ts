@@ -191,7 +191,7 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
 
   subvalue = intro + subvalue
 
-  if (type === 'link' && parser.state.inLink) {
+  if (type === 'link' && parser.context.inLink) {
     return null
   }
 
@@ -222,11 +222,11 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   }
 
   if (type === 'link') {
-    const exitLink = parser.state.enterLink()
+    parser.context.inLink = true
     return parser.tokenizeInline(text, now)
       .then(children => {
         node.children = children
-        exitLink()
+        parser.context.inLink = false
         return parser.eat(subvalue)(node)
       })
   }

@@ -15,11 +15,11 @@ import {Parser} from '../../parser'
  * @return {Object} - `link` or `image` node.
  */
 export default function renderLink (parser: Parser, url: string, text: string, title?: string, position?: Location): Promise<Node> {
-  const exitLink = parser.state.enterLink()
+  parser.context.inLink = true
 
   return parser.tokenizeInline(text, position)
     .then(children => {
-      exitLink()
+      parser.context.inLink = false
       return <Node>{
         type: 'link',
         title: title || null,

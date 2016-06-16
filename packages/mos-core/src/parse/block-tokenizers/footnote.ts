@@ -160,12 +160,12 @@ const tokenizeFootnoteDefinition: Tokenizer = function (parser, value, silent) {
     return ''
   })
 
-  const exitBlockquote = parser.state.enterBlockquote()
+  parser.context.inBlockquote = true
 
   return parser.eat(subvalue)(
     parser.tokenizeBlock(content, now)
     .then(children => {
-      exitBlockquote()
+      parser.context.inBlockquote = false
       return <Node>{
         type: 'footnoteDefinition',
         identifier,

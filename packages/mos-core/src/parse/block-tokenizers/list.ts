@@ -125,16 +125,16 @@ const tokenizeList: Tokenizer = function (parser, value, silent) {
       })
     )
     .then((node: ListNode) => {
-      const enterTop = parser.state.exitTop()
-      const exitBlockquote = parser.state.enterBlockquote()
+      parser.context.atTop = false
+      parser.context.inBlockquote = true
       let isLoose = false
       length = items.length
       const parent = node
 
       return tokenizeEach(items)
         .then(() => {
-          enterTop()
-          exitBlockquote()
+          parser.context.atTop = true
+          parser.context.inBlockquote = false
 
           node.loose = isLoose
 
