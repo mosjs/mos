@@ -3,6 +3,7 @@ import isAlphabetic from '../is-alphabetic'
 import isNumeric from '../is-numeric'
 import Tokenizer from '../tokenizer'
 import {Node} from '../../node'
+import createScanner from '../scanner'
 
 /**
  * Check whether `character` is a word character.
@@ -31,8 +32,8 @@ function isWordCharacter (character: string): boolean {
  * @return {Node?|boolean} - `emphasis` node.
  */
 const tokenizeEmphasis: Tokenizer = function (parser, value, silent) {
-  let index = 0
-  let character = value.charAt(index)
+  const scanner = createScanner(value)
+  let character = scanner.next()
 
   if (!~'*_'.indexOf(character)) {
     return false
@@ -41,22 +42,21 @@ const tokenizeEmphasis: Tokenizer = function (parser, value, silent) {
   const pedantic = parser.options.pedantic
   const subvalue = character
   const marker = character
-  index++
   let queue = character = ''
 
-  if (pedantic && isWhiteSpace(value.charAt(index))) {
+  if (pedantic && isWhiteSpace(scanner.peek())) {
     return false
   }
 
-  while (index < value.length) {
+  while (!scanner.eos()) {
     const prev = character
-    character = value.charAt(index)
+    character = scanner.next()
 
     if (
-        character === marker &&
-        (!pedantic || !isWhiteSpace(prev))
+      character === marker &&
+      (!pedantic || !isWhiteSpace(prev))
     ) {
-      character = value.charAt(++index)
+      character = scanner.next()
 
       if (character !== marker) {
         if (!queue.trim() || prev === marker) {
@@ -64,9 +64,9 @@ const tokenizeEmphasis: Tokenizer = function (parser, value, silent) {
         }
 
         if (
-            pedantic ||
-            marker !== '_' ||
-            !isWordCharacter(character)
+          pedantic ||
+          marker !== '_' ||
+          !isWordCharacter(character)
         ) {
             /* istanbul ignore if - never used (yet) */
           if (silent) {
@@ -89,11 +89,10 @@ const tokenizeEmphasis: Tokenizer = function (parser, value, silent) {
 
     if (!pedantic && character === '\\') {
       queue += character
-      character = value.charAt(++index)
+      character = scanner.next()
     }
 
     queue += character
-    index++
   }
   return false
 }

@@ -1,4 +1,5 @@
 import Tokenizer from '../tokenizer'
+import createScanner from '../scanner'
 
 const MIN_BREAK_LENGTH = 2
 
@@ -16,14 +17,14 @@ const MIN_BREAK_LENGTH = 2
  */
 const tokenizeBreak: Tokenizer = function (parser, value, silent) {
   const breaks = parser.options.breaks
-  let index = -1
+  const scanner = createScanner(value)
   let queue = ''
 
-  while (++index < value.length) {
-    const character = value.charAt(index)
+  while (!scanner.eos()) {
+    const character = scanner.next()
 
     if (character === '\n') {
-      if (!breaks && index < MIN_BREAK_LENGTH) {
+      if (!breaks && queue.length < MIN_BREAK_LENGTH) {
         return false
       }
 

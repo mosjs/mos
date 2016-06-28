@@ -2,6 +2,7 @@ import decode from 'parse-entities'
 import isWhiteSpace from '../is-white-space'
 import Tokenizer from '../tokenizer'
 import renderLink from './renderers/link'
+import createScanner from '../scanner'
 
 /*
  * Protocols.
@@ -30,28 +31,25 @@ const tokenizeURL: Tokenizer = function (parser, value, silent) {
     return false
   }
 
-  const match = value.match(beginsWithProtocol)
+  const scanner = createScanner(value)
+  let subvalue = scanner.next(beginsWithProtocol)
 
-  if (!match) {
+  if (!subvalue) {
     return false
   }
 
-  let subvalue = match[0]
-
-  let index = subvalue.length
-  const length = value.length
   let queue = ''
   let parenCount = 0
 
-  while (index < length) {
-    const character = value.charAt(index)
+  while (!scanner.eos()) {
+    const character = scanner.next()
 
     if (isWhiteSpace(character) || character === '<') {
       break
     }
 
     if (~'.,:;"\')]'.indexOf(character)) {
-      const nextCharacter = value.charAt(index + 1)
+      const nextCharacter = scanner.peek()
 
       if (
         !nextCharacter ||
@@ -80,7 +78,6 @@ const tokenizeURL: Tokenizer = function (parser, value, silent) {
     }
 
     queue += character
-    index++
   }
 
   if (!queue) {
@@ -93,7 +90,7 @@ const tokenizeURL: Tokenizer = function (parser, value, silent) {
   if (subvalue.indexOf(MAILTO_PROTOCOL) === 0) {
     const position = queue.indexOf('@')
 
-    if (position === -1 || position === length - 1) {
+    if (position === -1 || position === value.length - 1) {
       return false
     }
 

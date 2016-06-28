@@ -1,5 +1,6 @@
 import {ruleMarkers} from '../shared-constants'
 import Tokenizer from '../tokenizer'
+import createScanner from '../scanner'
 const THEMATIC_BREAK_MARKER_COUNT = 3
 
 /**
@@ -14,57 +15,55 @@ const THEMATIC_BREAK_MARKER_COUNT = 3
  * @return {Node?|boolean} - `thematicBreak` node.
  */
 const tokenizeThematicBreak: Tokenizer = function (parser, value, silent) {
-  let index = -1
-  const length = value.length + 1
-  let subvalue = ''
-  let character: string
+  const scanner = createScanner(value)
 
-  while (++index < length) {
-    character = value.charAt(index)
+  let subvalue = scanner.next(ch => ch === ' ' || ch === '\t') || ''
 
-    if (character !== '\t' && character !== ' ') {
-      break
-    }
+  const marker = scanner.next()
 
-    subvalue += character
-  }
-
-  if (!ruleMarkers.has(character)) {
+  if (!ruleMarkers.has(marker)) {
     return false
   }
 
-  const marker = character
-  subvalue += character
+  subvalue += marker
   let markerCount = 1
   let queue = ''
 
-  while (++index < length) {
-    character = value.charAt(index)
+  while (!scanner.eos()) {
+    const character = scanner.next()
 
     if (character === marker) {
       markerCount++
       subvalue += queue + marker
       queue = ''
-    } else if (character === ' ') {
-      queue += character
-    } else if (
-        markerCount >= THEMATIC_BREAK_MARKER_COUNT &&
-        (!character || character === '\n')
-    ) {
-      subvalue += queue
-
-      if (silent) {
-        return true
-      }
-
-      return parser.eat(subvalue)({
-        type: 'thematicBreak',
-      })
-    } else {
-      return false
+      continue
     }
+
+    if (character === ' ') {
+      queue += character
+      continue
+    }
+
+    if (character === '\n') {
+      break
+    }
+
+    return false
   }
-  return false
+
+  if (markerCount < THEMATIC_BREAK_MARKER_COUNT) {
+    return false
+  }
+
+  subvalue += queue
+
+  if (silent) {
+    return true
+  }
+
+  return parser.eat(subvalue)({
+    type: 'thematicBreak',
+  })
 }
 
 export default tokenizeThematicBreak

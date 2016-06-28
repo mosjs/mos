@@ -1,5 +1,6 @@
 import isWhiteSpace from '../is-white-space'
 import Tokenizer from '../tokenizer'
+import createScanner from '../scanner'
 
 /**
  * Tokenise inline code.
@@ -14,33 +15,24 @@ import Tokenizer from '../tokenizer'
  * @return {Node?|boolean} - `inlineCode` node.
  */
 const tokenizeInlineCode: Tokenizer = function (parser, value, silent) {
-  let index = 0
-  let queue = ''
-  let tickQueue = ''
+  const scanner = createScanner(value)
 
-  while (index < value.length) {
-    if (value.charAt(index) !== '`') {
-      break
-    }
-
-    queue += '`'
-    index++
-  }
+  let queue = scanner.next('`')
 
   if (!queue) {
-    return
+    return false
   }
 
   let subvalue = queue
-  const openingCount = index
+  const openingCount = queue.length
   queue = ''
-  let next = value.charAt(index)
+  let found = false
   let count = 0
-  let found: boolean
+  let tickQueue = ''
 
-  while (index < value.length) {
-    var character = next
-    next = value.charAt(index + 1)
+  while (!scanner.eos()) {
+    const character = scanner.next()
+    const next = scanner.peek()
 
     if (character === '`') {
       count++
@@ -60,13 +52,11 @@ const tokenizeInlineCode: Tokenizer = function (parser, value, silent) {
       queue += tickQueue
       tickQueue = ''
     }
-
-    index++
   }
 
   if (!found) {
     if (openingCount % 2 !== 0) {
-      return
+      return false
     }
 
     queue = ''
@@ -77,12 +67,12 @@ const tokenizeInlineCode: Tokenizer = function (parser, value, silent) {
     return true
   }
 
-  let whiteSpaceQueue: string
-  let contentQueue = whiteSpaceQueue = ''
-  index = -1
+  let whiteSpaceQueue = ''
+  let contentQueue = ''
+  const contentScanner = createScanner(queue)
 
-  while (++index < queue.length) {
-    const character = queue.charAt(index)
+  while (!contentScanner.eos()) {
+    const character = contentScanner.next()
 
     if (isWhiteSpace(character)) {
       whiteSpaceQueue += character

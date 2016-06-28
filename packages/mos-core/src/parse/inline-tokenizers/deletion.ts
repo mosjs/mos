@@ -1,6 +1,7 @@
 import isWhiteSpace from '../is-white-space'
 import Tokenizer from '../tokenizer'
 import {Node} from '../../node'
+import createScanner from '../scanner'
 
 /**
  * Tokenise a deletion.
@@ -15,27 +16,26 @@ import {Node} from '../../node'
  * @return {Node?|boolean} - `delete` node.
  */
 const tokenizeDeletion: Tokenizer = function (parser, value, silent) {
-  let character = ''
-  let previous = ''
-  let preceding = ''
   let subvalue = ''
+  const scanner = createScanner(value)
 
   if (
     !parser.options.gfm ||
-    value.charAt(0) !== '~' ||
-    value.charAt(1) !== '~' ||
-    isWhiteSpace(value.charAt(2))
+    scanner.next(2) !== '~~' ||
+    isWhiteSpace(scanner.peek())
   ) {
     return false
   }
 
-  let index = 1
   const now = parser.eat.now()
   now.column += 2
   now.offset += 2
 
-  while (++index < value.length) {
-    character = value.charAt(index)
+  let previous = ''
+  let preceding = ''
+
+  while (!scanner.eos()) {
+    const character = scanner.next()
 
     if (
       character === '~' &&

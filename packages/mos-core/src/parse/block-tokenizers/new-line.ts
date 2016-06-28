@@ -1,5 +1,6 @@
 import isWhiteSpace from '../is-white-space'
 import Tokenizer from '../tokenizer'
+import createScanner from '../scanner'
 
 /**
  * Tokenise a line.
@@ -13,9 +14,9 @@ import Tokenizer from '../tokenizer'
  * @return {boolean?} - `true` when matching.
  */
 const tokenizeNewline: Tokenizer = function (parser, value, silent) {
-  let character = value.charAt(0)
+  const scanner = createScanner(value)
 
-  if (character !== '\n') {
+  if (!scanner.next('\n', 1)) {
     return false
   }
 
@@ -24,16 +25,11 @@ const tokenizeNewline: Tokenizer = function (parser, value, silent) {
     return true
   }
 
-  let index = 1
   let subvalue = '\n'
   let queue = ''
 
-  while (index < value.length) {
-    character = value.charAt(index)
-
-    if (!isWhiteSpace(character)) {
-      break
-    }
+  while (!scanner.eos() && !isWhiteSpace(scanner.peek())) {
+    const character = scanner.next()
 
     queue += character
 
@@ -41,8 +37,6 @@ const tokenizeNewline: Tokenizer = function (parser, value, silent) {
       subvalue += queue
       queue = ''
     }
-
-    index++
   }
 
   parser.eat(subvalue)

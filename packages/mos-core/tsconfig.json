@@ -65,6 +65,7 @@
     "src/parse/is-numeric.ts",
     "src/parse/is-white-space.ts",
     "src/parse/parser.ts",
+    "src/parse/scanner.ts",
     "src/parse/shared-constants.ts",
     "src/parse/tokenize-factory.ts",
     "src/parse/tokenizer.ts",

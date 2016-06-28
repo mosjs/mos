@@ -3,6 +3,7 @@ import isWhiteSpace from '../is-white-space'
 import {normalizeIdentifier as normalize} from '../../utilities'
 import Tokenizer from '../tokenizer'
 import {NodeType, Node} from '../../node'
+import createScanner from '../scanner'
 
 /*
  * Available reference types.
@@ -28,9 +29,8 @@ const REFERENCE_TYPE_FULL = 'full'
  * @return {Node?|boolean} - Reference node.
  */
 const tokenizeReference: Tokenizer = function (parser, value, silent) {
-  let character = value.charAt(0)
-  let index = 0
-  const length = value.length
+  const scanner = createScanner(value)
+  let character = scanner.next()
   let subvalue = ''
   let intro = ''
   let type: NodeType = 'link'
@@ -43,14 +43,13 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   if (character === '!') {
     type = 'image'
     intro = character
-    character = value.charAt(++index)
+    character = scanner.next()
   }
 
   if (character !== '[') {
     return false
   }
 
-  index++
   intro += character
   let queue = ''
 
@@ -61,10 +60,9 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   if (
     parser.options.footnotes &&
     type === 'link' &&
-    value.charAt(index) === '^'
+    scanner.next('^', 1)
   ) {
     intro += '^'
-    index++
     type = 'footnote'
   }
 
@@ -75,14 +73,15 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   let depth = 0
   let bracketed: boolean
 
-  while (index < length) {
-    character = value.charAt(index)
+  while (!scanner.eos()) {
+    character = scanner.next()
 
     if (character === '[') {
       bracketed = true
       depth++
     } else if (character === ']') {
       if (!depth) {
+        scanner.moveIndex(-1)
         break
       }
 
@@ -91,37 +90,35 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
 
     if (character === '\\') {
       queue += '\\'
-      character = value.charAt(++index)
+      character = scanner.next()
     }
 
     queue += character
-    index++
   }
 
   let text: string
   subvalue = text = queue
-  character = value.charAt(index)
+  character = scanner.next()
 
   if (character !== ']') {
     return false
   }
 
-  index++
   subvalue += character
   queue = ''
 
-  while (index < length) {
-    character = value.charAt(index)
+  while (!scanner.eos()) {
+    character = scanner.next()
 
     if (!isWhiteSpace(character)) {
+      scanner.moveIndex(-1)
       break
     }
 
     queue += character
-    index++
   }
 
-  character = value.charAt(index)
+  character = scanner.next()
 
   let identifier: string
   if (character !== '[') {
@@ -133,32 +130,30 @@ const tokenizeReference: Tokenizer = function (parser, value, silent) {
   } else {
     identifier = ''
     queue += character
-    index++
 
-    while (index < length) {
-      character = value.charAt(index)
+    while (!scanner.eos()) {
+      character = scanner.next()
 
       if (
         character === '[' ||
         character === ']'
       ) {
+        scanner.moveIndex(-1)
         break
       }
 
       if (character === '\\') {
         identifier += '\\'
-        character = value.charAt(++index)
+        character = scanner.next()
       }
 
       identifier += character
-      index++
     }
 
-    character = value.charAt(index)
+    character = scanner.next()
 
     if (character === ']') {
       queue += identifier + character
-      index++
 
       referenceType = identifier
         ? REFERENCE_TYPE_FULL

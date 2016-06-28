@@ -1,6 +1,7 @@
 import decode from 'parse-entities'
 import Tokenizer from '../tokenizer'
 import renderLink from './renderers/link'
+import createScanner from '../scanner'
 const MAILTO_PROTOCOL = 'mailto:'
 
 /**
@@ -17,34 +18,33 @@ const MAILTO_PROTOCOL = 'mailto:'
  * @return {Node?|boolean} - `link` node.
  */
 const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
-  if (value.charAt(0) !== '<') {
+  const scanner = createScanner(value)
+
+  if (scanner.next() !== '<') {
     return false
   }
 
   let subvalue = ''
-  const length = value.length
-  let index = 0
   let queue = ''
   let hasAtCharacter = false
   let link = ''
 
-  index++
   subvalue = '<'
 
-  while (index < length) {
-    let character = value.charAt(index)
+  while (!scanner.eos()) {
+    let character = scanner.next()
 
     if (
       character === ' ' ||
       character === '>' ||
       character === '@' ||
-      (character === ':' && value.charAt(index + 1) === '/')
+      (character === ':' && scanner.peek() === '/')
     ) {
+      scanner.moveIndex(-1)
       break
     }
 
     queue += character
-    index++
   }
 
   if (!queue) {
@@ -54,36 +54,35 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
   link += queue
   queue = ''
 
-  let character = value.charAt(index)
+  let character = scanner.next()
   link += character
-  index++
 
   if (character === '@') {
     hasAtCharacter = true
   } else {
     if (
       character !== ':' ||
-      value.charAt(index + 1) !== '/'
+      scanner.peek() !== '/'
     ) {
       return false
     }
 
     link += '/'
-    index++
+    scanner.moveIndex(1)
   }
 
-  while (index < length) {
-    character = value.charAt(index)
+  while (!scanner.eos()) {
+    character = scanner.next()
 
     if (character === ' ' || character === '>') {
+      scanner.moveIndex(-1)
       break
     }
 
     queue += character
-    index++
   }
 
-  character = value.charAt(index)
+  character = scanner.next()
 
   if (!queue || character !== '>') {
     return false
@@ -103,8 +102,7 @@ const tokenizeAutoLink: Tokenizer = function (parser, value, silent) {
 
   if (hasAtCharacter) {
     if (
-      link.substr(0, MAILTO_PROTOCOL.length).toLowerCase() !==
-      MAILTO_PROTOCOL
+      link.substr(0, MAILTO_PROTOCOL.length).toLowerCase() !== MAILTO_PROTOCOL
     ) {
       link = MAILTO_PROTOCOL + link
     } else {

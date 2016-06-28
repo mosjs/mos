@@ -1,5 +1,6 @@
 import {HeadingNode} from '../../node'
 import Tokenizer from '../tokenizer'
+import createScanner from '../scanner'
 const MAX_ATX_COUNT = 6
 
 /**
@@ -15,72 +16,27 @@ const MAX_ATX_COUNT = 6
  */
 const tokenizeHeading: Tokenizer = function (parser, value, silent) {
   const settings = parser.options
-  let length = value.length + 1
-  let index = -1
   const now = parser.eat.now()
   let subvalue = ''
-  let content = ''
   let character: string
+  const scanner = createScanner(value)
 
-  /*
-   * Eat initial spacing.
-   */
+  subvalue += scanner.next(new RegExp(`( |\t)*(#{1,${MAX_ATX_COUNT}})`))
 
-  while (++index < length) {
-    character = value.charAt(index)
-
-    if (character !== ' ' && character !== '\t') {
-      index--
-      break
-    }
-
-    subvalue += character
-  }
-
-    /*
-     * Eat hashes.
-     */
-
-  let depth = 0
-  length = index + MAX_ATX_COUNT + 1
-
-  while (++index <= length) {
-    character = value.charAt(index)
-
-    if (character !== '#') {
-      index--
-      break
-    }
-
-    subvalue += character
-    depth++
-  }
+  const depth = (scanner.getCapture(1) || '').length
 
   if (
     !depth ||
-    (!settings.pedantic && value.charAt(index + 1) === '#')
+    (!settings.pedantic && scanner.peek() === '#')
   ) {
     return false
   }
-
-  length = value.length + 1
 
   /*
    * Eat intermediate white-space.
    */
 
-  let queue = ''
-
-  while (++index < length) {
-    character = value.charAt(index)
-
-    if (character !== ' ' && character !== '\t') {
-      index--
-      break
-    }
-
-    queue += character
-  }
+  let queue = scanner.next(ch => ch === ' ' || ch === '\t') || ''
 
   /*
    * Exit when not in pedantic mode without spacing.
@@ -89,8 +45,7 @@ const tokenizeHeading: Tokenizer = function (parser, value, silent) {
   if (
     !settings.pedantic &&
     !queue.length &&
-    character &&
-    character !== '\n'
+    scanner.peek() !== '\n'
   ) {
     return false
   }
@@ -104,14 +59,11 @@ const tokenizeHeading: Tokenizer = function (parser, value, silent) {
    */
 
   subvalue += queue
+  let content = ''
   queue = content = ''
 
-  while (++index < length) {
-    character = value.charAt(index)
-
-    if (!character || character === '\n') {
-      break
-    }
+  while (!scanner.eos() && scanner.peek() !== '\n') {
+    character = scanner.next()
 
     if (
       character !== ' ' &&
@@ -123,22 +75,7 @@ const tokenizeHeading: Tokenizer = function (parser, value, silent) {
       continue
     }
 
-    while (character === ' ' || character === '\t') {
-      queue += character
-      character = value.charAt(++index)
-    }
-
-    while (character === '#') {
-      queue += character
-      character = value.charAt(++index)
-    }
-
-    while (character === ' ' || character === '\t') {
-      queue += character
-      character = value.charAt(++index)
-    }
-
-    index--
+    queue += character + scanner.next(/( |\t)*#*( |\t)*/) || ''
   }
 
   now.column += subvalue.length
