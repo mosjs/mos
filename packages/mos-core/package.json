@@ -72,7 +72,6 @@
     "extend": "^3.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
-    "mos": "^2.0.0-alpha.2",
     "remap-istanbul": "^0.6.4",
     "tslint": "^3.11.0",
     "typescript": "^1.8.10"
