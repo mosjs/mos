@@ -1,1 +1,1 @@
-src/**/*.spec.js
+dist/esnext/**/*.spec.js

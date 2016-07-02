@@ -20,7 +20,7 @@ describe('mos-plugin-dependencies', () => {
     const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf-8')) : {}
 
     it('should pass fixture in dir ' + filepath, done => {
-      mos({ content: input, filePath: inputPath }, [ejs, { register: deps, options: config }])
+      mos({ content: input, filePath: inputPath }, [{register: ejs}, { register: deps, options: config }])
         .then(processor => processor.process())
         .then(result => {
           expect(result).to.eq(output)

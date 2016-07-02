@@ -1,18 +1,32 @@
 import readPkgUp from 'mos-read-pkg-up'
 import gh from 'github-url-to-object'
 import path from 'path'
-import normalizePath from 'normalize-path'
 
-export default function getMarkdownMeta (filePath) {
+export type MarkdownMeta = {
+  pkg: {
+    name: string,
+    version: string,
+  },
+  pkgRoot: string,
+  repo: {
+    user: string,
+    repo: string
+  },
+  filePath: string,
+}
+
+export default function getMarkdownMeta (filePath: string): Promise<MarkdownMeta> {
   return readPkgUp({cwd: filePath})
     .then(result => {
       const pkg = result.pkg
 
-      if (!pkg) return {}
+      if (!pkg) {
+        return {}
+      }
 
       return {
         pkg,
-        pkgRoot: normalizePath(path.dirname(result.path)),
+        pkgRoot: path.dirname(result.path),
         repo: pkg.repository && pkg.repository.url && gh(pkg.repository.url),
       }
     })

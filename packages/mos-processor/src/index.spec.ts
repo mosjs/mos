@@ -1,13 +1,16 @@
-import {describe, it} from 'mocha'
 import {expect} from 'chai'
-import m from 'markdownscript'
-import mos from './index'
+import mos, {MarkdownFile} from './'
 import * as plugiator from 'plugiator'
 
+const emptyMDFile: MarkdownFile = {
+  content: '',
+  filePath: 'empty.md',
+}
+
 describe('mos', () => {
-  describe.skip('use', () => {
+  /*describe.skip('use', () => {
     it('should register mos plugin', done => {
-      const processor = mos().use(md => ({ foo: 'foo' }))
+      const processor = mos(emptyMDFile).use(md => ({ foo: 'foo' }))
       return processor.process('<!--@foo--><!--/@-->', {filePath: __filename})
         .then(newmd => {
           expect(newmd).to.eq('<!--@foo-->\nfoo\n<!--/@-->\n')
@@ -19,7 +22,7 @@ describe('mos', () => {
 
   it.skip('should process AST', done => {
     const ast = m('markdownScript', { code: 'foo' }, [])
-    const processor = mos()
+    const processor = mos(emptyMDFile)
     return processor
       .register([
         plugiator.anonymous(mos => mos.extendScope(md => ({ foo: 'foo' }))),
@@ -30,11 +33,11 @@ describe('mos', () => {
         done()
       })
       .catch(done)
-  })
+  })*/
 
   it('should pass plugin options to the plugin', done => {
-    return mos({}, [{
-      register: plugiator.anonymous((mos, md) => {
+    return mos(emptyMDFile, [{
+      register: plugiator.anonymous((mos: any, md: any) => {
         expect(md.options).to.eq('foo')
         done()
       }),
@@ -43,11 +46,11 @@ describe('mos', () => {
   })
 
   it('should pass default plugin options to the plugin when none passed', done => {
-    return mos({}, [
-      plugiator.anonymous((mos, md) => {
+    return mos(emptyMDFile, [{
+      register: plugiator.anonymous((mos: any, md: any) => {
         expect(md.options).to.eql({})
         done()
       }),
-    ]).catch(done)
+    }]).catch(done)
   })
 })

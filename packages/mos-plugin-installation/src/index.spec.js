@@ -22,7 +22,7 @@ describe('mos-plugin-toc', () => {
 
     it('should pass fixture in dir ' + filepath, done => {
       mos({ content: input, filePath: inputPath }, [
-        ejs,
+        { register: ejs },
         { register: installation, options: config },
       ])
         .then(processor => processor.process())

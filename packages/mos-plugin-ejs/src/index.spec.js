@@ -11,7 +11,7 @@ function createProcess (scope) {
     name: 'plugin1',
   }
   return md => {
-    return mos({ content: md, filePath: __filename }, [plugin, plugin1])
+    return mos({ content: md, filePath: __filename }, [{register: plugin}, {register: plugin1}])
       .then(processor => processor.process())
   }
 }
@@ -191,7 +191,7 @@ describe('mos', () => {
 
   describe('stringify', () => {
     it('should stringify markdownScript with no children', done => {
-      return mos({}, [plugin])
+      return mos({}, [{register: plugin}])
         .then(processor => processor.compile({
           type: 'markdownScript',
           code: 'foo',
