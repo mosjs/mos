@@ -1,1 +1,2 @@
 dist/esnext/**/*.spec.js
+--compilers js:babel-register
