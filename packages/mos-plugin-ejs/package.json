@@ -11,13 +11,13 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "test-es5": "mocha --compilers js:babel-register && npm run lint",
-    "test:md": "npm run transpile && node ../mos/bin/mos.js test",
+    "test:md": "npm run compile && node ../mos/bin/mos.js test",
     "test": "npm run test-es5 && npm run test:md",
     "lint": "eslint src/**/*.js index.js",
     "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
-    "md": "npm run transpile && node ../mos/bin/mos.js",
-    "transpile": "babel src --out-dir dist",
-    "prepublish": "npm run transpile && tonic-example"
+    "md": "npm run compile && node ../mos/bin/mos.js",
+    "compile": "babel src --out-dir dist",
+    "prepublish": "npm run compile && tonic-example"
   },
   "repository": {
     "type": "git",

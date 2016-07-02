@@ -20,12 +20,12 @@
   "scripts": {
     "md:test": "node bin/mos.js test -x=\"**/test-cli/**\"",
     "lint": "eslint src/ bin/",
-    "pretest": "npm run transpile",
+    "pretest": "npm run compile",
     "test": "mocha --compilers js:babel-register && npm run lint && npm run md:test",
     "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
     "md": "node bin/mos.js -x=\"**/test-cli/**\"",
-    "prepublish": "npm run transpile",
-    "transpile": "babel src --out-dir dist"
+    "prepublish": "npm run compile",
+    "compile": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",

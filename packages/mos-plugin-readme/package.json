@@ -14,8 +14,8 @@
     "lint": "eslint src/",
     "cover": "istanbul cover -x \"**/*.spec.js\" node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-register -R spec",
     "md": "node ../mos/bin/mos.js",
-    "transpile": "babel src --out-dir dist",
-    "prepublish": "npm run transpile"
+    "compile": "babel src --out-dir dist",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",

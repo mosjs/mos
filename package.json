@@ -5,7 +5,7 @@
     "commit": "git-cz",
     "bootstrap": "lerna bootstrap",
     "postinstall": "npm run bootstrap",
-    "pretest": "lerna run transpile",
+    "pretest": "lerna run compile",
     "test": "lerna run test",
     "nuke": "rm -r node_modules; for d in packages/*/node_modules; do echo $d; rm -r $d; done",
     "precoveralls": "lerna run cover --concurrency 1",
