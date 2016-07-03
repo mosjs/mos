@@ -33,9 +33,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-plugin-license/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-plugin-license#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-license#readme",
   "mos": {
     "plugins": [
       "readme"

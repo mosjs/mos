@@ -32,9 +32,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-plugin-readme/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-plugin-readme#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-readme#readme",
   "mos": {
     "installation": {
       "useShortAlias": true

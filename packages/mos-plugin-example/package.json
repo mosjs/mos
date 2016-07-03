@@ -34,9 +34,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-plugin-example/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-plugin-example#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-example#readme",
   "dependencies": {
     "babel-runtime": "^6.9.0",
     "codemo": "^0.2.1",

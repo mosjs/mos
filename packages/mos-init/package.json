@@ -34,9 +34,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-init/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-init#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-init#readme",
   "dependencies": {
     "mos-read-pkg-up": "^1.0.0",
     "arr-exclude": "^1.0.0",

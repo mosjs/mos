@@ -35,9 +35,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-plugin-ejs/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-plugin-ejs#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-ejs#readme",
   "dependencies": {
     "babel-run-async": "^1.0.0",
     "babel-runtime": "^6.9.0",

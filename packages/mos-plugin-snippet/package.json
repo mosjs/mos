@@ -32,9 +32,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mosjs/mos-plugin-snippet/issues"
+    "url": "https://github.com/mosjs/mos/issues"
   },
-  "homepage": "https://github.com/mosjs/mos-plugin-snippet#readme",
+  "homepage": "https://github.com/mosjs/mos/tree/master/packages/mos-plugin-snippet#readme",
   "dependencies": {
     "babel-runtime": "^6.9.0"
   },
