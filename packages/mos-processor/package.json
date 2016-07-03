@@ -19,7 +19,7 @@
     "md": "node ../mos/bin/mos.js",
     "tsc": "tsc --pretty",
     "compile": "babel dist/esnext --out-dir dist/es5 --copy-files --source-maps",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run tsc && npm run compile"
   },
   "repository": {
     "type": "git",
