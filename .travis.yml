@@ -16,7 +16,7 @@ before_install:
 install:
   - npm install
 before_script:
-  - npm i -g tslint
+  - npm i -g tslint@3 typescript@1
 script:
   - npm run test -- --concurrency 1
 after_success:
