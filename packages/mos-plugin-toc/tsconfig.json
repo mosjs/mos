@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es6",
+    "outDir": "dist/esnext",
+    "module": "es2015",
+    "moduleResolution": "node"
+  },
+  "filesGlob": [
+    "typings/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "files": [
+    "typings/index.d.ts",
+    "src/index.spec.ts",
+    "src/index.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}

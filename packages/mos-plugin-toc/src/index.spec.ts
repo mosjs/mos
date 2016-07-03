@@ -1,16 +1,14 @@
-const describe = require('mocha').describe
-const it = require('mocha').it
-const expect = require('chai').expect
-const path = require('path')
-const fs = require('fs')
-const ROOT = path.resolve(__dirname, '../test/fixtures')
+import {expect} from 'chai'
+import path from 'path'
+import fs from 'fs'
+const ROOT = path.resolve(__dirname, '../../test/fixtures')
 const fixtures = fs.readdirSync(ROOT).filter(filepath => filepath.indexOf('.') !== 0)
 
-const mos = require('mos-processor')
+import mos, {Processor} from 'mos-processor'
 import toc from './index'
 
 describe('mos-plugin-toc', () => {
-  fixtures.forEach(fixture => {
+  fixtures.forEach((fixture: string) => {
     const filepath = path.join(ROOT, fixture)
     const output = fs.readFileSync(path.join(filepath, 'output.md'), 'utf-8')
     const input = fs.readFileSync(path.join(filepath, 'input.md'), 'utf-8')
@@ -19,8 +17,8 @@ describe('mos-plugin-toc', () => {
 
     it('should pass fixture in dir ' + filepath, done => {
       mos({ content: input }, [{ register: toc, options: config }])
-        .then(processor => processor.process())
-        .then(result => {
+        .then((processor: Processor) => processor.process())
+        .then((result: string) => {
           expect(result).to.eq(output)
           done()
         })

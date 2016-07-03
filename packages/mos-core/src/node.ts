@@ -34,6 +34,7 @@ export type NodeType = 'thematicBreak'
   | 'inlineCode'
   | 'break'
   | 'root'
+  | 'markdownScript'
 
 export type Node = {
   type: NodeType,

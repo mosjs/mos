@@ -1,5 +1,8 @@
-const m = require('markdownscript')
-const GithubSlugger = require('github-slugger')
+import m from 'markdownscript'
+import GithubSlugger from 'github-slugger'
+import {HeadingNode, ListItemNode, ListNode, Node} from 'mos-core'
+import {Plugin, Processor, PluginOptions} from 'mos-processor'
+import readPkgUp from 'mos-read-pkg-up';
 
 const HEADING = 'heading'
 const LIST = 'list'
@@ -12,7 +15,7 @@ const DEFAULT_HEADING = 'toc|table[ -]of[ -]contents?'
  * @param {string} value - Content to expressionise.
  * @return {RegExp} - Expression from `value`.
  */
-function toExpression (value) {
+function toExpression (value: string): RegExp {
   return new RegExp('^(' + value + ')$', 'i')
 }
 
@@ -24,7 +27,7 @@ function toExpression (value) {
  * @param {RegExp} expression - Expression to check.
  * @return {boolean} - Whether `node` is a main heading.
  */
-function isOpeningHeading (node, depth, expression) {
+function isOpeningHeading (node: HeadingNode, depth: number, expression: RegExp): boolean {
   return depth === null && node && node.type === HEADING &&
     expression.test(toString(node))
 }
@@ -36,7 +39,7 @@ function isOpeningHeading (node, depth, expression) {
  * @param {number} depth - Depth of opening heading.
  * @return {boolean} - Whether znode is a closing heading.
  */
-function isClosingHeading (node, depth) {
+function isClosingHeading (node: HeadingNode, depth: number): boolean {
   return node && (depth && node.type === HEADING && node.depth <= depth ||
     node.type === 'markdownScript')
 }
@@ -46,7 +49,7 @@ function isClosingHeading (node, depth) {
  *
  * @return {Object} - List node.
  */
-function list () {
+function list (): ListNode {
   return m.list({ ordered: false }, [])
 }
 
@@ -55,7 +58,7 @@ function list () {
  *
  * @return {Object} - List-item node.
  */
-function listItem () {
+function listItem (): ListItemNode {
   return m.listItem({ loose: false }, [])
 }
 
@@ -65,19 +68,19 @@ function listItem () {
  * @param {Object} node - `node` to insert.
  * @param {Object} parent - Parent of `node`.
  */
-function insert (node, parent) {
-  var children = parent.children
-  var length = children.length
-  var last = children[length - 1]
-  var index
-  var item
+function insert (node: HeadingNode | HeadingWithId, parent: Node) {
+  const children = parent.children
+  const length = children.length
+  const last = children[length - 1]
+  let index: number
+  let item: Node
 
   if (node.depth === 1) {
     item = listItem()
 
     item.children.push(
       m.paragraph([
-        m.link({ title: null, url: `#${node.id}` }, [node.value]),
+        m.link({ title: null, url: `#${node['id']}` }, [node.value]),
       ])
     )
 
@@ -108,14 +111,20 @@ function insert (node, parent) {
    */
 
   if (parent.type === LIST_ITEM) {
-    parent.loose = false
+    (<ListItemNode>parent).loose = false
     return
   }
   index = -1
 
   while (++index < length) {
-    children[index].loose = false // isLoose
+    (<ListNode | ListItemNode>children[index]).loose = false // isLoose
   }
+}
+
+type HeadingWithId = {
+  depth: number,
+  id: string,
+  value: string,
 }
 
 /**
@@ -124,16 +133,15 @@ function insert (node, parent) {
  * @param {Array.<Object>} map - Heading-map to insert.
  * @return {Object} - List node.
  */
-function contents (map) {
-  var minDepth = Infinity
-  var index = -1
-  var length = map.length
+function contents (map: HeadingWithId[]) {
+  let minDepth = Infinity
+  let index = -1
 
   /*
    * Find minimum depth.
    */
 
-  while (++index < length) {
+  while (++index < map.length) {
     if (map[index].depth < minDepth) {
       minDepth = map[index].depth
     }
@@ -145,7 +153,7 @@ function contents (map) {
 
   index = -1
 
-  while (++index < length) {
+  while (++index < map.length) {
     map[index].depth -= minDepth - 1
   }
 
@@ -161,30 +169,30 @@ function contents (map) {
 
   index = -1
 
-  while (++index < length) {
+  while (++index < map.length) {
     insert(map[index], table)
   }
 
   return table
 }
 
-function valueOf (node) {
+function valueOf (node: Node): string {
   return node && node.value || ''
 }
 
-function toString (node) {
+function toString (node: Node): string {
   return (valueOf(node) ||
     (node.children && node.children.filter(child => child.type !== 'html').map(toString).join('')) ||
     '').trim()
 }
 
-export default function plugin (mos, md) {
-  var settings = md.options || {}
-  var heading = toExpression(settings.heading || DEFAULT_HEADING)
-  var depth = settings.maxDepth || 6
+const plugin: Plugin = Object.assign(function plugin (mos: Processor, md: PluginOptions) {
+  const settings = md.options || {}
+  let heading = toExpression(settings.heading || DEFAULT_HEADING)
+  const depth = settings.maxDepth || 6
 
   mos.compile.pre((next, node, opts) => {
-    var result = search(node, heading, depth)
+    const result = search(node, heading, depth)
 
     if (result.index === null || !result.map.length) {
       return next.applySame()
@@ -212,12 +220,12 @@ export default function plugin (mos, md) {
    * @param {number} maxDepth - Maximum-depth to include.
    * @return {Object} - Results.
    */
-  function search (root, expression, maxDepth) {
+  function search (root: Node, expression: RegExp, maxDepth: number) {
     let index = -1
-    let depth = null
-    let map = []
-    let headingIndex
-    let closingIndex
+    let depth: number = null
+    let map: HeadingWithId[] = []
+    let headingIndex: number
+    let closingIndex: number
 
     while (++index < root.children.length) {
       const child = root.children[index]
@@ -226,22 +234,24 @@ export default function plugin (mos, md) {
         continue
       }
 
-      if (headingIndex && isClosingHeading(child, depth)) {
+      if (headingIndex && isClosingHeading(<HeadingNode>child, depth)) {
         closingIndex = index
         searchChildren(root.children.slice(index))
         break
       }
 
-      if (isOpeningHeading(child, depth, expression)) {
+      if (isOpeningHeading(<HeadingNode>child, depth, expression)) {
         headingIndex = index + 1
-        depth = child.depth
+        depth = (<HeadingNode>child).depth
       }
     }
 
-    function searchChildren (children) {
-      if (!children || !children.length) return
+    function searchChildren (children: Node[]): void {
+      if (!children || !children.length) {
+        return
+      }
 
-      const child = children.shift()
+      const child: Node = children.shift()
 
       if ([HEADING, 'markdownScript'].indexOf(child.type) === -1) {
         return searchChildren(children)
@@ -253,9 +263,10 @@ export default function plugin (mos, md) {
 
       const value = toString(child)
 
-      if (value && child.depth <= maxDepth) {
+      const depth = (<HeadingNode>child).depth
+      if (value && depth <= maxDepth) {
         map.push({
-          depth: child.depth,
+          depth,
           value,
           id: getId(child),
         })
@@ -283,15 +294,17 @@ export default function plugin (mos, md) {
 
   const slugs = new GithubSlugger()
 
-  function getId (child) {
+  function getId (child: Node): string {
     if (child.children && child.children[0].type === 'html') {
       const match = child.children[0].value.match(/name="([a-zA-Z0-9\-_]+)"/)
-      if (match) return match[1]
+      if (match) {
+        return match[1]
+      }
     }
     return slugs.slug(toString(child))
   }
-}
+}, {
+  attributes: { pkg: readPkgUp.sync(__dirname).pkg }
+})
 
-plugin.attributes = {
-  pkg: require('../package.json'),
-}
+export default plugin
