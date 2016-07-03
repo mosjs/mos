@@ -14,7 +14,8 @@
   "devDependencies": {
     "commitizen": "^2.8.2",
     "coveralls": "^2.11.9",
-    "lcov-result-merger": "^1.2.0"
+    "lcov-result-merger": "^1.2.0",
+    "zkochan-lerna": "^2.0.0-beta.24"
   },
   "publishConfig": {
     "tag": "beta"

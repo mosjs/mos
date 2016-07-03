@@ -61,7 +61,6 @@
     "mocha": "^2.3.4",
     "remap-istanbul": "^0.6.4",
     "validate-commit-msg": "^2.6.1",
-    "tslint": "^3.13.0",
     "typescript": "^2.0.0-dev.20160702"
   },
   "engines": {

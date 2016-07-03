@@ -62,10 +62,9 @@
     "istanbul": "^1.0.0-alpha.2",
     "markdownscript": "^1.3.0",
     "mocha": "^2.3.4",
-    "remap-istanbul": "^0.6.4",
     "plugiator": "^0.2.1",
-    "tslint": "^3.13.0",
-    "typescript": "^2.0.0-dev.20160702"
+    "remap-istanbul": "^0.6.4",
+    "typescript": "^2.0.0-dev.20160703"
   },
   "engines": {
     "node": ">=0.12"
