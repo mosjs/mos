@@ -48,9 +48,6 @@
     "mos-read-pkg-up": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^3.4.25-alpha",
-    "@types/mocha": "^2.2.24-alpha",
-    "@types/node": "^4.0.25-alpha",
     "babel-cli": "^6.9.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -60,8 +57,8 @@
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
     "remap-istanbul": "^0.6.4",
-    "validate-commit-msg": "^2.6.1",
-    "typescript": "^2.0.0-dev.20160702"
+    "typescript": "^1.8.10",
+    "validate-commit-msg": "^2.6.1"
   },
   "engines": {
     "node": ">=0.12"

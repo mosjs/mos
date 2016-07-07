@@ -20,7 +20,11 @@
     "src/get-markdown-meta/index.ts",
     "src/index.spec.ts",
     "src/index.ts",
-    "typings/index.d.ts"
+    "typings/globals/mocha/index.d.ts",
+    "typings/globals/node/index.d.ts",
+    "typings/index.d.ts",
+    "typings/local.d.ts",
+    "typings/modules/chai/index.d.ts"
   ],
   "atom": {
     "rewriteTsconfig": true
