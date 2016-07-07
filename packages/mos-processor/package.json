@@ -18,8 +18,8 @@
     "postcover": "remap-istanbul -i coverage/esnext/coverage.raw.json -o coverage/ts/coverage.raw.json && remap-istanbul -i coverage/esnext/coverage.raw.json -o coverage/ts/lcov.info -t lcovonly && remap-istanbul -i coverage/esnext/coverage.raw.json -o coverage/ts/lcov-report -t html",
     "md": "node ../mos/bin/mos.js",
     "tsc": "tsc --pretty",
-    "compile": "babel dist/esnext --out-dir dist/es5 --copy-files --source-maps",
-    "prepublish": "npm run tsc && npm run compile"
+    "compile": "npm run tsc && babel dist/esnext --out-dir dist/es5 --copy-files --source-maps",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -61,6 +61,7 @@
     "mocha": "^2.3.4",
     "plugiator": "^0.2.1",
     "remap-istanbul": "^0.6.4",
+    "tslint": "^3.13.0",
     "typescript": "^1.8.10"
   },
   "engines": {

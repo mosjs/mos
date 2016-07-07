@@ -2,21 +2,13 @@ language: node_js
 sudo: false
 node_js:
   - v0.12
-  - v4
-  - v5
   - v6
 
-cache:
-  directories:
-    - node_modules
-
 before_install:
-  - npm install -g npm@3
+  - npm install -g @zkochan/pnpm
   - npm set fetch-retry-maxtimeout 180000
 install:
-  - npm install
-before_script:
-  - npm i -g tslint@3 typescript@1
+  - pnpm install
 script:
   - npm run test -- --concurrency 1
 after_success:
