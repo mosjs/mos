@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es6",
+    "outDir": "dist/esnext",
+    "module": "es2015",
+    "moduleResolution": "node"
+  },
+  "filesGlob": [
+    "typings/**/*.d.ts",
+    "src/**/*.ts"
+  ],
+  "files": [
+    "typings/globals/mocha/index.d.ts",
+    "typings/globals/node/index.d.ts",
+    "typings/index.d.ts",
+    "typings/local.d.ts",
+    "typings/modules/chai/index.d.ts",
+    "src/create-async-scope-eval.spec.ts",
+    "src/create-async-scope-eval.ts",
+    "src/index.spec.ts",
+    "src/index.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}

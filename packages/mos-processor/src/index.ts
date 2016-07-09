@@ -20,7 +20,7 @@ export type Processor = {
   blockTokenizers: Tokenizers,
   visitors: VisitorsMap,
   parse: Hooks<(opts: ParserOptions) => Promise<Node>, Promise<Node>>,
-  compile: Hooks<(ast: Node, opts: CompilerOptions) => Promise<string>, Promise<string>>,
+  compile: Hooks<(ast: Node, opts?: CompilerOptions) => Promise<string>, Promise<string>>,
   process: (opts?: CompilerOptions) => Promise<string>,
 }
 
@@ -40,7 +40,7 @@ export default function mos (md: MarkdownFile, plugins?: PluginRegistrator[]): P
         data: data,
       })(md.content, opts)
     }),
-    compile: hook((ast: Node, opts: CompilerOptions): Promise<string> => {
+    compile: hook((ast: Node, opts?: CompilerOptions): Promise<string> => {
       return Promise.resolve(compiler(processor.visitors)(ast, opts))
     }),
     process: (opts?: CompilerOptions) => processor

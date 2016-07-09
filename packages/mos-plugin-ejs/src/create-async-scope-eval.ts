@@ -1,9 +1,17 @@
 import runAsync from 'babel-run-async'
 
-export default function createAsyncScopeEval (scope, opts) {
+export type EvalOptions = {
+  useStrict?: boolean
+}
+
+export type ScopeEval = {
+  (code: string): Promise<string>
+}
+
+export default function createAsyncScopeEval (scope: Object, opts?: EvalOptions): ScopeEval {
   opts = opts || {}
-  const mdVarNames = []
-  const mdVarValues = []
+  const mdVarNames: string[] = []
+  const mdVarValues: Object[] = []
 
   Object.keys(scope || {})
     .map(scopeVarName => {
@@ -11,7 +19,7 @@ export default function createAsyncScopeEval (scope, opts) {
       mdVarValues.push(scope[scopeVarName])
     })
 
-  return runAsync(code => {
+  return <ScopeEval>runAsync((code: string) => {
     const funcBody = `${opts.useStrict ? "'use strict';" : ''}return (${code})`
     try {
       return Function

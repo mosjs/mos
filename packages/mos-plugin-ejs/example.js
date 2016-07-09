@@ -1,2 +1,2 @@
 'use strict'
-var ejs = require('./dist')
+var ejs = require('./dist/es5')

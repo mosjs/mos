@@ -1,7 +1,4 @@
-'use strict'
-const describe = require('mocha').describe
-const it = require('mocha').it
-const expect = require('chai').expect
+import {expect} from 'chai'
 import createAsyncScopeEval from './create-async-scope-eval'
 
 describe('createAsyncScopeEval', () => {

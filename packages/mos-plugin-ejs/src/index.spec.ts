@@ -1,16 +1,16 @@
-'use strict'
-const describe = require('mocha').describe
-const it = require('mocha').it
-const expect = require('chai').expect
-const mos = require('mos-processor')
-import plugin from './index'
+import {expect} from 'chai'
+import mos, {Plugin, Processor, PluginOptions} from 'mos-processor'
+import plugin, {MarkdownScriptNode} from './index'
 
-function createProcess (scope) {
-  const plugin1 = mos => Object.assign(mos.scope, scope || {})
-  plugin1.attributes = {
-    name: 'plugin1',
-  }
-  return md => {
+function createProcess (scope?: Object) {
+  const plugin1: Plugin = Object.assign(function (mos: Processor, md: PluginOptions) {
+    Object.assign(mos['scope'], scope || {})
+  }, {
+    attributes: {
+      name: 'plugin1',
+    },
+  })
+  return (md: string): Promise<string> => {
     return mos({ content: md, filePath: __filename }, [{register: plugin}, {register: plugin1}])
       .then(processor => processor.process())
   }
@@ -191,8 +191,8 @@ describe('mos', () => {
 
   describe('stringify', () => {
     it('should stringify markdownScript with no children', done => {
-      return mos({}, [{register: plugin}])
-        .then(processor => processor.compile({
+      return mos({content: ''}, [{register: plugin}])
+        .then(processor => processor.compile(<MarkdownScriptNode>{
           type: 'markdownScript',
           code: 'foo',
           children: [],

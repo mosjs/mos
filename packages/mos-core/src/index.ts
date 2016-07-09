@@ -22,6 +22,7 @@ export {
 }
 
 export { ParserOptions, Tokenizers } from './parse/parser'
-export { CompilerOptions } from './stringify/compiler'
+export { CompilerOptions, Compiler } from './stringify/compiler'
 export { HeadingNode, ListItemNode, ListNode, Node, NodeType, LinkNode } from './node'
 export { Visitor, VisitorsMap } from './stringify/visitor'
+export { ParserAndEater } from './parse/tokenize-factory'
