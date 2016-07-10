@@ -21,19 +21,19 @@ npm install --save mos-plugin-snippet
 In this markdown file there is this template code:
 
 ```md
-<!--@snippet('./src/test/file-1.js#foo', { showSource: true })-->
+<!--@snippet('./test/fixtures/file-1.js#foo', { showSource: true })-->
 <!--/@-->
 ```
 
 And it is rendered into this snippet:
 
-<!--@snippet('./src/test/file-1.js#foo', { showSource: true })-->
+<!--@snippet('./test/fixtures/file-1.js#foo', { showSource: true })-->
 ```js
 console.log('foo')
 console.log('bar')
 ```
 
-> Excerpt from [./src/test/file-1.js](./src/test/file-1.js#L8-L9)
+> Excerpt from [./test/fixtures/file-1.js](./test/fixtures/file-1.js#L8-L9)
 <!--/@-->
 
 ## API

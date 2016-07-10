@@ -1,11 +1,21 @@
-import {describe, it} from 'mocha'
 import {expect} from 'chai'
 import createSnippetRenderer from './create-snippet-renderer'
 import path from 'path'
 
 describe('createSnippetRenderer', () => {
   const snippet = createSnippetRenderer({
-    filePath: path.resolve(__dirname, './test/EMPTY.md'),
+    content: '',
+    filePath: path.resolve(__dirname, '../../test/fixtures/EMPTY.md'),
+    pkg: {
+      name: 'foo',
+      version: '1.0.0',
+    },
+    pkgRoot: '/foo/bar',
+    repo: {
+      user: 'foo',
+      repo: 'bar',
+    },
+    options: {},
   })
 
   it('should get snippet from existing js file', () => {

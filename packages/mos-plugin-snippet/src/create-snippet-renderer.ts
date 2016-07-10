@@ -1,3 +1,4 @@
+import {PluginOptions} from 'mos-processor'
 import path from 'path'
 import fs from 'fs'
 import removeLastEOL from './remove-last-eol'
@@ -9,16 +10,27 @@ const regexes = {
   md: '<!-- *#{anchor} *-->\n([\\s\\S]*?)<!-- *# *-->',
 }
 
-export default markdown => {
+export type SnippetOptions = {
+  showSource: boolean,
+}
+
+type Snippet = {
+  extension?: string,
+  filePath?: string,
+  anchor?: string,
+}
+
+export default (markdown: PluginOptions) => {
   const markdownDir = path.dirname(markdown.filePath)
 
-  return (snippetId, opts) => {
-    opts = opts || {}
+  return (snippetId: string, opts: SnippetOptions = {showSource: false}) => {
     const snippet = parseSnippetId(snippetId)
 
     return new Promise((resolve, reject) => {
       fs.readFile(path.resolve(markdownDir, snippet.filePath), 'utf8', (err, code) => {
-        if (err) return reject(err)
+        if (err) {
+          return reject(err)
+        }
 
         try {
           return resolve(getSnippetFromCode(code, snippet, opts))
@@ -30,7 +42,7 @@ export default markdown => {
   }
 }
 
-function getSnippetFromCode (code, snippet, opts) {
+function getSnippetFromCode (code: string, snippet: Snippet, opts: SnippetOptions) {
   if (!snippet.anchor) {
     return fenceCode(removeLastEOL(code), snippet.extension) +
       (!opts.showSource ? ''
@@ -62,7 +74,7 @@ function getSnippetFromCode (code, snippet, opts) {
   ].join('\n')
 }
 
-function fenceCode (code, language) {
+function fenceCode (code: string, language: string): string {
   return [
     '``` ' + language,
     code,
@@ -70,12 +82,12 @@ function fenceCode (code, language) {
   ].join('\n')
 }
 
-function getLinesCount (text) {
-  const matches = text.match(/\n/g) || []
+function getLinesCount (text: string): number {
+  const matches: RegExpMatchArray = text.match(/\n/g) || []
   return matches.length + 1
 }
 
-function parseSnippetId (id) {
+function parseSnippetId (id: string) {
   const idParts = id.split('#')
   return {
     filePath: idParts[0],
