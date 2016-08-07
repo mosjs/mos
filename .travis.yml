@@ -5,8 +5,9 @@ node_js:
   - v6
 
 before_install:
-  - npm install -g @zkochan/pnpm
+  - npm install -g pnpm
   - npm set fetch-retry-maxtimeout 180000
+  - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm config set store-path ~/.store; fi;
 install:
   - pnpm install
 script:
