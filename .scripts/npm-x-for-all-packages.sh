@@ -7,7 +7,7 @@ for d in packages/*; do
   echo "> pnpm $@";
   echo "";
   cd $d;
-  npm $@ || exitstatus=$?;
+  pnpm $@ || exitstatus=$?;
   cd ..;
   if [ $exitstatus -ne 0 ]; then
     break;
