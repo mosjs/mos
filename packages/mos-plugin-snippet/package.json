@@ -50,12 +50,12 @@
     "chai": "^3.4.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
-    "mos-processor": "^1.2.2",
+    "mos-processor": "file:../mos-processor",
     "remap-istanbul": "^0.6.4",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   }
 }

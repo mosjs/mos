@@ -4,7 +4,6 @@
   "scripts": {
     "commit": "git-cz",
     "bootstrap": "lerna bootstrap --concurrency 1",
-    "postinstall": "npm run bootstrap",
     "pretest": "lerna run compile",
     "test": "lerna run test",
     "clear:deps": "sh .scripts/clear-deps.sh",
@@ -23,7 +22,7 @@
     "lcov-result-merger": "^1.2.0",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10",
-    "@zkochan/lerna": "2.0.0"
+    "@zkochan/lerna": "2.2.1"
   },
   "publishConfig": {
     "tag": "beta"

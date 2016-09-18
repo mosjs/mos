@@ -43,7 +43,7 @@
     "babel-runtime": "^6.9.0",
     "github-url-to-object": "^2.2.1",
     "magic-hook": "^2.0.2",
-    "mos-core": "^1.0.1",
+    "mos-core": "file:../mos-core",
     "mos-read-pkg-up": "^1.0.0",
     "normalize-path": "^2.0.1",
     "remi": "^2.0.1",
@@ -65,6 +65,6 @@
     "typescript": "^1.8.10"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   }
 }

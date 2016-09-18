@@ -1,14 +1,13 @@
 environment:
   matrix:
-    - nodejs_version: '0.12'
     - nodejs_version: '4'
-    - nodejs_version: '5'
     - nodejs_version: '6'
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g @zkochan/pnpm@latest || (timeout 30 && npm install -g @zkochan/pnpm@latest)
+  - npm install -g pnpm || (timeout 30 && npm install -g pnpm)
   - npm set fetch-retry-maxtimeout 180000
   - pnpm install || (timeout 30 && pnpm install)
+  - pnpm run bootstrap
 matrix:
   fast_finish: true
 build: off

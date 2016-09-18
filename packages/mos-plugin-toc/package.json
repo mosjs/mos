@@ -43,8 +43,8 @@
     "babel-runtime": "^6.9.0",
     "github-slugger": "^1.1.1",
     "markdownscript": "^1.3.0",
-    "mos-core": "^1.0.1",
-    "mos-processor": "^1.2.2",
+    "mos-core": "file:../mos-core",
+    "mos-processor": "file:../mos-processor",
     "mos-read-pkg-up": "^1.0.0"
   },
   "devDependencies": {
@@ -62,6 +62,6 @@
     "validate-commit-msg": "^2.6.1"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   }
 }

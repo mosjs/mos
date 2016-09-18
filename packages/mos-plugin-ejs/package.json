@@ -44,7 +44,7 @@
     "babel-run-async": "^1.0.0",
     "babel-runtime": "^6.9.0",
     "github-url-to-object": "^2.2.1",
-    "mos-core": "^1.0.1",
+    "mos-core": "file:../mos-core",
     "mos-read-pkg-up": "^1.0.0",
     "reserved-words": "^0.1.1"
   },
@@ -58,12 +58,12 @@
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
     "remap-istanbul": "^0.6.4",
-    "mos-processor": "^1.2.2",
+    "mos-processor": "file:../mos-processor",
     "tonic-example": "^0.2.0",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   }
 }

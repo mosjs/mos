@@ -77,6 +77,6 @@
     "typescript": "^1.8.10"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=4"
   }
 }
