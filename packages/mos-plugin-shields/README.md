@@ -21,7 +21,7 @@ npm install --save mos-plugin-shields
 Add this code snippet to your `README.md`
 
 ```md
-<!--@shields('travis', 'dependencies')-->
+<!--@shields('travis', 'deps')-->
 <!--/@-->
 ```
 
