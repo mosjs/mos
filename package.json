@@ -23,7 +23,7 @@
     "lcov-result-merger": "^1.2.0",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10",
-    "@zkochan/lerna": "^2.0.0"
+    "@zkochan/lerna": "2.0.0"
   },
   "publishConfig": {
     "tag": "beta"
