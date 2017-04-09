@@ -5,11 +5,12 @@ node_js:
   - v6
 
 before_install:
-  - npm install -g pnpm
+  - npm set user-agent node/4
+  - npm install -g pnpm@0.64.2
   - npm set fetch-retry-maxtimeout 180000
   - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm config set store-path ~/.store; fi;
 install:
-  - pnpm install
+  - npm install
   - pnpm run bootstrap
 script:
   - npm run test -- --concurrency 1
