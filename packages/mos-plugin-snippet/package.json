@@ -50,7 +50,7 @@
     "chai": "^3.4.1",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.3.4",
-    "mos-processor": "file:../mos-processor",
+    "mos-processor": "^1.2.2",
     "remap-istanbul": "^0.6.4",
     "tslint": "^3.13.0",
     "typescript": "^1.8.10"
