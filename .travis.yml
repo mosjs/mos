@@ -4,15 +4,20 @@ node_js:
   - v4
   - v6
 
+cache:
+  directories:
+    - $HOME/.pnpm-registry
+
 before_install:
-  - npm install -g pnpm
+  - npm install -g pnpm pnpmr
   - npm set fetch-retry-maxtimeout 180000
   - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm config set store-path ~/.store; fi;
 install:
   - pnpm install
-  - pnpm run bootstrap
+  - pnpm run link
+  - pnpmr install
 script:
-  - npm run test -- --concurrency 1
+  - pnpmr test
 after_success:
   - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run coveralls; fi;
   - if [[ $TRAVIS_NODE_VERSION == "v6" ]]; then npm run release; fi;

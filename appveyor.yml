@@ -4,10 +4,11 @@ environment:
     - nodejs_version: '6'
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install -g pnpm || (timeout 30 && npm install -g pnpm)
+  - npm install -g pnpm pnpmr || (timeout 30 && npm install -g pnpm)
   - npm set fetch-retry-maxtimeout 180000
   - pnpm install || (timeout 30 && pnpm install)
-  - pnpm run bootstrap
+  - pnpm run link
+  - pnpmr install
 matrix:
   fast_finish: true
 build: off
@@ -15,4 +16,4 @@ version: '{build}'
 test_script:
   - node --version
   - npm --version
-  - npm run test -- --concurrency 1
+  - pnpmr test
