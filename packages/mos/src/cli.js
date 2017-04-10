@@ -13,7 +13,7 @@ import readPkgUp from 'mos-read-pkg-up'
 import rcfile from 'rcfile'
 import mos from 'mos-processor'
 import defaultPlugins from './default-plugins'
-import resolve from 'resolve'
+import resolveFrom from 'resolve-from'
 
 const cwd = process.cwd()
 const stdout = process.stdout
@@ -80,7 +80,7 @@ if (cli.flags.init) {
           }
           throw new Error(`${plugin.name} is not in the dependencies`)
         })
-        .map(plugin => ({...plugin, path: resolve.sync(plugin.name, { basedir: path.dirname(md.filePath) })}))
+        .map(plugin => ({...plugin, path: resolveFrom(path.dirname(md.filePath), plugin.name)}))
         .map(plugin => ({...plugin, path: normalizePath(plugin.path)}))
         .map(plugin => ({...plugin, register: require(plugin.path)}))
 

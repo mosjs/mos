@@ -3,12 +3,11 @@
 var loudRejection = require('loud-rejection')
 loudRejection()
 
-var resolve = require('resolve')
-var cwd = process.cwd()
+var resolveCwd = require('resolve-cwd')
 
 var localCLI
 try {
-  localCLI = resolve.sync('mos/bin/mos', { basedir: cwd })
+  localCLI = resolveCwd('mos/bin/mos')
 } catch (err) {
   localCLI = __filename
 }
