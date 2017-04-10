@@ -3,18 +3,13 @@
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "bootstrap": "lerna bootstrap --concurrency 1",
-    "pretest": "lerna run compile",
-    "test": "lerna run test",
     "clear:deps": "sh .scripts/clear-deps.sh",
     "clear:dist": "sh .scripts/clear-dist.sh",
     "nuke": "npm run clear:deps && npm run clear:dist",
-    "precoveralls": "lerna run cover --concurrency 1",
     "coveralls": "./node_modules/.bin/lcov-result-merger \"packages/*/{coverage/,coverage/ts/}lcov.info\" | ./node_modules/coveralls/bin/coveralls.js",
     "link": "link-local-packages packages"
   },
   "devDependencies": {
-    "@zkochan/lerna": "2.2.1",
     "commitizen": "^2.8.2",
     "coveralls": "^2.11.9",
     "eslint": "^2.13.1",
