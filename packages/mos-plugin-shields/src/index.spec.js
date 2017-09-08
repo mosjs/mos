@@ -6,8 +6,8 @@ const expect = require('chai').expect
 import mosPluginShields from './index'
 
 describe('mosPluginShields', () => {
-  it('should throw error when package hosted not on GitHub', () => {
+  it('should not throw error when package hosted not on GitHub', () => {
     expect(() => mosPluginShields({}, { repo: { host: 'gitlab' } }))
-      .to.throw(Error, 'The shields plugin only works for github repos')
+      .to.not.throw(Error, 'The shields plugin only works for github repos')
   })
 })
