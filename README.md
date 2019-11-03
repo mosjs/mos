@@ -1,3 +1,5 @@
+**This project is currently not maintained. [projectz](https://www.npmjs.com/package/projectz) may satisfy your needs.**
+
 # mos
 
 > A pluggable module that injects content into your markdown files via hidden JavaScript snippets
